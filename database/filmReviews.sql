@@ -9,8 +9,8 @@ DROP TABLE IF EXISTS User;
 
 CREATE TABLE User (
     ID        INTEGER PRIMARY KEY AUTOINCREMENT,
-    FirstName NOT NULL STRING,
-    LastName  NOT NULL STRING,
+    FirstName STRING NOT NULL,
+    LastName  STRING NOT NULL,
     Username  STRING UNIQUE NOT NULL,
     Gender    STRING NOT NULL,
     Birthday  DATE NOT NULL,
