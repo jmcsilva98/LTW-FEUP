@@ -3,7 +3,6 @@ PRAGMA foreign_keys = ON;
 .headers on
 .nullvalue NULL
 
-BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS User;
 
@@ -54,7 +53,7 @@ CREATE TABLE MovieGenre (
 
 );
 
-DROP TABLE IF EXISTS MovieGenre;
+DROP TABLE IF EXISTS MovieDirector;
 
 CREATE TABLE MovieDirector (
     DirectorID    INTEGER REFERENCES Director(ID),
@@ -66,7 +65,7 @@ CREATE TABLE MovieDirector (
 DROP TABLE IF EXISTS Review;
 
 CREATE TABLE Review (
-    ID          INTEGER UNIQUE AUTOINCREMENT,
+    ID          INTEGER PRIMARY KEY AUTOINCREMENT,
     Title       STRING  NOT NULL,
     UserID      INTEGER REFERENCES User(ID),
     MovieID     INTEGER REFERENCES Movie(ID),
@@ -90,6 +89,5 @@ CREATE TABLE Comment (
     
 );
 
-
-
+.read data.sql
 
