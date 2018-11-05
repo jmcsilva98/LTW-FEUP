@@ -22,30 +22,46 @@ CREATE TABLE User (
     
 );
 
-DROP TABLE IF EXISTS Movie;
-
-CREATE TABLE Movie (
-    Name        STRING PRIMARY KEY NOT NULL,
-    ID          INTEGER UNIQUE AUTOINCREMENT,
-    GenreID     INTEGER REFERENCES Genre(ID),
-    ReleaseDate DATE NOT NULL,
-    CoverPhoto  STRING DEFAULT "default.jpg",
-    DirectorID  INTEGER REFERENCES Director(ID)
-);
-
 DROP TABLE IF EXISTS Genre;
 
 CREATE TABLE Genre (
-    Name        STRING PRIMARY KEY NOT NULL,
-    ID          INTEGER UNIQUE AUTOINCREMENT 
+    ID          INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name        STRING NOT NULL 
 );
 
 DROP TABLE IF EXISTS Director;
 
 CREATE TABLE Director (
-    Name        STRING PRIMARY KEY NOT NULL,
-    ID          INTEGER UNIQUE AUTOINCREMENT 
+     ID          INTEGER  PRIMARY KEY AUTOINCREMENT,
+     Name        STRING NOT NULL
 );
+
+DROP TABLE IF EXISTS Movie;
+
+CREATE TABLE Movie (
+    ID          INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name        STRING NOT NULL,
+    ReleaseYear STRING NOT NULL,
+    CoverPhoto  STRING DEFAULT "default.jpg"
+);
+
+DROP TABLE IF EXISTS MovieGenre;
+
+CREATE TABLE MovieGenre (
+    GenreID    INTEGER REFERENCES Genre(ID),
+    MovieID    INTEGER REFERENCES Movie(ID),
+    PRIMARY KEY (GenreID, MovieID)
+
+);
+
+DROP TABLE IF EXISTS MovieGenre;
+
+CREATE TABLE MovieDirector (
+    DirectorID    INTEGER REFERENCES Director(ID),
+    MovieID    INTEGER REFERENCES Movie(ID),
+    PRIMARY KEY (DirectorID, MovieID)
+);
+
 
 DROP TABLE IF EXISTS Review;
 
@@ -53,9 +69,10 @@ CREATE TABLE Review (
     ID          INTEGER UNIQUE AUTOINCREMENT,
     Title       STRING  NOT NULL,
     UserID      INTEGER REFERENCES User(ID),
+    MovieID     INTEGER REFERENCES Movie(ID),
     ReviewDate  DATE NOT NULL,
     Heart       INTEGER,
-    Dislike       INTEGER,
+    Dislike     INTEGER,
     Description STRING NOT NULL
     
 );
@@ -63,7 +80,7 @@ CREATE TABLE Review (
 DROP TABLE IF EXISTS Comment;
 
 CREATE TABLE Comment (
-    ID          INTEGER UNIQUE AUTOINCREMENT,
+    ID          INTEGER PRIMARY KEY AUTOINCREMENT,
     UserID      INTEGER REFERENCES User(ID),
     CommentDate DATE NOT NULL,
     Heart       INTEGER,
