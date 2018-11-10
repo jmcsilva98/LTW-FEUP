@@ -7,16 +7,17 @@
   function checkUserPassword($username, $password) {
     
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT * FROM user WHERE username = ? AND password = ?');
+    $stmt = $db->prepare('SELECT * FROM User WHERE Username = ? AND Password = ?');
     $stmt->execute(array($username, sha1($password)));
     return $stmt->fetch()?true:false; // return true if a line exists
   }
   function insertUser($username, $firstName, $lastName, $username, $gender, $birthday, $country, $email, $password, $photo) {
     
     try{
-    $db = Database::instance()->db();
-    $stmt->execute(array($username, sha1($password)));
-    $stmt = $dbh->prepare('INSERT INTO User(FirstName, LastName, Username, Gender, Birthday, Country, Email, Password, Photo) VALUES (:FirstName, :LastName, :Username, :Gender, :Birthday, :Country, :Email, :Password, :Photo)');
+      $db = Database::instance()->db();
+      $stmt->execute(array($username, sha1($password)));
+      $stmt = $dbh->prepare('INSERT INTO User(FirstName, LastName, Username, Gender, Birthday, Country, Email, Password, Photo) VALUES (:FirstName, :LastName, :Username, :Gender, :Birthday, :Country, :Email, :Password, :Photo)');
+     
       $stmt->bindParam(':FirstName', $firstName);
       $stmt->bindParam(':LastName', $lastName);
       $stmt->bindParam(':Username', $username);
@@ -37,10 +38,10 @@
 
   function getID($username){
     try {
-    $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT ID FROM user WHERE username = ?');
-    $stmt->execute(array($username);
-    return $stmt->fetch();
+      $db = Database::instance()->db();
+      $stmt = $db->prepare('SELECT ID FROM User WHERE Username = ?');
+      $stmt->execute(array($username);
+      return $stmt->fetch();
 
   } catch(PDOException $e) {
     return null;
