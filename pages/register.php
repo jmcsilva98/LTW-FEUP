@@ -5,6 +5,6 @@
 
     // Verify if user is logged in
   if (isset($_SESSION['username']))
-  die(header('Location: list.php'));
+  die(header('Location: list.php'));//mudar o nome
 
 ?>
