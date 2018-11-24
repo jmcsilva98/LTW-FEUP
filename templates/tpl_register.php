@@ -26,15 +26,16 @@
 <h1> Create a new account </h1>
 
  <form method="post" action="../actions/action_register.php" >
-      <input type="text" name="firstname" placeholder="first name" required>
-      <input type="text" name="lastname" placeholder="last name" required><br>
+      <input type="text" name="firstName" placeholder="first name" required>
+      <input type="text" name="lastName" placeholder="last name" required><br>
+      <input type="text" name="username" placeholder="username" maxlength="20" required><br>
       <input type="radio" name="gender" placeholder="female" required >female
       <input type="radio" name="gender" placeholder="male" required>male<br>
+      <input type="date" name="birthday" value="2018-12-21" min="1903-01-01" max="2005-01-01" required><br>
       <select name="country" required>
         <?php select_country() ?>
       </select><br>
-      <input type="date" value="2018-12-21" min="1903-01-01" max="2005-01-01" required><br>
-      <input type="text" name="username" placeholder="username" maxlength="8" required><br>
+      <input type="email" name="email" required><br>
       <input type="password" name="password" placeholder="password" required><br>
       <input type="password" name="repeatpassword" placeholder="confirm password" required><br>
       <input type="submit" value="Register">
