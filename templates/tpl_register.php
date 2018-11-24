@@ -1,4 +1,4 @@
-<?php   include_once('../templates/tpl_common.php'); ?>
+<?php   include_once('../templates/tpl_countries.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -15,33 +15,31 @@
 
 
 <body>
+<div id="register_header">
+<header>
+    <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)">
+</header>
+</div>
+<section id="register">
 
 <div id="register_content">
-
-
 <h1> Create a new account </h1>
 
- <form method="post" action="../actions/action_register.php" class="register_form">
+ <form method="post" action="../actions/action_register.php" >
       <input type="text" name="firstname" placeholder="first name" required>
-      <input type="text" name="lastname" placeholder="last name" required>
-      <input type="radio" name="gender" placeholder="gender" required>
+      <input type="text" name="lastname" placeholder="last name" required><br>
+      <input type="radio" name="gender" placeholder="female" required >female
+      <input type="radio" name="gender" placeholder="male" required>male<br>
       <select name="country" required>
         <?php select_country() ?>
-      </select>
-      <input type="date" value="2018-12-21" min="1903-01-01" max="2005-01-01" required>
-      <input type="text" name="username" placeholder="username" maxlength="8" required>
-      <input type="password" name="password" placeholder="password" required>
-      <input type="password" name="repeatpassword" placeholder="confirm password" required>   
+      </select><br>
+      <input type="date" value="2018-12-21" min="1903-01-01" max="2005-01-01" required><br>
+      <input type="text" name="username" placeholder="username" maxlength="8" required><br>
+      <input type="password" name="password" placeholder="password" required><br>
+      <input type="password" name="repeatpassword" placeholder="confirm password" required><br>
       <input type="submit" value="Register">
  </form>
-
- <p>Already have an account?</p>
-    <a href="login.php" class="login_form">Login here.</a>
- </div>
-
-<footer>
-<!-- dividir depois tudo em tpl_head e footer-->
-</footer>
-
-</html>
-
+</div>
+ <p>Already have an account? <a href="login.php" class="login_form">Login here.</a></p>
+    
+</section>

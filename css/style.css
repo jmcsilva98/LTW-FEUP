@@ -1,0 +1,217 @@
+
+body{
+    margin: 0 auto;
+    height:100% ;
+    font-family: "Roboto",sans-serif;
+    
+    --bg-color-dark: #0D2D22;
+    --bg-color-light: #0ED1C1;
+    --panel-color: #FFFFFF;
+    --logo-font-color: #00311D;
+    --input-color: #f2f2f2;
+    
+    background-image: url('../assets/background.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+    background-size: cover;
+   
+}
+
+header{
+    padding: 1.5em;
+    text-align: center;
+    background-color:  var(--bg-color-dark);
+}
+
+/* --------------------------
+   ---------LOGIN------------
+   -------------------------- */
+#login img{
+  margin: 0;
+  /*margin-left: 5em;
+  margin-right:10em;*/
+  
+}
+#login h1{
+   font-family: 'Candara',sans-serif;
+   font-weight: bold;
+   font-size: 5em;
+   color: rgb(33, 153, 161);
+   letter-spacing: 0.05em;  
+   margin: 0;
+   margin-left: 9.8em;
+   margin-right:4em;
+
+} 
+#login p{
+    text-align: center;
+    color: var(--input-color);
+}
+#login form{
+    position: relative; 
+    background: var(--panel-color);
+    max-width: 360px;
+    margin: 0 auto 100px;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin-top:4em;
+}
+
+#login form :first-child{
+    outline: 0;
+    background: var(--input-color);
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+#login form :nth-child(2){
+    outline: 0;
+    background: var(--input-color);
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+#login form :last-child{
+    text-transform: uppercase;
+    outline: 0;
+    background: #2AC0B1;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: var(--panel-color);
+    font-size: 14px;
+    
+}
+
+#login form :last-child:hover{
+    background: rgba(15, 92, 84, 0.733);
+}
+
+ footer p{
+    margin: 0;
+    margin-top: 3.6em;
+    padding:1.4em;
+    text-align: center;
+    background-color:  var(--bg-color-dark);
+    font-size: 0.8em;
+    font-weight: 200;
+    color:white;
+
+}
+/* --------------------------
+   ---------REGISTER---------
+   -------------------------- */
+
+div#register_header header{
+    padding: 0;
+    margin: 0;
+}
+
+div#register_header header > img{
+   /* float: left;*/
+/*se mexer no sitio do logo desaparece o header todo*/
+}
+
+div#register_content h1{
+    font-size: 2em;
+    text-align: center;
+    padding-bottom: 1em;
+    margin: 0;
+}
+
+div#register_content{
+    position: relative; 
+    background: var(--panel-color);
+    max-width: 500px;
+    margin: 0 auto 200px;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin-top:4em;
+}
+
+
+#register form input[type=text],  input[type=password]{
+    
+    outline: 0;
+    background: var(--input-color);
+    width: 50%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+
+}
+
+#register form input[type=radio]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+   /* display: inline-block;*/
+    position: relative;
+    background-color: var(--input-color);
+    top: 5px;
+    height: 25px;
+    width: 25px;
+    border: 0;
+    border-radius: 40px;
+    cursor: pointer;     
+    margin-right: 7px;
+    outline: none;
+}
+#register form input[type=radio]:checked::before{
+    position: absolute;
+    left: 9px;
+    top: 5px;
+    content: '\02143';
+    transform: rotate(40deg);
+}
+#register form input[type=radio]:hover{
+    background-color: rgba(172, 161, 161, 0.637);
+}
+#register form input[type=radio]:checked{
+    background-color:  var(--input-color);
+}
+
+
+#register p{
+    text-align: center;
+    color: var(--input-color);
+}
+
+#register form input[type=submit]{
+    text-transform: uppercase;
+    outline: 0;
+    background: #2AC0B1;
+    width: 50%;
+    border: 0;
+    padding: 15px;
+    margin-top:2em;
+    color: var(--panel-color);
+    font-size: 14px;
+}
+
+#register form input[type=submit]:hover{
+    background: rgba(15, 92, 84, 0.733);
+}
+
+#register form select{
+    margin: 1em;
+}
+
+#register form input[type=date]{
+    margin: 1em;
+}
