@@ -5,8 +5,8 @@
     include_once('../templates/common/tpl_footer.php');
 
     
-if (isset($_SESSION['username']))
-  die(header('Location: profile.php'));
+    if (isset($_SESSION['username']))
+      //die(header('Location: profile.php'));
 
 
 

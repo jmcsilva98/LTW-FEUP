@@ -29,11 +29,11 @@
             <a href="edit_profile.php" class="edit_profile"> edit profile </a>
         </div>
         <div class="profile_picture">
-            <img src=<?=$userinfo['Photo']?>>
+         <img src=<?=$userinfo['Photo']?>>
         </div>
 
         <div class="profile_name">
-            <h2><?=$userinfo['FirstName']?><?=$userinfo['LastName']?> </h2>
+            <h2><?=$userinfo['FirstName']?> <?=$userinfo['LastName']?> </h2>
         </div>
 
         <div class="profile_points">

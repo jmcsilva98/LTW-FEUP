@@ -10,7 +10,6 @@
     die(header('Location: login.php')); 
   
     $user_info = getUserInfo($_SESSION['username']);
-    
     draw_profile($user_info);
 
 ?>

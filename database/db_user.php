@@ -55,7 +55,8 @@
     
       $stmt = $db->prepare('SELECT * FROM User WHERE username = ?');
       $stmt->execute(array($username));
-      return $stmt->fetchAll();
+      $info= $stmt->fetch();
+      return $info;
        
   
   }
