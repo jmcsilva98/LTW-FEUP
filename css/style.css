@@ -1,4 +1,7 @@
 
+/* --------------------------
+   ---------GENERIC----------
+   -------------------------- */
 body{
     margin: 0 auto;
     height:100% ;
@@ -24,15 +27,30 @@ header{
     background-color:  var(--bg-color-dark);
 }
 
+/*Problema com o footer, não fica em baixo*/
+ footer p{
+    margin: 0;
+    height: 100%;
+    padding:1.4em;
+    text-align: center;
+    background-color:  var(--bg-color-dark);
+    font-size: 0.8em;
+    font-weight: 200;
+    color:white;
+}
+
 /* --------------------------
    ---------LOGIN------------
    -------------------------- */
+
+/*Meter a imagem no sítio sem usar margin*/
 #login img{
   margin: 0;
   /*margin-left: 5em;
   margin-right:10em;*/
   
 }
+/*Mesmo com o titulo*/
 #login h1{
    font-family: 'Candara',sans-serif;
    font-weight: bold;
@@ -42,7 +60,6 @@ header{
    margin: 0;
    margin-left: 9.8em;
    margin-right:4em;
-
 } 
 #login p{
     text-align: center;
@@ -97,17 +114,7 @@ header{
     background: rgba(15, 92, 84, 0.733);
 }
 
- footer p{
-    margin: 0;
-    margin-top: 3.6em;
-    padding:1.4em;
-    text-align: center;
-    background-color:  var(--bg-color-dark);
-    font-size: 0.8em;
-    font-weight: 200;
-    color:white;
 
-}
 /* --------------------------
    ---------REGISTER---------
    -------------------------- */
@@ -143,8 +150,7 @@ div#register_content{
 }
 
 
-#register form input[type=text],  input[type=password]{
-    
+#register form input[type=text],  input[type=password], input[type=email] {
     outline: 0;
     background: var(--input-color);
     width: 50%;
@@ -160,7 +166,6 @@ div#register_content{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-   /* display: inline-block;*/
     position: relative;
     background-color: var(--input-color);
     top: 5px;
@@ -208,10 +213,26 @@ div#register_content{
     background: rgba(15, 92, 84, 0.733);
 }
 
-#register form select{
-    margin: 1em;
+#register form label{
+    font-size: 14px;
 }
 
+#register form select{
+    border:0;
+    margin: 2em;
+    padding: 10px 0px;
+    cursor: pointer;
+    width: 50%;
+    outline: 0;
+    background: var(--input-color);
+    margin-bottom: 1em;
+}
 #register form input[type=date]{
-    margin: 1em;
+    border:0;
+    margin-bottom: 2em;
+    padding: 10px 0px;
+    cursor: pointer;
+    width: 50%;
+    outline: 0;
+    background: var(--input-color);
 }

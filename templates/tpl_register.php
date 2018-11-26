@@ -33,8 +33,10 @@
       <select name="country" required>
         <?php select_country() ?>
       </select><br>
-      <input type="date" value="2018-12-21" min="1903-01-01" max="2005-01-01" required><br>
+      <label> Birthday </label><br>
+      <input type="date" value="birthday" min="1903-01-01" max="2005-01-01" required><br>
       <input type="text" name="username" placeholder="username" maxlength="8" required><br>
+      <input type="email" name="email" placeholder="email" required> <br>
       <input type="password" name="password" placeholder="password" required><br>
       <input type="password" name="repeatpassword" placeholder="confirm password" required><br>
       <input type="submit" value="Register">
