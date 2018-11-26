@@ -11,10 +11,15 @@
   $country = $_POST['country'];
   $email = $_POST['email'];
   $password = $_POST['password'];
+  $confirmpassword=$_POST['repeatpassword'];
 
-
+  if(checkEmail($email)==-1 || checkUser($username)==-1 || $password != $confirmpassword){
+    header('Location: ../pages/register.php');
+  }
+  else{
     insertUser($firstName,$lastName,$username,$gender,$birthday,$country, $email,$password);
     $_SESSION['username'] = $username;
-   //header('Location: ../pages/login.php');
+    header('Location: ../pages/profile.php');
+  }
 
 ?>
