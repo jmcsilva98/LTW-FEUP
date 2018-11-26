@@ -47,4 +47,20 @@
       return -1;
     }
   }
+
+
+
+  function getUserInfo($username) {
+    $db = Database::instance()->db();
+    
+      $stmt = $db->prepare('SELECT * FROM User WHERE username = ?');
+      $stmt->execute(array($username));
+      return $stmt->fetchAll();
+       
+  
+  }
+
+
+
+
 ?>

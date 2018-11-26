@@ -1,6 +1,6 @@
-INSERT INTO User(FirstName, LastName, Username, Gender, Birthday, Country, Email, Password, Photo, Points) VALUES ('Joana','Silva','jmcsilva','feminine', '1998-05-19', 'Portugal', 'jmc@gmail.com','ola123', NULL, 0);
-INSERT INTO User(FirstName, LastName, Username, Gender, Birthday, Country, Email, Password, Photo, Points) VALUES ('Miguel','Santos','mgst98','masculine', '1998-07-23', 'Portugal', 'mgs98@gmail.com','blabla', NULL, 3);
-INSERT INTO User(FirstName, LastName, Username, Gender, Birthday, Country, Email, Password, Photo, Points) VALUES ('Mary','Smith','mars_123','feminine', '1992-10-05', 'Australia', 'mars@gmail.com','ola123', NULL, 0);
+INSERT INTO User(FirstName, LastName, Username, Gender, Birthday, Country, Email, Password, Photo, Points) VALUES ('Joana','Silva','jmcsilva','feminine', '1998-05-19', 'Portugal', 'jmc@gmail.com','150ace6d48af9cbd9809b358fbaa6279257b0a8f', NULL, 0);
+INSERT INTO User(FirstName, LastName, Username, Gender, Birthday, Country, Email, Password, Photo, Points) VALUES ('Miguel','Santos','mgst98','masculine', '1998-07-23', 'Portugal', 'mgs98@gmail.com','bb21158c733229347bd4e681891e213d94c685be', NULL, 3);
+INSERT INTO User(FirstName, LastName, Username, Gender, Birthday, Country, Email, Password, Photo, Points) VALUES ('Mary','Smith','mars_123','feminine', '1992-10-05', 'Australia', 'mars@gmail.com','150ace6d48af9cbd9809b358fbaa6279257b0a8f', NULL, 0);
 
 INSERT INTO Genre(Name) VALUES ('Drama');
 INSERT INTO Genre(Name) VALUES ('Biography');

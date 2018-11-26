@@ -7,7 +7,7 @@
 
   if (checkUserPassword($username, $password)) {
     $_SESSION['username'] = $username;
-    //header('Location: ../pages/list.php');
+    header('Location: ../pages/profile.php');
   } else {
     header('Location: ../pages/login.php');
   }

@@ -31,7 +31,6 @@
       <input type="text" name="username" placeholder="username" maxlength="20" required><br>
       <input type="radio" name="gender" placeholder="female" required >female
       <input type="radio" name="gender" placeholder="male" required>male<br>
-      <input type="date" name="birthday" value="2018-12-21" min="1903-01-01" max="2005-01-01" required><br>
       <select name="country" required>
         <?php select_country() ?>
       </select><br>

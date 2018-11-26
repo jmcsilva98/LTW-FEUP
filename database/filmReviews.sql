@@ -89,7 +89,8 @@ CREATE TABLE Comment (
     
 );
 
-COMMIT TRANSACTION;
+.read data.sql
+-- COMMIT TRANSACTION;
 
 
 
