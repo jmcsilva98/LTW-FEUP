@@ -13,23 +13,24 @@
 
 </head>
 
-<?php function draw_profile($userinfo) {
 
-?>
 <body>
     <header>
         <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)">
     </header>
 
     <div class="profile_container">
+    <?php function draw_profile($userinfo) {
 
+?>
     <div class="profile_info" >
 
         <div class="edit_profile_button">
             <a href="edit_profile.php" class="edit_profile"> edit profile </a>
         </div>
         <div class="profile_picture">
-         <img src=<?=$userinfo['Photo']?>>
+        <img src ="../assets/default.jpg"> <!-- Questionar valor default na base de dados -->
+        <!--  <img src=<?=$userinfo['Photo']?>> -->
         </div>
 
         <div class="profile_name">
@@ -45,9 +46,21 @@
         </div>
 
     </div>
+    <?php } ?>
+    <?php function draw_reviews($stories){
+        
+        
+    ?>
+    <div class="profile_stories">
 
 
     </div>
+   
+ <?php }?>
+    </div>
+    
+    </body>
 
 
-<?php }?>
+
+

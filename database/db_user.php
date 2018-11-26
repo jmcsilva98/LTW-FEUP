@@ -51,14 +51,22 @@
 
 
   function getUserInfo($username) {
-    $db = Database::instance()->db();
-    
+     
+      $db = Database::instance()->db();
       $stmt = $db->prepare('SELECT * FROM User WHERE username = ?');
       $stmt->execute(array($username));
-      $info= $stmt->fetch();
-      return $info;
-       
-  
+      return  $stmt->fetch();
+  }
+
+  function getUserReviews($username){
+
+    $id=getID($username);
+    $db = Database::instance()->db();
+    $allReviews= $db->prepare('SELECT * FROM Review WHERE UserID = ?');
+    $allReviews->execute(array($id));
+    $reviews= $allReviews->fetchAll();
+    return $reviews;
+
   }
 
 
