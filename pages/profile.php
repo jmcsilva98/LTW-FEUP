@@ -11,6 +11,7 @@
   
     $user_info = getUserInfo($_SESSION['username']);
     $user_reviews=getUserReviews($_SESSION['username']);
+    
    // print_r($user_reviews);
     draw_profile($user_info);
     draw_reviews($user_reviews);

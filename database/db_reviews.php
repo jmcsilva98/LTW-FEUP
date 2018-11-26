@@ -34,8 +34,8 @@ function insertReview($title, $username, $movieid, $reviewdate, $heart, $dislike
         $stmt->bindParam(':Description', $description);
       
         if($stmt->execute()){
-            /*$id = getID($username);
-            return $id;*/
+            $id = getID($username);
+            return $id;
         }else return -1;
         } catch(PDOException $e) {
             return null;
@@ -70,6 +70,19 @@ function deleteReview($reviewId){
     }catch(PDOException $e) {
         return false;
     }
+}
+
+function get_movie_info($movieId){
+    try{
+    
+        $db = Database::instance()->db();
+        $stmt = $dbh->prepare('SELECT Name FROM Movie WHERE ID = ?');
+        $stmt->execute(array($movieId));
+        return $stmt->fetch();
+    }catch(PDOException $e) {
+        return -1;
+    }
+
 }
 
 

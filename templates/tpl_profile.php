@@ -13,8 +13,6 @@
 
 </head>
 
-
-<body>
     <header>
         <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)">
     </header>
@@ -29,9 +27,10 @@
             <a href="edit_profile.php" class="edit_profile"> edit profile </a>
         </div>
         <div class="profile_picture">
-        <img src ="../assets/default.jpg"> <!-- Questionar valor default na base de dados -->
-        <!--  <img src=<?=$userinfo['Photo']?>> -->
-        </div>
+    
+         <img src=<?=$userinfo['Photo']?>> 
+    
+         </div>
 
         <div class="profile_name">
             <h2><?=$userinfo['FirstName']?> <?=$userinfo['LastName']?> </h2>
@@ -47,20 +46,21 @@
 
     </div>
     <?php } ?>
-    <?php function draw_reviews($stories){
-        
-        
-    ?>
-    <div class="profile_stories">
+    <?php function draw_reviews($reviews){?>
+        <div class="profile_reviews">
+        <?php foreach($reviews as $review){?>
 
-
+        <div class="review_info">
+        <h2><?=$review['Title']?> <!-- <?=get_movie_info($review['MovieID'])?> --></h2>
+        <h3><?=$review['ReviewDate']?> </h3>
+        </div>
+        <div class="review_content">
+        <h4><?=$review['Description']?></h4>
+        </div>
+    <?php }?>
     </div>
    
- <?php }?>
+ <?php }?> 
     </div>
-    
-    </body>
-
-
 
 
