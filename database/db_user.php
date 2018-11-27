@@ -79,6 +79,20 @@
     }
   }
 
+  function getUsername($userID) {
+    $db = Database::instance()->db();
+    try {
+      $stmt = $db->prepare('SELECT Username FROM User WHERE ID = ?');
+      $stmt->execute(array($userID));
+      if($row = $stmt->fetch()){
+        return $row['Username'];
+      }
+    
+    }catch(PDOException $e) {
+      return -1;
+    }
+  }
+
 
 
   function getUserInfo($username) {

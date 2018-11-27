@@ -46,21 +46,37 @@
 
     </div>
     <?php } ?>
+    <div class="Stories">
+    <p>Stories</p>
+    </div>
     <?php function draw_reviews($reviews){?>
+    <?php foreach($reviews as $review){?>
         <div class="profile_reviews">
-        <?php foreach($reviews as $review){?>
-
         <div class="review_info">
-        <h2><?=$review['Title']?> <!-- <?=get_movie_info($review['MovieID'])?> --></h2>
-        <h3><?=$review['ReviewDate']?> </h3>
+        <h2><?=$review['Title']?> </h2>
+        <h3><?=$review['ReviewDate']?></h3>
+        <a href="movie.php?movie_id=<?php echo htmlentities($review['MovieID'])?>"><?=$review['MovieName']?></a>       
+        <h4><?=$review['UserName']?> </h4>
         </div>
         <div class="review_content">
-        <h4><?=$review['Description']?></h4>
+        <h5><?=$review['Description']?></h5>
         </div>
-    <?php }?>
-    </div>
+        <div class="review_likes">
+        <div class="likes">
+        <button type="button"><?=$review['Heart']?>
+        <button type="button"><?=$review['Dislike']?>
+         </div>
+         <div class="comments">
+         <button type ="button"><?=$review['NumberComments']?> Comments
+         </div>
+        </div>
+        <?php }?>
+   </div>
    
- <?php }?> 
+ <?php }?>
+        <div>
+        <a href="main_page.php">Main Page </a>
+        </div>
     </div>
 
-
+</html>

@@ -4,7 +4,7 @@ include_once('../includes/database.php');
 
 /* Function that returns all reviews from a certain user. */
 
-function getUserReviews($username){
+/*function getUserReviews($username){
     try{
 
         $db = Database::instance()->db();
@@ -15,7 +15,7 @@ function getUserReviews($username){
     } catch(PDOException $e) {
         return null;
       }
-}
+}*/
 
 /* Inserting a film review of a user */
 
@@ -64,7 +64,7 @@ function deleteReview($reviewId){
     try{
     
         $db = Database::instance()->db();
-        $stmt = $dbh->prepare('DELETE FROM Review WHERE ID = ?');
+        $stmt = $db->prepare('DELETE FROM Review WHERE ID = ?');
         $stmt->execute(array($username));
         return true;
     }catch(PDOException $e) {
@@ -72,17 +72,59 @@ function deleteReview($reviewId){
     }
 }
 
-function get_movie_info($movieId){
+function getMovieName($movieId){
     try{
-    
         $db = Database::instance()->db();
-        $stmt = $dbh->prepare('SELECT Name FROM Movie WHERE ID = ?');
+        $stmt = $db->prepare('SELECT Name FROM Movie WHERE ID = ?');
         $stmt->execute(array($movieId));
-        return $stmt->fetch();
+        $row= $stmt->fetch();
+        $movieName=$row['Name'];
+        return $movieName;
+
     }catch(PDOException $e) {
         return -1;
     }
+}
 
+function getReviewsComments($reviewId,$userId){
+    try{
+        $db = Database::instance()->db();
+        $stmt = $db->prepare('SELECT ID FROM Comment WHERE ReviewID = ? AND UserID = ?');
+        $stmt->execute(array($reviewId,$userId));
+        $row= $stmt->fetch();
+       
+        $numberComments= count($row);
+        return $numberComments;
+
+    }catch(PDOException $e) {
+        return -1;
+    }
+}
+
+function getAllReviews(){
+    try{
+        $db = Database::instance()->db();
+        $stmt = $db->prepare('SELECT * FROM Review ORDER BY ReviewDate DESC');
+        $stmt->execute();
+        $allReviews= $stmt->fetchAll();
+        return $allReviews;
+
+    }catch(PDOException $e) {
+        return -1;
+    }
+}
+
+function getAllReviewsMovie($movieId){
+    try{
+        $db = Database::instance()->db();
+        $stmt = $db->prepare('SELECT * FROM Review WHERE MovieID = ?');
+        $stmt->execute(array($movieId));
+        $allReviews= $stmt->fetchAll();
+        return $allReviews;
+
+    }catch(PDOException $e) {
+        return -1;
+    }
 }
 
 
