@@ -17,6 +17,8 @@ body{
     --panel-color: #FFFFFF;
     --logo-font-color: #00311D;
     --input-color: #f2f2f2;
+    --bg-color-nav:rgba(14, 209, 193, 0.548);
+    --bg-color-sidenav:rgba(177, 171, 171, 0.932);
     
     background-image: url('../assets/background.jpg');
     background-position: center;
@@ -27,7 +29,7 @@ body{
 }
 
 header{
-    padding: 1.5em;
+    padding: 1em;
     text-align: center;
     background-color:  var(--bg-color-dark);
 }
@@ -241,3 +243,82 @@ div#register_content{
     outline: 0;
     background: var(--input-color);
 }
+
+/* PROFILE */
+
+div.profile_container{
+
+    background-image: none;
+    background-color: var(--input-color);
+    height: 100vh;
+    display: grid;
+    font-family: "Roboto", 'sans-serif';
+    /*colunas 2 : parte principal e aside */ 
+    grid-template-columns: 6fr 1fr;
+    /* linhas: header, profile info, nav, reviews,footer */
+    grid-template-rows: auto 1fr auto auto 1fr; 
+
+    grid-template-areas: "header header"
+                         "info   goto"
+                         "nav    goto"
+                         "reviews goto"
+                         "footer footer";
+    }
+
+.profile_header{
+    grid-area: header;
+}
+.profile_header p{
+    text-align: left;
+    color: var(--bg-color-light);
+    font-family: 'Candara',sans-serif;
+    font-size: 25px;
+    margin: 0;
+    letter-spacing: 0.05em;  
+}
+.profile_header p img{
+     
+    vertical-align: middle;
+ }
+ 
+div.profile_info{
+    grid-area: info; 
+}
+
+.profile_side_nav{
+    background-color: var(--bg-color-sidenav);
+    grid-area: goto;
+
+}
+
+.Stories{
+    grid-area: nav;
+    background-color: var(--bg-color-nav);
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+div.profile_reviews{
+    grid-area: reviews; 
+}
+
+
+.profile_container  footer{
+    grid-area: footer;
+
+}
+
+.main_page_link {
+    grid-area: nav;
+    text-align: right;
+    
+}
+
+.review_info{
+    background-color: rgb(175, 175, 175);
+
+}
+.review_content{
+    background-color: var(--input-color);
+}
+

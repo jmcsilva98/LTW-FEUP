@@ -13,16 +13,24 @@
 
 </head>
 
+<body>
+<div class="profile_container">
+
+    <div class="profile_header">
+
     <header>
-        <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)">
+      <p>  <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)" width="40" height="40"> nabi </p>
     </header>
 
-    <div class="profile_container">
-    <?php function draw_profile($userinfo) {
+    </div>
 
-?>
-    <div class="profile_info" >
+     <div class="profile_side_nav">
+        
+    </div>
 
+     <div class="profile_info" >
+    <?php function draw_profile($userinfo) { ?>
+    
         <div class="edit_profile_button">
             <a href="edit_profile.php" class="edit_profile"> edit profile </a>
         </div>
@@ -44,39 +52,47 @@
             <h4> Country: <?=$userinfo['Country']?> </h4>
         </div>
 
-    </div>
     <?php } ?>
+    </div>
+
+
     <div class="Stories">
     <p>Stories</p>
     </div>
-    <?php function draw_reviews($reviews){?>
-    <?php foreach($reviews as $review){?>
-        <div class="profile_reviews">
+    
+    <div class="profile_reviews">
+    <?php function draw_reviews($reviews){
+             foreach($reviews as $review){?>
+        
         <div class="review_info">
-        <h2><?=$review['Title']?> </h2>
-        <h3><?=$review['ReviewDate']?></h3>
-        <a href="movie.php?movie_id=<?php echo htmlentities($review['MovieID'])?>"><?=$review['MovieName']?></a>       
-        <h4><?=$review['UserName']?> </h4>
+            <h2><?=$review['Title']?> </h2>
+            <h3><?=$review['ReviewDate']?></h3>
+            <a href="movie.php?movie_id=<?php echo htmlentities($review['MovieID'])?>"><?=$review['MovieName']?></a>       
+            <h4><?=$review['UserName']?> </h4>
         </div>
+       
         <div class="review_content">
-        <h5><?=$review['Description']?></h5>
+            <h5><?=$review['Description']?></h5>
         </div>
         <div class="review_likes">
-        <div class="likes">
-        <button type="button"><?=$review['Heart']?>
-        <button type="button"><?=$review['Dislike']?>
-         </div>
+        
+            <div class="likes">
+                <button type="button"><?=$review['Heart']?>
+                <button type="button"><?=$review['Dislike']?>
+            </div>
          <div class="comments">
-         <button type ="button"><?=$review['NumberComments']?> Comments
+             <button type ="button"><?=$review['NumberComments']?> Comments
          </div>
         </div>
-        <?php }?>
-   </div>
-   
- <?php }?>
-        <div>
+        <?php } }?>
+ </div>
+
+       
+        <div class="main_page_link">
         <a href="main_page.php">Main Page </a>
         </div>
-    </div>
 
+
+</div>
+</body>
 </html>
