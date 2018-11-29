@@ -14,14 +14,21 @@
 </head>
 
 <body>
-    <header>
-    </header>
 
+    <div class="login_container">
 
-   <section id="login">
+     <div class="login_header">
+        <header>
+        </header>
+     </div>
 
-   <img src="../assets/nabi.png" alt="Nabi logo (butterfly)">
-   <h1> nabi </h1>
+     <div class="login_logo">
+           <p>  <img src="../assets/nabi.png" alt="Nabi logo (butterfly)">  nabi </p>
+         
+    </div>
+    
+    
+    <div class="login_form">
 
     <form method="post" action="../actions/action_login.php" >
          <input type="text" name="username" placeholder="username" required>
@@ -29,11 +36,19 @@
          <input type="submit" value="Login">
     </form>
 
+     </div>
 
-    <p>Don't have an account? <a href="register.php">Sign up here.</a></p>
+    <div class="login_register_link">
+        <p>Don't have an account? <a href="register.php">Sign up here.</a></p>
+    </div>
 
-    </section>
-
+    <div class="login_footer">
+    <footer>
+        <p> &#169; FEUP 2018 Web Languages and Technologies | Made by Rita Norinho and Joana Silva  </p>
+    </footer>
+    </div>
+   
+    </div>
 
 
 
