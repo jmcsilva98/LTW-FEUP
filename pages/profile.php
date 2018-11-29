@@ -1,8 +1,10 @@
 <?php
 
     include_once('../includes/session.php');
+    include_once('../templates/tpl_review.php');
     include_once('../templates/tpl_profile.php');
     include_once('../templates/common/tpl_footer.php');
+   
     include_once('../database/db_user.php');
     include_once('../database/db_reviews.php');
   
@@ -25,6 +27,7 @@
         
     }
     draw_reviews($user_reviews);
+    draw_review();
     draw_footer();
 
 

@@ -60,7 +60,9 @@
     <div class="Stories">
     <p>Stories</p>
     </div>
-    
+    <div class="add_story">
+    <button onclick="draw_review()"> Add a review</button>
+    </div>
     <div class="profile_reviews">
     <?php function draw_reviews($reviews){
              foreach($reviews as $review){?>

@@ -19,18 +19,15 @@ include_once('../includes/database.php');
 
 /* Inserting a film review of a user */
 
-function insertReview($title, $username, $movieid, $reviewdate, $heart, $dislike, $description){
+function insertReview($title, $userId, $movieid, $reviewdate, $description){
     try{
 
         $db = Database::instance()->db();
-        $stmt = $db->prepare('INSERT INTO Review(Title, UserID, MovieID, ReviewDate, Heart, Dislike, Description) VALUES(:Title, :UserID, :MovieID, :ReviewDate, :Heart, :Dislike, :Description)');
+        $stmt = $db->prepare('INSERT INTO Review(Title, UserID, MovieID, ReviewDate, Description) VALUES(:Title, :UserID, :MovieID, :ReviewDate, :Description)');
         $stmt->bindParam(':Title', $title);
-        /*usar o id ou o username?*/
-        $stmt->bindParam(':UserID', $username);
+        $stmt->bindParam(':UserID', $userId);
         $stmt->bindParam(':MovieID', $movieid);
         $stmt->bindParam(':ReviewDate', $reviewdate);
-        $stmt->bindParam(':Heart', $heart);
-        $stmt->bindParam(':Dislike', $dislike);
         $stmt->bindParam(':Description', $description);
       
         if($stmt->execute()){

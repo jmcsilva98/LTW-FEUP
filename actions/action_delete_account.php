@@ -3,7 +3,6 @@
   include_once('../database/db_user.php');
 
   $username = $_SESSION['username'];
-  echo $username;
   if( $username != null) {
     if(deleteAccount($username)) {
         unset($_SESSION['username']);
