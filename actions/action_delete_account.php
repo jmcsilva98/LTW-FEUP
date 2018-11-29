@@ -11,8 +11,8 @@
         header("Location:../pages/login.php");
     }
     else {
-        $_SESSION['ERROR'] = "Error deleting your user account!";
-        header("Location:".$_SERVER['HTTP_REFERER']."");
+        $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Can\'t remove your account!');
+       //adicionar página de erro geral(do genero de ERROR 404)
     }
   }
 
