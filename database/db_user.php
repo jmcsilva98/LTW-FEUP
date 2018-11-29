@@ -96,7 +96,7 @@
 
 
   function getUserInfo($username) {
-     
+    
       $db = Database::instance()->db();
       $stmt = $db->prepare('SELECT * FROM User WHERE username = ?');
       $stmt->execute(array($username));
@@ -104,6 +104,7 @@
   }
 
   function getUserReviews($username){
+    
 
     $id=getID($username);
     $db = Database::instance()->db();
@@ -114,8 +115,19 @@
 
   }
 
+  function deleteAccount($username){
+       try {
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('DELETE FROM User WHERE Username = ?');
+    $stmt->execute(array($username));
+    return true;
+    }catch(PDOException $e) {
+    return false;
+  }
+  }
   function getUserPhoto($username){
 
+ 
     $id=getID($username);
     $db = Database::instance()->db();
     $stmt= $db->prepare('SELECT Photo FROM User WHERE UserID = ?');

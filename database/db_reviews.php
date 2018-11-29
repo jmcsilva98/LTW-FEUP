@@ -127,7 +127,35 @@ function getAllReviewsMovie($movieId){
     }
 }
 
+function getLikesReview($reviewId){
 
+    try{
+        $db = Database::instance()->db();
+        $stmt = $db->prepare('SELECT UserID FROM LikeReview  WHERE ReviewID = ?');
+        $stmt->execute(array($reviewId));
+        $allLikes= $stmt->fetch();
+        return count($allLikes);
+
+    }catch(PDOException $e) {
+        return -1;
+    }
+
+}
+
+function getDisLikesReview($reviewId){
+
+    try{
+        $db = Database::instance()->db();
+        $stmt = $db->prepare('SELECT UserID FROM LikeReview  WHERE ReviewID = ?');
+        $stmt->execute(array($reviewId));
+        $allDisLikes= $stmt->fetch();
+        return count($allDisLikes);
+
+    }catch(PDOException $e) {
+        return -1;
+    }
+
+}
 
 
 
