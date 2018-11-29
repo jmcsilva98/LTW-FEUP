@@ -116,8 +116,7 @@
   }
 
   function deleteAccount($username){
-
-    try {
+       try {
     $db = Database::instance()->db();
     $stmt = $db->prepare('DELETE FROM User WHERE Username = ?');
     $stmt->execute(array($username));
@@ -126,6 +125,43 @@
     return false;
   }
   }
+  function getUserPhoto($username){
+
+ 
+    $id=getID($username);
+    $db = Database::instance()->db();
+    $stmt= $db->prepare('SELECT Photo FROM User WHERE UserID = ?');
+    $stmt->execute(array($id));
+    
+    return $stmt->fetch();
+
+  }
+
+  function updateUserInfo($id, $firstName, $lastName, $gender, $username, $country, $birthday, $email, $password){
+    
+    $db = Database::instance()->db();
+
+    $hashed_password = hash('sha1',$password);
+    $stmt = $db->prepare('UPDATE User SET FirstName = ?, LastName = ?, Gender = ?, Country = ?, Birthday = ?, Username = ?, Email = ?, Password = ? WHERE UserID = ? ');
+    if($stmt->execute(array($firstName, $lastName, $gender, $country, $birthday, $username, $email, $hashed_password, $id))) return true;
+    else return false;
+  }
+
+  function updateUserPhoto($username, $photo){
+    $id=getID($username);
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('UPDATE User SET Photo = ? WHERE UserID = ? ');
+    $stmt->execute(array($id));
+ 
+   return $stmt->fetch();
+  }
+
+  function setUser($userID,$username){
+    
+
+  }
+
+
 
 
 
