@@ -46,6 +46,7 @@
 
         <div class="profile_points">
             <h3><?=$userinfo['Points']?> Stars </h3>
+            <a href="../actions/action_delete_account.php?">Delete Account.</a>    
         </div>
 
         <div class="profile_country">

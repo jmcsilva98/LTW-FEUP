@@ -47,8 +47,8 @@ CREATE TABLE Movie (
 DROP TABLE IF EXISTS MovieGenre;
 
 CREATE TABLE MovieGenre (
-    GenreID    INTEGER REFERENCES Genre(ID),
-    MovieID    INTEGER REFERENCES Movie(ID),
+    GenreID    INTEGER REFERENCES Genre(ID) ON DELETE CASCADE,
+    MovieID    INTEGER REFERENCES Movie(ID) ON DELETE CASCADE,
     PRIMARY KEY (GenreID, MovieID)
 
 );
@@ -56,8 +56,8 @@ CREATE TABLE MovieGenre (
 DROP TABLE IF EXISTS MovieDirector;
 
 CREATE TABLE MovieDirector (
-    DirectorID    INTEGER REFERENCES Director(ID),
-    MovieID    INTEGER REFERENCES Movie(ID),
+    DirectorID    INTEGER REFERENCES Director(ID) ON DELETE CASCADE,
+    MovieID    INTEGER REFERENCES Movie(ID) ON DELETE CASCADE,
     PRIMARY KEY (DirectorID, MovieID)
 );
 
@@ -67,8 +67,8 @@ DROP TABLE IF EXISTS Review;
 CREATE TABLE Review (
     ID          INTEGER PRIMARY KEY AUTOINCREMENT,
     Title       STRING  NOT NULL,
-    UserID      INTEGER REFERENCES User(ID),
-    MovieID     INTEGER REFERENCES Movie(ID),
+    UserID      INTEGER REFERENCES User(ID) ON DELETE CASCADE,
+    MovieID     INTEGER REFERENCES Movie(ID) ON DELETE CASCADE,
     ReviewDate  DATE NOT NULL,
     Heart       INTEGER,
     Dislike     INTEGER,
@@ -80,11 +80,11 @@ DROP TABLE IF EXISTS Comment;
 
 CREATE TABLE Comment (
     ID          INTEGER PRIMARY KEY AUTOINCREMENT,
-    UserID      INTEGER REFERENCES User(ID),
+    UserID      INTEGER REFERENCES User(ID) ON DELETE CASCADE,
     CommentDate DATE NOT NULL,
     Heart       INTEGER,
     Dislike     INTEGER,
-    ReviewID    INTEGER REFERENCES Review(ID),
+    ReviewID    INTEGER REFERENCES Review(ID) ON DELETE CASCADE,
     Description STRING NOT NULL
     
 );
