@@ -16,7 +16,7 @@
     $user_reviews=getUserReviews($_SESSION['username']);
     
    // print_r($user_reviews);
-    draw_profile($user_info);
+    draw_profile($user_info,$user_reviews);
     foreach ($user_reviews as $k => $review){
         
         $user_reviews[$k]['MovieName'] = getMovieName($review['MovieID']);
@@ -26,7 +26,7 @@
         $user_reviews[$k]['Dislike'] = getLikesReview($review['ID']);
         
     }
-    draw_reviews($user_reviews);
+    //draw_reviews($user_reviews);
     draw_review();
     draw_footer();
 
