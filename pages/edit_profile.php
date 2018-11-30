@@ -15,7 +15,7 @@
     
   
     draw_edit_profile($user_info);
-    draw_footer();
+   // draw_footer();
 
 
 

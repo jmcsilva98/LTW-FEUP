@@ -23,7 +23,7 @@
        </header>
     </div>
 
-    <div class="profile_side_nav">
+    <div class="side_nav">
         
     </div>
 

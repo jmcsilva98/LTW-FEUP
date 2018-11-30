@@ -10,7 +10,7 @@ html{
 body{
     margin: 0 auto;
     min-height:100% ;
-    font-family: "Roboto",sans-serif;
+    font-family: 'Roboto', sans-serif;
     
     --bg-color-dark: #0D2D22;
     --bg-color-light: #0ED1C1;
@@ -42,7 +42,7 @@ header{
     font-size: 0.8em;
     font-weight: 200;
     color:white;
-    min-height: 100%;
+    margin:0;
 }
 
 /* --------------------------
@@ -155,7 +155,7 @@ div.login_form input[type=text], .login_form input[type=password]{
     display: grid;
     grid-template-columns: auto;
     /* header, h1, firstname, lastname, gender, country, birthday, username,password,submit*/
-    grid-template-rows: auto, auto, auto,auto;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas: "header"
                          "form"
                          "link"
@@ -200,7 +200,11 @@ div.login_form input[type=text], .login_form input[type=password]{
 }
 
 
- .register_form input[type=text],.register_form  input[type=password],.register_form input[type=email] {
+ .register_form input[type=text],
+ .register_form  input[type=password],
+ .register_form input[type=email],
+ .edit_profile_form input[type=password],
+ .edit_profile_form input[type=email] {
     outline: 0;
     background: var(--input-color);
     width: 50%;
@@ -212,7 +216,7 @@ div.login_form input[type=text], .login_form input[type=password]{
 
 } 
 
-.register_form input[type=radio]{
+.register_form input[type=radio], .edit_profile_form input[type="radio"]{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -227,22 +231,26 @@ div.login_form input[type=text], .login_form input[type=password]{
     margin-right: 7px;
     outline: none;
 }
-.register_form input[type=radio]:checked::before{
+.register_form input[type=radio]:checked::before, 
+.edit_profile_form input[type="radio"]:checked::before{
     position: absolute;
     left: 9px;
     top: 5px;
     content: '\02143';
     transform: rotate(40deg);
 }
-.register_form input[type=radio]:hover{
+.register_form input[type=radio]:hover,
+.edit_profile_form input[type="radio"]:hover{
     background-color: rgba(172, 161, 161, 0.637);
 }
-.register_form input[type=radio]:checked{
+.register_form input[type=radio]:checked,
+.edit_profile_form input[type="radio"]:checked{
     background-color:  var(--input-color);
 }
 
 
-.register_form input[type=submit]{
+.register_form input[type=submit], 
+.edit_profile_form input[type="submit"]{
     text-transform: uppercase;
     outline: 0;
     background: #2AC0B1;
@@ -254,7 +262,8 @@ div.login_form input[type=text], .login_form input[type=password]{
     font-size: 14px;
 }
 
-.register_form input[type=submit]:hover{
+.register_form input[type=submit]:hover,
+.edit_profile_form input[type="submit"]:hover{
     background: rgba(15, 92, 84, 0.733);
 }
 
@@ -262,7 +271,7 @@ div.login_form input[type=text], .login_form input[type=password]{
     font-size: 14px;
 }
 
-.register_form select{
+.register_form select, .edit_profile_form select{
     border:0;
     margin: 2em;
     padding: 10px 0px;
@@ -273,7 +282,7 @@ div.login_form input[type=text], .login_form input[type=password]{
     margin-bottom: 1em;
  
 } 
-.register_form input[type=date]{
+.register_form input[type=date], .edit_profile_form input[type="date"]{
     border:0;
     margin-bottom: 2em;
     padding: 10px 0px;
@@ -294,12 +303,15 @@ div.login_form input[type=text], .login_form input[type=password]{
     grid-area: footer;
 }
 
-/* PROFILE */
+/*-----------------------
+------- PROFILE----------
+-------------------------*/
 
 div.profile_container{
 
     background-image: none;
     background-color: var(--input-color);
+    background-image: none;
     height: 100vh;
     display: grid;
     font-family: "Roboto", 'sans-serif';
@@ -363,7 +375,9 @@ div.profile_info{
 }
 
 
-.edit_profile a , .Reviews p a,.Reviews p button{
+.edit_profile a , .Reviews p a,.Reviews p button,
+.upload_photo input[type="file"],
+.upload_photo input[type="submit"]{
     float: right;
     letter-spacing: 0.05em;
     font-family: "Roboto",'sans-serif';
@@ -388,12 +402,16 @@ div.profile_info{
 }
 
 
-.edit_profile .edit:hover, .edit_profile .delete:hover, .Reviews p :hover{
+.edit_profile .edit:hover, 
+.edit_profile .delete:hover, 
+.Reviews p :hover,
+.upload_photo input[type="file"]:hover,
+.upload_photo input[type="submit"]:hover{
    color: rgb(93, 94, 93);
 }
 
 
-.profile_side_nav{
+.side_nav{
     background-color: var(--bg-color-sidenav);
     grid-area: goto;
 
@@ -419,5 +437,135 @@ div.profile_reviews{
     grid-area: footer;
     background-color: var(--bg-color-dark);
 }
+
+
+/*-----------------------
+-------EDIT PROFILE------
+-------------------------*/
+
+
+.edit_profile_container{
+    display: grid;
+    grid-template-columns:auto 3fr 1fr;
+    grid-auto-rows:auto auto auto auto;
+    grid-template-areas: "header header header"
+                         "photo info goto"
+                         "photo info goto"
+                         "footer footer footer";
+    background-image: none;
+    background-color: var(--input-color);  
+}
+
+.edit_profile_header{
+    grid-area: header;
+  
+}
+.edit_profile_header p{
+    text-align: left;
+    color: var(--bg-color-light);
+    font-family: 'Candara',sans-serif;
+    font-size: 25px;
+    margin: 0;
+    letter-spacing: 0.05em;  
+}
+.edit_profile_header p img{
+    vertical-align: middle;
+}
+
+.upload_photo{
+    grid-area: photo;
+    margin-left: 2em;    
+}
+
+.upload_photo img{
+    margin: 2em 0;
+    width: 12em;
+    height: 12em;
+    object-fit: cover;
+    border: 2px solid var(--bg-color-dark);
+}
+
+.upload_photo input[type="file"],
+.upload_photo input[type="submit"]{
+    border:none;
+    outline: none;
+    cursor: pointer;
+  
+} 
+
+.upload_photo input[type="file"]{
+    width: 80%;
+    margin-right: 18%;
+    appearance: none;
+}
+.upload_photo input[type="submit"]{
+    margin:1em;
+    margin-right: 50%
+}
+
+.edit_profile_form{
+    grid-area: info;
+    float: left;
+}
+
+.edit_profile_form h1{
+    font-family: 'Candara', sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 0.03em;
+}
+
+.edit_profile_footer{
+    grid-area: footer;
+}
+
+.edit_profile_form input[type="text"]{
+    outline: 0;
+    background: var(--panel-color);  
+    width:50%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.edit_profile_form input[type="radio"]{
+   
+    background: var(--panel-color);  
+}
+.edit_profile_form input[type="date"]{
+    background: var(--panel-color);  
+}
+.edit_profile_form select{
+    background: var(--panel-color);  
+    width: 50%;
+    margin:0 0 15px; 
+    padding: 10px;
+}
+.edit_profile_form input[type="email"]{
+    background: var(--panel-color);  
+}
+.edit_profile_form input[type="password"]{
+    background: var(--panel-color);  
+}
+
+.edit_profile_form p input[type="submit"]{
+    width: 25%;
+    margin:15px 10% 20px;
+    align-content: center;
+    cursor: pointer;
+
+}
+.edit_profile_form p a{
+    color: var(--bg-color-dark);
+   vertical-align: middle;
+   margin: 0;
+    
+}
+.edit_profile_footer{
+    grid-area: footer;
+}
+
 
 
