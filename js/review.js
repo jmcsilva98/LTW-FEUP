@@ -1,15 +1,18 @@
-let likes = document.querySelector('.likes input[type=button]');
-likes.addEventListener("click",incrementLikes);
+let likes = document.querySelectorAll('.likes input[type=button]');
+likes.forEach((like) => like.addEventListener('click', incrementLikes))
 
 
-function incrementLikes()
+function incrementLikes(event)
 {
-    let reviewName = document.querySelector('.review_info').getElementsByTagName('h2')[0].innerText;
+    let reviewName = document.querySelector('.review_info').getElementsByTagName('h2')[0].innerText
+    let reviewLikes= document.querySelector('.likes').getElementsByTagName('h4')[0].innerText
 
     let request = new XMLHttpRequest()
     request.open("post", "../actions/action_api_likes.php", true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    request.send(encodeForAjax({reviewName: reviewName}))
+    request.send(encodeForAjax({reviewName,reviewLikes}))
+    console.log(request)
+    event.preventDefault();
 }
 
 // Helper function

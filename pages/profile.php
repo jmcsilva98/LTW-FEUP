@@ -16,7 +16,6 @@
     print_r($user_info);
     $user_reviews=getUserReviews($_SESSION['username']);
     
-   // print_r($user_reviews);
     draw_profile($user_info,$user_reviews);
     foreach ($user_reviews as $k => $review){
         

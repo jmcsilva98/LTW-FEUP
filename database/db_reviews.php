@@ -55,6 +55,20 @@ function getReviewItems($reviewId){
       }
 }
 
+function getReviewID($reviewTitle){
+    try{
+    
+        $db = Database::instance()->db();
+        $stmt = $db->prepare('SELECT ID FROM Review WHERE Title = ?');
+        $stmt->execute(array($reviewTitle));
+        $row= $stmt->fetch();
+        return $row['ID'];
+    }catch(PDOException $e) {
+        return -1;
+    }
+
+}
+
 /* Deletes a review */
 
 function deleteReview($reviewId){

@@ -63,7 +63,7 @@
 
     </div>
 
-
+<?php } ?>
     <div class="Reviews">
         <p>Reviews <button onclick="draw_review()"> add review</button>
         <a href="main_page.php"> Feed </a>
@@ -72,9 +72,9 @@
    
     </div>
    
-    <div class="profile_reviews">
-    <?php function draw_reviews($reviews){?>
     
+    <?php function draw_reviews($reviews){?>
+        <div class="profile_reviews">
     <?php foreach($reviews as $review){?>
         
         <div class="review_info">
@@ -102,12 +102,11 @@
          </div>
         </div>
         <?php }?>
+        </div>
     <?php }?>
- </div>
+
 
 
 </div>
-
- <?php }?>
 </body>
 </html>
