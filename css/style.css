@@ -10,7 +10,7 @@ html{
 body{
     margin: 0 auto;
     min-height:100% ;
-    font-family: "Roboto",sans-serif;
+    font-family: 'Roboto', sans-serif;
     
     --bg-color-dark: #0D2D22;
     --bg-color-light: #0ED1C1;
@@ -42,7 +42,7 @@ header{
     font-size: 0.8em;
     font-weight: 200;
     color:white;
-    min-height: 100%;
+    margin:0;
 }
 
 /* --------------------------
@@ -155,7 +155,7 @@ div.login_form input[type=text], .login_form input[type=password]{
     display: grid;
     grid-template-columns: auto;
     /* header, h1, firstname, lastname, gender, country, birthday, username,password,submit*/
-    grid-template-rows: auto, auto, auto,auto;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas: "header"
                          "form"
                          "link"
@@ -200,7 +200,11 @@ div.login_form input[type=text], .login_form input[type=password]{
 }
 
 
- .register_form input[type=text],.register_form  input[type=password],.register_form input[type=email] {
+ .register_form input[type=text],
+ .register_form  input[type=password],
+ .register_form input[type=email],
+ .edit_profile_form input[type=password],
+ .edit_profile_form input[type=email] {
     outline: 0;
     background: var(--input-color);
     width: 50%;
@@ -212,7 +216,7 @@ div.login_form input[type=text], .login_form input[type=password]{
 
 } 
 
-.register_form input[type=radio]{
+.register_form input[type=radio], .edit_profile_form input[type="radio"]{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -227,22 +231,26 @@ div.login_form input[type=text], .login_form input[type=password]{
     margin-right: 7px;
     outline: none;
 }
-.register_form input[type=radio]:checked::before{
+.register_form input[type=radio]:checked::before, 
+.edit_profile_form input[type="radio"]:checked::before{
     position: absolute;
     left: 9px;
     top: 5px;
     content: '\02143';
     transform: rotate(40deg);
 }
-.register_form input[type=radio]:hover{
+.register_form input[type=radio]:hover,
+.edit_profile_form input[type="radio"]:hover{
     background-color: rgba(172, 161, 161, 0.637);
 }
-.register_form input[type=radio]:checked{
+.register_form input[type=radio]:checked,
+.edit_profile_form input[type="radio"]:checked{
     background-color:  var(--input-color);
 }
 
 
-.register_form input[type=submit]{
+.register_form input[type=submit], 
+.edit_profile_form input[type="submit"]{
     text-transform: uppercase;
     outline: 0;
     background: #2AC0B1;
@@ -254,7 +262,8 @@ div.login_form input[type=text], .login_form input[type=password]{
     font-size: 14px;
 }
 
-.register_form input[type=submit]:hover{
+.register_form input[type=submit]:hover,
+.edit_profile_form input[type="submit"]:hover{
     background: rgba(15, 92, 84, 0.733);
 }
 
@@ -262,7 +271,7 @@ div.login_form input[type=text], .login_form input[type=password]{
     font-size: 14px;
 }
 
-.register_form select{
+.register_form select, .edit_profile_form select{
     border:0;
     margin: 2em;
     padding: 10px 0px;
@@ -273,7 +282,7 @@ div.login_form input[type=text], .login_form input[type=password]{
     margin-bottom: 1em;
  
 } 
-.register_form input[type=date]{
+.register_form input[type=date], .edit_profile_form input[type="date"]{
     border:0;
     margin-bottom: 2em;
     padding: 10px 0px;
@@ -294,12 +303,15 @@ div.login_form input[type=text], .login_form input[type=password]{
     grid-area: footer;
 }
 
-/* PROFILE */
+/*-----------------------
+------- PROFILE----------
+-------------------------*/
 
 div.profile_container{
 
     background-image: none;
     background-color: var(--input-color);
+    background-image: none;
     height: 100vh;
     display: grid;
     font-family: "Roboto", 'sans-serif';

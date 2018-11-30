@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 
 </head>
@@ -21,11 +21,12 @@
             </header>
         </div>
 
-         <h1> Edit Profile </h1>
+        <div class="side_nav">
+        </div>
+
 
         <div class="upload_photo">
             <form method="post" action="../actions/action_upload_profile_photo.php" enctype="multipart/form-data" >
-                <label> Photo </label><br>
                <!-- ARRANJAR BASE DE DADOS -->
                <!-- <img id="profile_photo" src="<?php echo htmlentities('../assets/profilePhotos/'.$userinfo['Photo']) ?>" alt="Profile photo"><br> -->
               <img id="profile_photo" src="../assets/default.jpg" alt="Profile photo"><br> 
@@ -36,7 +37,7 @@
 
 
         <div class="edit_profile_form">
-
+        <h1> Edit Profile </h1>
 
          <form method="post" action="../actions/action_update_user_data.php" >
             <label> First Name </label><br>
@@ -46,7 +47,7 @@
             <label> Gender </label><br>
             <input type="radio" name="gender" placeholder="female" value="female" value="<?php echo htmlentities($userinfo['Gender']) ?>" required>female
             <input type="radio" name="gender" placeholder="male" value="male" value="<?php echo htmlentities($userinfo['Gender']) ?>" required>male<br>
-            <label>Country </label><br>
+            <br><label>Country </label><br>
             <select name="country" value="<?php echo htmlentities($userinfo['Country']) ?>" required>
                 <?php select_country() ?>
             </select><br>
@@ -61,20 +62,21 @@
             <label> Confirm Password </label><br>
             <input type="password" name="repeatpassword" placeholder="confirm new password" required><br>
             
+            <p>
             <input type="submit" value="Update">
+             
+            <a href="main_page.php"> cancel </a></p>
         </form>
 
         
 
         </div>
 
-
-
-
-
-
-
-
+    <div class="edit_profile_footer">
+    <footer>
+        <p> &#169; FEUP 2018 Web Languages and Technologies | Made by Rita Norinho and Joana Silva  </p>
+    </footer>
+    </div>
 
     </div>
     <?php } ?>

@@ -78,7 +78,7 @@
     <?php foreach($reviews as $review){?>
         
         <div class="review_info">
-            <h2><?=$review['Title']?> </h2>
+             <h2><?=$review['Title']?> </h2>
             <h3><?=$review['ReviewDate']?></h3>
             <a href="movie.php?movie_id=<?php echo htmlentities($review['MovieID'])?>"><?=$review['MovieName']?></a>                   <h4><?=$review['UserName']?> </h4>
         </div>
@@ -105,6 +105,7 @@
         </div>
     <?php }?>
 
+</div>
 
 
 </div>
