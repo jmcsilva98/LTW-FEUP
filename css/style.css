@@ -19,6 +19,7 @@ body{
     --input-color: #f2f2f2;
     --bg-color-nav:rgba(14, 209, 193, 0.548);
     --bg-color-sidenav:rgba(177, 171, 171, 0.932);
+    --color-buttons:rgb(175, 175, 175);
     
     background-image: url('../assets/background.jpg');
     background-position: center;
@@ -305,17 +306,18 @@ div.profile_container{
     /*colunas 2 : parte principal e aside */ 
     grid-template-columns: 6fr 1fr;
     /* linhas: header, profile info, nav, reviews,footer */
-    grid-template-rows: auto 1fr auto auto 1fr; 
+    grid-template-rows: auto 1fr auto auto auto; 
 
     grid-template-areas: "header header"
-                         "info   goto"
-                         "nav    goto"
+                         "info  goto"
+                         "nav goto"
                          "reviews goto"
                          "footer footer";
 }
 
 .profile_header{
     grid-area: header;
+  
 }
 .profile_header p{
     text-align: left;
@@ -329,10 +331,67 @@ div.profile_container{
      
     vertical-align: middle;
  }
+
+ .Reviews p a, .Reviews p button{
+    -webkit-appearance: none;
+     margin-right: 2em;
+     width: 8.2em;
+     text-align: center;
+     margin-top:0em;
+     
+     
+ }
  
+ .Reviews p button{
+     cursor: pointer;
+     border: 0;
+     width: 10em;
+ }
+  
 div.profile_info{
     grid-area: info; 
+    font-family: 'Candara',sans-serif;
+    color: var(--bg-color-dark);
 }
+
+.profile_name h2{
+    font-size: 30px;
+   
+}
+.profile_name img{
+    vertical-align: middle;
+}
+
+
+.edit_profile a , .Reviews p a,.Reviews p button{
+    float: right;
+    letter-spacing: 0.05em;
+    font-family: "Roboto",'sans-serif';
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    background: var(--color-buttons);
+    padding: 10px;
+    color: var(--panel-color);
+    font-size: 10px;
+    border-radius: 2px;
+}
+
+.edit_profile .delete{
+    margin-right: 1.5em;
+    margin-bottom: 10px;
+}
+
+.edit_profile .edit{
+    margin-right: 1em;
+    margin-top: 1.9em;
+}
+
+
+.edit_profile .edit:hover, .edit_profile .delete:hover, .Reviews p :hover{
+   color: rgb(93, 94, 93);
+}
+
 
 .profile_side_nav{
     background-color: var(--bg-color-sidenav);
@@ -340,7 +399,7 @@ div.profile_info{
 
 }
 
-.Stories{
+.Reviews{
     grid-area: nav;
     background-color: var(--bg-color-nav);
     color: whitesmoke;
@@ -352,18 +411,13 @@ div.profile_reviews{
 }
 
 
-
-.main_page_link {
-    grid-area: nav;
-    text-align: right;
-    
-}
-
-.review_info{
-    background-color: rgb(175, 175, 175);
-
-}
 .review_content{
     background-color: var(--input-color);
 }
+
+.profile_footer {
+    grid-area: footer;
+    background-color: var(--bg-color-dark);
+}
+
 
