@@ -1,435 +1,567 @@
-
 /* --------------------------
    ---------GENERIC----------
    -------------------------- */
 
-html{
-   height:100% ;
-}
-
-body{
-    margin: 0 auto;
-    min-height:100% ;
-    font-family: 'Roboto', sans-serif;
-    
-    --bg-color-dark: #0D2D22;
-    --bg-color-light: #0ED1C1;
-    --panel-color: #FFFFFF;
-    --logo-font-color: #00311D;
-    --input-color: #f2f2f2;
-    --bg-color-nav:rgba(14, 209, 193, 0.548);
-    --bg-color-sidenav:rgba(177, 171, 171, 0.932);
-    --color-buttons:rgb(175, 175, 175);
-    
-    background-image: url('../assets/background.jpg');
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat; 
-    background-size: cover;
-   
-}
-
-header{
-    text-align: center;
-    background-color:  var(--bg-color-dark);
-}
-
-/*Problema com o footer, não fica em baixo*/
- footer p{
-    padding:1.4em;
-    text-align: center;
-    background-color:  var(--bg-color-dark);
-    font-size: 0.8em;
-    font-weight: 200;
-    color:white;
-    margin:0;
-}
-
-/* --------------------------
-   ---------LOGIN------------
-   -------------------------- */
-
-.login_container{
-
-    height: 100vh;
-    display: grid;
-    font-family: "Roboto", 'sans-serif';
-    /*apenas uma coluna */ 
-    grid-template-columns: auto;
-    /* linhas: header, logo, form, link,footer */
-    grid-template-rows: auto auto auto auto 1fr; 
-
-    grid-template-areas: "header"
-                         "logo"
-                         "form"
-                         "register_link"
-                         "footer";
-}
-.login_header{
-    grid-area: header;
-    background-color:  var(--bg-color-dark);
-    padding: 1.4em;
-}
-
-.login_logo{
-    grid-area: logo;
-    font-family: 'Candara',sans-serif;
-    font-weight: bold;
-    font-size: 5em;
-    color: rgb(33, 153, 161);
-    letter-spacing: 0.05em;  
-    text-align: center;
-  
-}
-.login_logo p {
-   margin: 0 auto; 
-   padding: 0.9em;
-}
-.login_logo p img{
-    vertical-align: middle;
-}
-
-.login_form{
-    grid-area: form;
-    position: relative; 
-    background: var(--panel-color);
-    max-width: 360px;
-    margin: 0 auto 100px;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    padding: 45px;
-    text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-}
-
-div.login_form input[type=text], .login_form input[type=password]{
-    outline: 0;
-    background: var(--input-color);  
-    width: 100%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
-}
-
-.login_form input[type=submit] {
-    text-transform: uppercase;
-    outline: 0;
-    background: #2AC0B1;
-    width: 100%;
-    border: 0;
-    padding: 15px;
-    color: var(--panel-color);
-    font-size: 14px;
-    
-}
-
-.login_form  input[type=submit]:hover{
-    background: rgba(15, 92, 84, 0.733);
-}
-
-.login_register_link{
-    grid-area: register_link;
-    text-align: center;
-    color: var(--input-color);
-    margin: 1em;
-    
-}
-
-.login_footer{
-    grid-area: footer;
-    /* text-align: center;
-    background-color:  var(--bg-color-dark);
-    font-size: 1em;
-    font-weight: 200;
-    color:white; */
-    
-}
-
-/* --------------------------
-   ---------REGISTER---------
-   -------------------------- */
-
-.register_container{
-    display: grid;
-    grid-template-columns: auto;
-    /* header, h1, firstname, lastname, gender, country, birthday, username,password,submit*/
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas: "header"
-                         "form"
-                         "link"
-                         "footer";
-}
-.register_header {
-    grid-area: header;
-    padding: 0;
-    margin: 0;
-}
-.register_header p{
-    text-align: left;
-    color: var(--bg-color-light);
-    font-family: 'Candara',sans-serif;
-    font-size: 25px;
-    margin: 0;
-    letter-spacing: 0.05em;  
-}
-.register_header p img{
-    vertical-align: middle;
-}
-
-.register_form h1{
-    font-size: 2em;
-    text-align: center;
-    padding-bottom: 1em;
-    margin: 0;
-}
-
-.register_form{
-    grid-area: form;
-    position: relative; 
-    background: var(--panel-color);
-    max-width: 500px;
-    margin: 0 auto 200px;
-    margin-top: 1em;
-    margin-bottom: 2em;
-    padding: 45px;
-    text-align: center;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    margin-top:4em;
-}
-
-
- .register_form input[type=text],
- .register_form  input[type=password],
- .register_form input[type=email],
- .edit_profile_form input[type=password],
- .edit_profile_form input[type=email] {
-    outline: 0;
-    background: var(--input-color);
-    width: 50%;
-    border: 0;
-    margin: 0 0 15px;
-    padding: 15px;
-    box-sizing: border-box;
-    font-size: 14px;
-
-} 
-
-.register_form input[type=radio], .edit_profile_form input[type="radio"]{
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    position: relative;
-    background-color: var(--input-color);
-    top: 5px;
-    height: 25px;
-    width: 25px;
-    border: 0;
-    border-radius: 40px;
-    cursor: pointer;     
-    margin-right: 7px;
-    outline: none;
-}
-.register_form input[type=radio]:checked::before, 
-.edit_profile_form input[type="radio"]:checked::before{
-    position: absolute;
-    left: 9px;
-    top: 5px;
-    content: '\02143';
-    transform: rotate(40deg);
-}
-.register_form input[type=radio]:hover,
-.edit_profile_form input[type="radio"]:hover{
-    background-color: rgba(172, 161, 161, 0.637);
-}
-.register_form input[type=radio]:checked,
-.edit_profile_form input[type="radio"]:checked{
-    background-color:  var(--input-color);
-}
-
-
-.register_form input[type=submit], 
-.edit_profile_form input[type="submit"]{
-    text-transform: uppercase;
-    outline: 0;
-    background: #2AC0B1;
-    width: 50%;
-    border: 0;
-    padding: 15px;
-    margin-top:2em;
-    color: var(--panel-color);
-    font-size: 14px;
-}
-
-.register_form input[type=submit]:hover,
-.edit_profile_form input[type="submit"]:hover{
-    background: rgba(15, 92, 84, 0.733);
-}
-
-.register_form label{
-    font-size: 14px;
-}
-
-.register_form select, .edit_profile_form select{
-    border:0;
-    margin: 2em;
-    padding: 10px 0px;
-    cursor: pointer;
-    width: 50%;
-    outline: 0;
-    background: var(--input-color);
-    margin-bottom: 1em;
- 
-} 
-.register_form input[type=date], .edit_profile_form input[type="date"]{
-    border:0;
-    margin-bottom: 2em;
-    padding: 10px 0px;
-    cursor: pointer;
-    width: 50%;
-    outline: 0;
-    background: var(--input-color);
-}
-
-.register_login_link{
-    grid-area:link;
-    text-align: center;
-    color: var(--input-color);
-    font-weight: normal;
-}
-
-.register_footer{
-    grid-area: footer;
-}
-
-/*-----------------------
-------- PROFILE----------
--------------------------*/
-
-div.profile_container{
-
-    background-image: none;
-    background-color: var(--input-color);
-    background-image: none;
-    height: 100vh;
-    display: grid;
-    font-family: "Roboto", 'sans-serif';
-    /*colunas 2 : parte principal e aside */ 
-    grid-template-columns: 6fr 1fr;
-    /* linhas: header, profile info, nav, reviews,footer */
-    grid-template-rows: auto 1fr auto auto auto; 
-
-    grid-template-areas: "header header"
-                         "info  goto"
-                         "nav goto"
-                         "reviews goto"
-                         "footer footer";
-}
-
-.profile_header{
-    grid-area: header;
-  
-}
-.profile_header p{
-    text-align: left;
-    color: var(--bg-color-light);
-    font-family: 'Candara',sans-serif;
-    font-size: 25px;
-    margin: 0;
-    letter-spacing: 0.05em;  
-}
-.profile_header p img{
-     
-    vertical-align: middle;
+   html{
+    height:100% ;
  }
-
- .Reviews p a, .Reviews p button{
-    -webkit-appearance: none;
-     margin-right: 2em;
-     width: 8.2em;
+ 
+ body{
+     margin: 0 auto;
+     min-height:100% ;
+     font-family: 'Roboto', sans-serif;
+     
+     --bg-color-dark: #0D2D22;
+     --bg-color-light: #0ED1C1;
+     --panel-color: #FFFFFF;
+     --logo-font-color: #00311D;
+     --input-color: #f2f2f2;
+     --bg-color-nav:rgba(14, 209, 193, 0.548);
+     --bg-color-sidenav:rgba(177, 171, 171, 0.932);
+     --color-buttons:rgb(175, 175, 175);
+     
+     background-image: url('../assets/background.jpg');
+     background-position: center;
+     background-attachment: fixed;
+     background-repeat: no-repeat; 
+     background-size: cover;
+    
+ }
+ 
+ header{
      text-align: center;
-     margin-top:0em;
-     
+     background-color:  var(--bg-color-dark);
+ }
+ 
+ /*Problema com o footer, não fica em baixo*/
+  footer p{
+     padding:1.4em;
+     text-align: center;
+     background-color:  var(--bg-color-dark);
+     font-size: 0.8em;
+     font-weight: 200;
+     color:white;
+     margin:0;
+ }
+ 
+ /* --------------------------
+    ---------LOGIN------------
+    -------------------------- */
+ 
+ .login_container{
+ 
+     height: 100vh;
+     display: grid;
+     font-family: "Roboto", 'sans-serif';
+     /*apenas uma coluna */ 
+     grid-template-columns: auto;
+     /* linhas: header, logo, form, link,footer */
+     grid-template-rows: auto auto auto auto 1fr; 
+ 
+     grid-template-areas: "header"
+                          "logo"
+                          "form"
+                          "register_link"
+                          "footer";
+ }
+ .login_header{
+     grid-area: header;
+     background-color:  var(--bg-color-dark);
+     padding: 1.4em;
+ }
+ 
+ .login_logo{
+     grid-area: logo;
+     font-family: 'Candara',sans-serif;
+     font-weight: bold;
+     font-size: 5em;
+     color: rgb(33, 153, 161);
+     letter-spacing: 0.05em;  
+     text-align: center;
+   
+ }
+ .login_logo p {
+    margin: 0 auto; 
+    padding: 0.9em;
+ }
+ .login_logo p img{
+     vertical-align: middle;
+ }
+ 
+ .login_form{
+     grid-area: form;
+     position: relative; 
+     background: var(--panel-color);
+     max-width: 360px;
+     margin: 0 auto 100px;
+     margin-top: 2em;
+     margin-bottom: 2em;
+     padding: 45px;
+     text-align: center;
+     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+ }
+ 
+ div.login_form input[type=text], .login_form input[type=password]{
+     outline: 0;
+     background: var(--input-color);  
+     width: 100%;
+     border: 0;
+     margin: 0 0 15px;
+     padding: 15px;
+     box-sizing: border-box;
+     font-size: 14px;
+ }
+ 
+ .login_form input[type=submit] {
+     text-transform: uppercase;
+     outline: 0;
+     background: #2AC0B1;
+     width: 100%;
+     border: 0;
+     padding: 15px;
+     color: var(--panel-color);
+     font-size: 14px;
      
  }
  
- .Reviews p button{
-     cursor: pointer;
-     border: 0;
-     width: 10em;
+ .login_form  input[type=submit]:hover{
+     background: rgba(15, 92, 84, 0.733);
  }
+ 
+ .login_register_link{
+     grid-area: register_link;
+     text-align: center;
+     color: var(--input-color);
+     margin: 1em;
+     
+ }
+ 
+ .login_footer{
+     grid-area: footer;
+     /* text-align: center;
+     background-color:  var(--bg-color-dark);
+     font-size: 1em;
+     font-weight: 200;
+     color:white; */
+     
+ }
+ 
+ /* --------------------------
+    ---------REGISTER---------
+    -------------------------- */
+ 
+ .register_container{
+     display: grid;
+     grid-template-columns: auto;
+     /* header, h1, firstname, lastname, gender, country, birthday, username,password,submit*/
+     grid-template-rows: auto auto auto auto;
+     grid-template-areas: "header"
+                          "form"
+                          "link"
+                          "footer";
+ }
+ .register_header {
+     grid-area: header;
+     padding: 0;
+     margin: 0;
+ }
+ .register_header p{
+     text-align: left;
+     color: var(--bg-color-light);
+     font-family: 'Candara',sans-serif;
+     font-size: 25px;
+     margin: 0;
+     letter-spacing: 0.05em;  
+ }
+ .register_header p img{
+     vertical-align: middle;
+ }
+ 
+ .register_form h1{
+     font-size: 2em;
+     text-align: center;
+     padding-bottom: 1em;
+     margin: 0;
+ }
+ 
+ .register_form{
+     grid-area: form;
+     position: relative; 
+     background: var(--panel-color);
+     max-width: 500px;
+     margin: 0 auto 200px;
+     margin-top: 1em;
+     margin-bottom: 2em;
+     padding: 45px;
+     text-align: center;
+     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+     margin-top:4em;
+ }
+ 
+ 
+  .register_form input[type=text],
+  .register_form  input[type=password],
+  .register_form input[type=email],
+  .edit_profile_form input[type=password],
+  .edit_profile_form input[type=email] {
+     outline: 0;
+     background: var(--input-color);
+     width: 50%;
+     border: 0;
+     margin: 0 0 15px;
+     padding: 15px;
+     box-sizing: border-box;
+     font-size: 14px;
+ 
+ } 
+ 
+ .register_form input[type=radio], .edit_profile_form input[type="radio"]{
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+     position: relative;
+     background-color: var(--input-color);
+     top: 5px;
+     height: 25px;
+     width: 25px;
+     border: 0;
+     border-radius: 40px;
+     cursor: pointer;     
+     margin-right: 7px;
+     outline: none;
+ }
+ .register_form input[type=radio]:checked::before, 
+ .edit_profile_form input[type="radio"]:checked::before{
+     position: absolute;
+     left: 9px;
+     top: 5px;
+     content: '\02143';
+     transform: rotate(40deg);
+ }
+ .register_form input[type=radio]:hover,
+ .edit_profile_form input[type="radio"]:hover{
+     background-color: rgba(172, 161, 161, 0.637);
+ }
+ .register_form input[type=radio]:checked,
+ .edit_profile_form input[type="radio"]:checked{
+     background-color:  var(--input-color);
+ }
+ 
+ 
+ .register_form input[type=submit], 
+ .edit_profile_form input[type="submit"]{
+     text-transform: uppercase;
+     outline: 0;
+     background: #2AC0B1;
+     width: 50%;
+     border: 0;
+     padding: 15px;
+     margin-top:2em;
+     color: var(--panel-color);
+     font-size: 14px;
+ }
+ 
+ .register_form input[type=submit]:hover,
+ .edit_profile_form input[type="submit"]:hover{
+     background: rgba(15, 92, 84, 0.733);
+ }
+ 
+ .register_form label{
+     font-size: 14px;
+ }
+ 
+ .register_form select, .edit_profile_form select{
+     border:0;
+     margin: 2em;
+     padding: 10px 0px;
+     cursor: pointer;
+     width: 50%;
+     outline: 0;
+     background: var(--input-color);
+     margin-bottom: 1em;
   
-div.profile_info{
-    grid-area: info; 
-    font-family: 'Candara',sans-serif;
-    color: var(--bg-color-dark);
-}
-
-.profile_name h2{
-    font-size: 30px;
+ } 
+ .register_form input[type=date], .edit_profile_form input[type="date"]{
+     border:0;
+     margin-bottom: 2em;
+     padding: 10px 0px;
+     cursor: pointer;
+     width: 50%;
+     outline: 0;
+     background: var(--input-color);
+ }
+ 
+ .register_login_link{
+     grid-area:link;
+     text-align: center;
+     color: var(--input-color);
+     font-weight: normal;
+ }
+ 
+ .register_footer{
+     grid-area: footer;
+ }
+ 
+ /*-----------------------
+ ------- PROFILE----------
+ -------------------------*/
+ 
+ div.profile_container{
+ 
+     background-image: none;
+     background-color: var(--input-color);
+     background-image: none;
+     height: 100vh;
+     display: grid;
+     font-family: "Roboto", 'sans-serif';
+     /*colunas 2 : parte principal e aside */ 
+     grid-template-columns: 6fr 1fr;
+     /* linhas: header, profile info, nav, reviews,footer */
+     grid-template-rows: auto 1fr auto auto auto; 
+ 
+     grid-template-areas: "header header"
+                          "info  goto"
+                          "nav goto"
+                          "reviews goto"
+                          "footer footer";
+ }
+ 
+ .profile_header{
+     grid-area: header;
    
-}
-.profile_name img{
+ }
+ .profile_header p{
+     text-align: left;
+     color: var(--bg-color-light);
+     font-family: 'Candara',sans-serif;
+     font-size: 25px;
+     margin: 0;
+     letter-spacing: 0.05em;  
+ }
+ .profile_header p img{
+      
+     vertical-align: middle;
+  }
+ 
+  .Reviews p a, .Reviews p button{
+     -webkit-appearance: none;
+      margin-right: 2em;
+      width: 8.2em;
+      text-align: center;
+      margin-top:0em;
+      
+      
+  }
+  
+  .Reviews p button{
+      cursor: pointer;
+      border: 0;
+      width: 10em;
+  }
+   
+ div.profile_info{
+     grid-area: info; 
+     font-family: 'Candara',sans-serif;
+     color: var(--bg-color-dark);
+ }
+ 
+ .profile_name h2{
+     font-size: 30px;
+    
+ }
+ .profile_name img{
+     vertical-align: middle;
+ }
+ 
+ 
+ .edit_profile a , .Reviews p a,.Reviews p button,
+ .upload_photo input[type="file"],
+ .upload_photo input[type="submit"]{
+     float: right;
+     letter-spacing: 0.05em;
+     font-family: "Roboto",'sans-serif';
+     text-transform: uppercase;
+     text-decoration: none;
+     font-weight: bold;
+     background: var(--color-buttons);
+     padding: 10px;
+     color: var(--panel-color);
+     font-size: 10px;
+     border-radius: 2px;
+ }
+ 
+ .edit_profile .delete{
+     margin-right: 1.5em;
+     margin-bottom: 10px;
+ }
+ 
+ .edit_profile .edit{
+     margin-right: 1em;
+     margin-top: 1.9em;
+ }
+ 
+ 
+ .edit_profile .edit:hover, 
+ .edit_profile .delete:hover, 
+ .Reviews p :hover,
+ .upload_photo input[type="file"]:hover,
+ .upload_photo input[type="submit"]:hover{
+    color: rgb(93, 94, 93);
+ }
+ 
+ 
+ .side_nav{
+     background-color: var(--bg-color-sidenav);
+     grid-area: goto;
+ 
+ }
+ 
+ .Reviews{
+     grid-area: nav;
+     background-color: var(--bg-color-nav);
+     color: whitesmoke;
+     font-size: 20px;
+ }
+ 
+ div.profile_reviews{
+     grid-area: reviews; 
+ }
+ 
+ 
+ .review_content{
+     background-color: var(--input-color);
+ }
+ 
+ .profile_footer {
+     grid-area: footer;
+     background-color: var(--bg-color-dark);
+ }
+ 
+ 
+ /*-----------------------
+ -------EDIT PROFILE------
+ -------------------------*/
+ 
+ 
+ .edit_profile_container{
+     display: grid;
+     grid-template-columns:auto 3fr 1fr;
+     grid-auto-rows:auto auto auto auto;
+     grid-template-areas: "header header header"
+                          "photo info goto"
+                          "photo info goto"
+                          "footer footer footer";
+     background-image: none;
+     background-color: var(--input-color);  
+ }
+ 
+ .edit_profile_header{
+     grid-area: header;
+   
+ }
+ .edit_profile_header p{
+     text-align: left;
+     color: var(--bg-color-light);
+     font-family: 'Candara',sans-serif;
+     font-size: 25px;
+     margin: 0;
+     letter-spacing: 0.05em;  
+ }
+ .edit_profile_header p img{
+     vertical-align: middle;
+ }
+ 
+ .upload_photo{
+     grid-area: photo;
+     margin-left: 2em;    
+ }
+ 
+ .upload_photo img{
+     margin: 2em 0;
+     width: 12em;
+     height: 12em;
+     object-fit: cover;
+     border: 2px solid var(--bg-color-dark);
+ }
+ 
+ .upload_photo input[type="file"],
+ .upload_photo input[type="submit"]{
+     border:none;
+     outline: none;
+     cursor: pointer;
+   
+ } 
+ 
+ .upload_photo input[type="file"]{
+     width: 80%;
+     margin-right: 18%;
+     appearance: none;
+ }
+ .upload_photo input[type="submit"]{
+     margin:1em;
+     margin-right: 50%
+ }
+ 
+ .edit_profile_form{
+     grid-area: info;
+     float: left;
+ }
+ 
+ .edit_profile_form h1{
+     font-family: 'Candara', sans-serif;
+     font-weight: bold;
+     font-size: 40px;
+     letter-spacing: 0.03em;
+ }
+ 
+ .edit_profile_footer{
+     grid-area: footer;
+ }
+ 
+ .edit_profile_form input[type="text"]{
+     outline: 0;
+     background: var(--panel-color);  
+     width:50%;
+     border: 0;
+     margin: 0 0 15px;
+     padding: 15px;
+     box-sizing: border-box;
+     font-size: 14px;
+ }
+ 
+ .edit_profile_form input[type="radio"]{
+    
+     background: var(--panel-color);  
+ }
+ .edit_profile_form input[type="date"]{
+     background: var(--panel-color);  
+ }
+ .edit_profile_form select{
+     background: var(--panel-color);  
+     width: 50%;
+     margin:0 0 15px; 
+     padding: 10px;
+ }
+ .edit_profile_form input[type="email"]{
+     background: var(--panel-color);  
+ }
+ .edit_profile_form input[type="password"]{
+     background: var(--panel-color);  
+ }
+ 
+ .edit_profile_form p input[type="submit"]{
+     width: 25%;
+     margin:15px 10% 20px;
+     align-content: center;
+     cursor: pointer;
+ 
+ }
+ .edit_profile_form p a{
+     color: var(--bg-color-dark);
     vertical-align: middle;
-}
-
-
-.edit_profile a , .Reviews p a,.Reviews p button{
-    float: right;
-    letter-spacing: 0.05em;
-    font-family: "Roboto",'sans-serif';
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: bold;
-    background: var(--color-buttons);
-    padding: 10px;
-    color: var(--panel-color);
-    font-size: 10px;
-    border-radius: 2px;
-}
-
-.edit_profile .delete{
-    margin-right: 1.5em;
-    margin-bottom: 10px;
-}
-
-.edit_profile .edit{
-    margin-right: 1em;
-    margin-top: 1.9em;
-}
-
-
-.edit_profile .edit:hover, .edit_profile .delete:hover, .Reviews p :hover{
-   color: rgb(93, 94, 93);
-}
-
-
-.profile_side_nav{
-    background-color: var(--bg-color-sidenav);
-    grid-area: goto;
-
-}
-
-.Reviews{
-    grid-area: nav;
-    background-color: var(--bg-color-nav);
-    color: whitesmoke;
-    font-size: 20px;
-}
-
-div.profile_reviews{
-    grid-area: reviews; 
-}
-
-
-.review_content{
-    background-color: var(--input-color);
-}
-
-.profile_footer {
-    grid-area: footer;
-    background-color: var(--bg-color-dark);
-}
-
-
+    margin: 0;
+     
+ }
+ .edit_profile_footer{
+     grid-area: footer;
+ }
