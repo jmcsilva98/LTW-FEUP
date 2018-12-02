@@ -11,10 +11,14 @@
     // Verify if user is logged in
     if (!isset($_SESSION['username']))
     die(header('Location: login.php')); 
-  
-    $user_info = getUserInfo($_SESSION['username']);
-    print_r($user_info);
-    $user_reviews=getUserReviews($_SESSION['username']);
+    if ($_GET['username'] !=null){
+        $username=$_GET['username'];
+    }
+    else {
+        $username=$_SESSION['username'];
+    }
+    $user_info = getUserInfo($username);
+    $user_reviews=getUserReviews($username);
     
     draw_profile($user_info,$user_reviews);
     foreach ($user_reviews as $k => $review){

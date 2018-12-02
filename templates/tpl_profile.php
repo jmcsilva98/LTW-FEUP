@@ -80,7 +80,8 @@
         <div class="review_info">
              <h2><?=$review['Title']?> </h2>
             <h3><?=$review['ReviewDate']?></h3>
-            <a href="movie.php?movie_id=<?php echo htmlentities($review['MovieID'])?>"><?=$review['MovieName']?></a>                   <h4><?=$review['UserName']?> </h4>
+            <a href="movie.php?movie_id=<?php echo htmlentities($review['MovieID'])?>"><?=$review['MovieName']?></a><br>            
+            <a href="profile.php?username=<?php echo htmlentities($review['UserName'])?>"><?=$review['UserName']?></a>
         </div>
        
         <div class="review_content">
