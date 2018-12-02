@@ -2,6 +2,7 @@
 
 <?php 
 include_once(__DIR__.'/tpl_delete_account.php');
+include_once(__DIR__.'/tpl_review.php');
  ?>
 <!DOCTYPE html>
 <html>
@@ -70,7 +71,7 @@ include_once(__DIR__.'/tpl_delete_account.php');
 
 <?php } ?>
     <div class="Reviews">
-        <p>Reviews <button onclick="draw_review()"> add review</button>
+        <p>Reviews <input  onclick="openBox('Add Review')" type="submit" value ="Add Review">
         <a href="main_page.php"> Feed </a>
          </p>
    
@@ -106,7 +107,7 @@ include_once(__DIR__.'/tpl_delete_account.php');
             </div>                          
 
          <div class="comments">
-             <!-- <button type ="button"><?=$review['NumberComments']?> Comments -->
+         <input onclick="openBox('Show Comments',<?$review['ID']?>)" type="submit" value=<?=$review['NumberComments']?>Comments>
          </div>
         </div>
         <?php }?>
