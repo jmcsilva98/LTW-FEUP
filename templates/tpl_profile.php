@@ -1,4 +1,8 @@
 
+
+<?php 
+include_once(__DIR__.'/tpl_delete_account.php');
+ ?>
 <!DOCTYPE html>
 <html>
 
@@ -11,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src ="../js/review.js" defer></script>
+    <script src ="../js/box.js" defer></script>
 
 </head>
 
@@ -33,7 +38,7 @@
         <div class="edit_profile">
             <a href="edit_profile.php" class="edit"> edit profile </a><br>
            
-            <a href="../actions/action_delete_account.php?" class="delete">delete account</a>  
+            <input onclick="openBox('Delete Account')" type="submit" value="Delete Account"/>  
         </div>
 
         <!-- <div class="profile_picture"> -->
