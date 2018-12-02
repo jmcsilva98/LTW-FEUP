@@ -10,10 +10,12 @@ header('Content-Type: application/json');
 if (!isset($_SESSION['username']))
 die(json_encode(array('error' => 'not_logged_in')));
 $userName=$_SESSION['username'];
-$reviewID= $_POST['reviewID'];
+$reviewID = $_POST['reviewID'];
 $userID=getID($userName);
-$ret=insertUserLikes($userID,$reviewID);
-$updatedLikes= getLikesReview($reviewID);
-echo json_encode($updatedLikes);
+
+$ret=insertUserDisLikes($userID,$reviewID);
+$updatedDislikes= getDislikesReview($reviewID);
+echo json_encode($updatedDislikes);
+
 
 ?>

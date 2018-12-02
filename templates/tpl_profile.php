@@ -89,10 +89,12 @@
         <div class="review_likes">
         
             <div class="likes">
+                <input type="hidden" value =<?=$review['ID']?>>
                 <input type="button">
                 <h4><?=$review['Heart']?></h4>
             </div>
             <div class="dislikes">
+                <input type="hidden" value =<?=$review['ID']?>>
                 <input type="button">
                 <h4><?=$review['Dislike']?></h4>
             </div>                          
