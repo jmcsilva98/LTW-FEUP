@@ -11,7 +11,7 @@
     // Verify if user is logged in
     if (!isset($_SESSION['username']))
     die(header('Location: login.php')); 
-    if ($_GET['username'] !=null){
+    if (isset($_GET['username'])){
         $username=$_GET['username'];
     }
     else {
