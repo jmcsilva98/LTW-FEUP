@@ -6,5 +6,4 @@
             <input onclick="closeBox('Add Review')" type="submit" value="Add Review">
             
 </form>
-
 </div>

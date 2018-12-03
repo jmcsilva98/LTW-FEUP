@@ -1,18 +1,4 @@
-<?php   include_once('../templates/tpl_countries.php'); ?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Nabi</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-
-
-</head>
-
+<?php   include_once(__DIR__.'/tpl_countries.php'); ?>
 
 <body>
 
@@ -23,8 +9,6 @@
            <p> <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)"> nabi </p>
         </header>
     </div>
-   
-   
     <div class="register_form">
 
         <h1> Create a new account </h1>
@@ -59,5 +43,6 @@
     </div>
   
   </div>
+
 
  
