@@ -2,9 +2,11 @@
 
     include_once('../includes/session.php');
     include_once('../templates/tpl_edit_profile.php');
+    include_once('../templates/common/tpl_side_nav.php');
     include_once('../templates/common/tpl_footer.php');
     include_once('../database/db_user.php');
     include_once('../templates/tpl_countries.php'); 
+    include_once('../js/dropdown_menu.js'); 
   
     // Verify if user is logged in
     if (!isset($_SESSION['username']))

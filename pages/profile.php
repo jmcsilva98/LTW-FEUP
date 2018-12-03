@@ -28,7 +28,7 @@
     }
     draw_reviews($user_reviews);
     //draw_review();
-    draw_footer();
+  //  draw_footer();
 
 
 

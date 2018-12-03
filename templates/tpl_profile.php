@@ -16,6 +16,7 @@
 
 <body>
 <?php function draw_profile($userinfo, $reviews) { ?>
+
 <div class="profile_container">
 
     <div class="profile_header">
@@ -44,7 +45,8 @@
 
         <div class="profile_name">
             <h2>  <img src="../assets/avatar.png" width="100" height="100"> 
-                  <?=$userinfo['FirstName']?> <?=$userinfo['LastName']?> </h2>
+                  <?=$userinfo['FirstName']?> <?=$userinfo['LastName']?>
+            </h2>
         </div>
 
         <div class="profile_country">
@@ -80,7 +82,8 @@
         <div class="review_info">
              <h2><?=$review['Title']?> </h2>
             <h3><?=$review['ReviewDate']?></h3>
-            <a href="movie.php?movie_id=<?php echo htmlentities($review['MovieID'])?>"><?=$review['MovieName']?></a>                   <h4><?=$review['UserName']?> </h4>
+            <a href="movie.php?movie_id=<?php echo htmlentities($review['MovieID'])?>"><?=$review['MovieName']?></a>
+            <h4><?=$review['UserName']?> </h4>
         </div>
        
         <div class="review_content">
@@ -98,7 +101,7 @@
             </div>                          
 
          <div class="comments">
-             <!-- <button type ="button"><?=$review['NumberComments']?> Comments -->
+             <button type ="button"><?=$review['NumberComments']?> Comments
          </div>
         </div>
         <?php }?>
