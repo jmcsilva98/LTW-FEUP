@@ -1,18 +1,4 @@
 
-<!DOCTYPE html>
-<html>
-
-
-<head>
-    <title>Nabi</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-</head>
-
 <body>
 
     <div class="login_container">
@@ -42,13 +28,20 @@
         <p>Don't have an account? <a href="register.php">Sign up here.</a></p>
     </div>
 
+    
     <div class="login_footer">
-    <footer>
-        <p> &#169; FEUP 2018 Web Languages and Technologies | Made by Rita Norinho and Joana Silva  </p>
-    </footer>
+        <footer>
+            <p> &#169; FEUP 2018 Web Languages and Technologies | Made by Rita Norinho and Joana Silva  </p>
+        </footer>
     </div>
+
+    </div>
+    </body>
+    </html>
+
+  
    
-    </div>
+    
 
 
 

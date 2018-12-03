@@ -6,6 +6,7 @@ include_once(__DIR__.'/tpl_delete_account.php');
  ?>
 
 <body>
+
 <?php function draw_profile($userinfo, $reviews) { ?>
 
 <div class="profile_container">
@@ -16,17 +17,23 @@ include_once(__DIR__.'/tpl_delete_account.php');
        </header>
     </div>
 
-    <div class="profile_side_nav">
-        
+    <div class="side_nav">
+      <!-- chamar o draw side map -->
     </div>
 
     <div class="profile_info" >
 
         <div class="edit_profile">
-            <a href="edit_profile.php" class="edit"> edit profile </a><br>
-           
-            <input onclick="openBox('Delete Account')" type="submit" value="Delete Account"/>  
-        </div>
+
+           <p>
+               
+           <div class="delete">
+                <input onclick="openBox('Delete Account')" type="submit" value="Delete Account"/>  
+            </div>
+             <a href="edit_profile.php" class="edit"> edit profile </a>
+            </p>
+    
+       </div>
 
         <!-- <div class="profile_picture"> -->
     
@@ -35,7 +42,7 @@ include_once(__DIR__.'/tpl_delete_account.php');
          <!-- </div> -->
 
         <div class="profile_name">
-            <h2>  <img src="../assets/avatar.png" width="100" height="100"> 
+            <h2>  <img src="../assets/avatar.png" width="100" height="100" alt="profile avatar"> 
                   <?=$userinfo['FirstName']?> <?=$userinfo['LastName']?>
             </h2>
         </div>
@@ -50,11 +57,30 @@ include_once(__DIR__.'/tpl_delete_account.php');
 
 
         <div class="profile_points">
-            <h3><?=$userinfo['Points']?> Stars </h3>  
+        <h3><img src="../assets/star.png" alt ="star icon" >
+            <?=$userinfo['Points']?> Stars </h3>  
         </div>
 
 
     </div>
 
+    <div class="Reviews">
+        <p>Reviews
+         <input  onclick="openBox('Add Review')" type="submit" value ="Add Review">
+        <a href="main_page.php"> Feed </a> </p>
+   
+    </div>
+
+     <div class="profile_reviews">
+        <?php draw_reviews($reviews); ?>
+    </div>
+
+    <div class="profile_footer">
+         <?php draw_footer(); ?>
+    </div>
+    </div>
 <?php } ?>
-</body>
+
+ 
+    </body>
+    </html>

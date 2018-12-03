@@ -1,14 +1,14 @@
 /* --------------------------
    ---------GENERIC----------
    -------------------------- */
-
+/* 
    html{
     height:100% ;
  }
- 
+  */
  body{
      margin: 0 auto;
-     min-height:100% ;
+     /* min-height:100% ; */
      font-family: 'Roboto', sans-serif;
      
      --bg-color-dark: #0D2D22;
@@ -137,13 +137,9 @@
  }
  
  .login_footer{
-     grid-area: footer;
-     /* text-align: center;
-     background-color:  var(--bg-color-dark);
-     font-size: 1em;
-     font-weight: 200;
-     color:white; */
-     
+      grid-area: footer;
+      
+      /* background-color: var(--bg-color-dark);      */
  }
  
  /* --------------------------
@@ -311,7 +307,7 @@
      background-image: none;
      background-color: var(--input-color);
      background-image: none;
-     height: 100vh;
+     /* height: 100vh; */
      display: grid;
      font-family: "Roboto", 'sans-serif';
      /*colunas 2 : parte principal e aside */ 
@@ -343,20 +339,22 @@
      vertical-align: middle;
   }
  
-  .Reviews p a, .Reviews p button{
+  .Reviews p a, .Reviews p button, .Reviews input[type="submit"]{
      -webkit-appearance: none;
       margin-right: 2em;
       width: 8.2em;
       text-align: center;
       margin-top:0em;
-      
-      
+    
   }
   
-  .Reviews p button{
+  .Reviews p button, 
+  .Reviews input[type="submit"],
+  .edit_profile input[type="submit"],
+  .comments input[type="submit"]{
       cursor: pointer;
       border: 0;
-      width: 10em;
+      width: 11em;
   }
    
  div.profile_info{
@@ -364,9 +362,14 @@
      font-family: 'Candara',sans-serif;
      color: var(--bg-color-dark);
  }
+ .profile_points img{
+    width: 25pt;
+    height: 25pt;
+    vertical-align: middle;
+ }
  
  .profile_name h2{
-     font-size: 30px;
+     font-size: 40px;
     
  }
  .profile_name img{
@@ -376,7 +379,10 @@
  
  .edit_profile a , .Reviews p a,.Reviews p button,
  .upload_photo input[type="file"],
- .upload_photo input[type="submit"]{
+ .upload_photo input[type="submit"],
+ .Reviews input[type="submit"],
+ .edit_profile input[type="submit"],
+ .comments input[type="submit"]{
      float: right;
      letter-spacing: 0.05em;
      font-family: "Roboto",'sans-serif';
@@ -390,22 +396,25 @@
      border-radius: 2px;
  }
  
- .edit_profile .delete{
-     margin-right: 1.5em;
-     margin-bottom: 10px;
+ .profile_info p {
+   margin-top: 1em;
+   margin-right: 1em;
  }
- 
- .edit_profile .edit{
-     margin-right: 1em;
-     margin-top: 1.9em;
+ .edit{
+     margin-right:0.5em;
  }
- 
+ .delete{
+     margin-right:0.5em;
+ }
+
  
  .edit_profile .edit:hover, 
  .edit_profile .delete:hover, 
  .Reviews p :hover,
  .upload_photo input[type="file"]:hover,
- .upload_photo input[type="submit"]:hover{
+ .upload_photo input[type="submit"]:hover,
+ .edit_profile input[type="submit"]:hover,
+ .comments input[type="submit"]:hover{
     color: rgb(93, 94, 93);
  }
  
@@ -415,7 +424,7 @@
      grid-area: goto;
      font-size: 25px;
      font-family: "Roboto",sans-serif;
-     overflow-x: hidden;
+     /* overflow-x: hidden; */
  }
  .side_nav a{
     color:var(--bg-color-dark);
@@ -448,16 +457,58 @@
  
  div.profile_reviews{
      grid-area: reviews; 
- }
  
+ }
+
+ .review_inf{
+     margin-top: 2em;
+     padding: 0.5em;
+     background-color: #c0b8b879;
+
+ }
+  .review_info h2{
+    font-family: 'Candara', sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+
+ }
  
  .review_content{
-     background-color: var(--input-color);
+     margin: 0;
+     font-family: 'Roboto', sans-serif;
+     background-color: #d8d5d579;
+     font-size: 16px;
+     font-weight: 200;
+     word-spacing: 0.1em;
+     padding: 2em;
+     line-height: 1.6;
+
+ }
+ .review_likes{
+    background-color: #c0b8b879;
+    padding: 1.5em;
  }
  
+ .likes h4 span,  .dislikes h4 span{
+    font-size: 30px;
+    color: var(--bg-color-dark);
+
+ }
+ /* .review_likes{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+    padding: 0 ;
+ } */
+
+.comments input[type="submit"]{
+    margin:0 auto;
+    float: none;
+}
+
  .profile_footer {
      grid-area: footer;
-     background-color: var(--bg-color-dark);
+     /* background-color: var(--bg-color-dark); */
  }
  
  
@@ -659,3 +710,36 @@
  .edit_profile_footer{
      grid-area: footer;
  }
+
+/*---------------------
+------POPUP WINDOW-----
+-----------------------*/
+
+   .popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+   }
+
+   .popup-content{
+    display: flex;
+    flex-direction: column;
+    max-height: 50%;
+    width: 30%;
+    padding: 1.5em;
+    margin: 10% auto;
+    background: white;
+    box-shadow: 0 0 1em 0.2em rgba(0, 0, 0, 0.2);
+   }
+
+   .popup-content .buttons {
+    display: flex;
+    justify-content: flex-end;
+    min-height: min-content;
+  }

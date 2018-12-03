@@ -2,7 +2,9 @@
 
 
     include_once('../includes/session.php');
+    include_once('../templates/common/tpl_header.php');
     include_once('../templates/common/tpl_footer.php');
+    include_once('../templates/common/tpl_side_nav.php');
     include_once('../templates/tpl_movie.php');
     include_once('../database/db_movies.php');
     include_once('../database/db_user.php');

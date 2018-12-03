@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Nabi</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
-
-</head>
-
 <body>
     <?php function draw_edit_profile($userinfo) {?>
     <div class="edit_profile_container">
