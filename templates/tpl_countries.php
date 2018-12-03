@@ -1,8 +1,8 @@
-<?php function select_country() { 
+<?php function select_country() {?>
 
 /**
  * Options of all countries
- */ ?>
+ */ 
 
 <option value="">Country...</option>
 <option value="AF">Afghanistan</option>

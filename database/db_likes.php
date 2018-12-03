@@ -17,8 +17,6 @@ function userLikes($userId,$reviewId){
  function insertUserLikes($userId,$reviewId){
         try{
             $db = Database::instance()->db();
-            $s = $db->prepare('DELETE FROM LikeReview WHERE UserID =? AND ReviewID=?');
-            $s->execute(array($userId,$reviewId));
             $stmt = $db->prepare('INSERT INTO LikeReview VALUES(?, ?)');
             $stmt->execute(array($userId,$reviewId));
         }catch(PDOException $e) {
@@ -26,6 +24,18 @@ function userLikes($userId,$reviewId){
         }
     
     }
+
+    
+ function insertUserDislikes($userId,$reviewId){
+    try{
+        $db = Database::instance()->db();
+        $stmt = $db->prepare('INSERT INTO DislikeReview VALUES(?, ?)');
+        $stmt->execute(array($userId,$reviewId));
+    }catch(PDOException $e) {
+        return -1;
+    }
+
+}
 
 
 

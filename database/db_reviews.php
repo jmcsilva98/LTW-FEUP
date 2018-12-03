@@ -102,12 +102,12 @@ function getReviewsComments($reviewId,$userId){
         $db = Database::instance()->db();
         $stmt = $db->prepare('SELECT ID FROM Comment WHERE ReviewID = ? AND UserID = ?');
         $stmt->execute(array($reviewId,$userId));
-        $row= $stmt->fetch();
+        $row= $stmt->fetchAll();
        
         $numberComments= count($row);
         return $numberComments;
 
-    }catch(PDOException $e) {
+    }catch(PDOException $e) { 
         return -1;
     }
 }

@@ -1,8 +1,9 @@
 <?php
 
     include_once('../includes/session.php');
-    include_once('../templates/tpl_review.php');
+    include_once('../templates/common/tpl_header.php');
     include_once('../templates/tpl_profile.php');
+    include_once('../templates/tpl_draw_reviews.php');
     include_once('../templates/common/tpl_footer.php');
    
     include_once('../database/db_user.php');
@@ -11,10 +12,14 @@
     // Verify if user is logged in
     if (!isset($_SESSION['username']))
     die(header('Location: login.php')); 
-  
-    $user_info = getUserInfo($_SESSION['username']);
-    print_r($user_info);
-    $user_reviews=getUserReviews($_SESSION['username']);
+    if (isset($_GET['username'])){
+        $username=$_GET['username'];
+    }
+    else {
+        $username=$_SESSION['username'];
+    }
+    $user_info = getUserInfo($username);
+    $user_reviews=getUserReviews($username);
     
     draw_profile($user_info,$user_reviews);
     foreach ($user_reviews as $k => $review){
