@@ -21,6 +21,15 @@ include_once(__DIR__.'/tpl_delete_account.php');
       <!-- chamar o draw side map -->
     </div>
 
+      <div class="profile_photo">
+          <?php if(!(file_exists("../assets/profilePhotos/".getID($_SESSION['username']).".jpg"))){ ?>
+            <img src="../assets/profilePhotos/default.jpg" width="100" height="100" alt="profile avatar"> 
+          <?php } else{ ?>
+            <img src="../assets/profilePhotos/<?=getID($_SESSION['username'])?>.jpg" width="100" height="100" alt="profile avatar"> 
+           <?php } ?>
+     </div>
+
+
     <div class="profile_info" >
 
         <div class="edit_profile">
@@ -35,14 +44,8 @@ include_once(__DIR__.'/tpl_delete_account.php');
     
        </div>
 
-        <!-- <div class="profile_picture"> -->
-    
-         <!-- <img src=<?=$userinfo['Photo']?>> -->
-        
-         <!-- </div> -->
-
         <div class="profile_name">
-            <h2>  <img src="../assets/avatar.png" width="100" height="100" alt="profile avatar"> 
+            <h2> 
                   <?=$userinfo['FirstName']?> <?=$userinfo['LastName']?>
             </h2>
         </div>
@@ -61,14 +64,24 @@ include_once(__DIR__.'/tpl_delete_account.php');
             <?=$userinfo['Points']?> Stars </h3>  
         </div>
 
+             
+        <div class="search_container">
+          <input class="search_input" type="text" placeholder="Search">
+        </div>
 
     </div>
 
+
     <div class="Reviews">
+
         <p>Reviews
-         <input  onclick="openBox('Add Review')" type="submit" value ="Add Review">
-        <a href="main_page.php"> Feed </a> </p>
-   
+
+        <input  onclick="openBox('Add Review')" type="submit" value ="Add Review">
+        <a href="main_page.php"> Feed </a>     
+        
+        
+        </p>
+
     </div>
 
      <div class="profile_reviews">

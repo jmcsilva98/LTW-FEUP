@@ -150,7 +150,7 @@
   function updateUserPhoto($username, $photo){
     $id=getID($username);
     $db = Database::instance()->db();
-    $stmt = $db->prepare('UPDATE User SET Photo = ? WHERE UserID = ? ');
+    $stmt = $db->prepare('UPDATE User SET Photo = $photo WHERE UserID = ? ');
     $stmt->execute(array($id));
  
    return $stmt->fetch();

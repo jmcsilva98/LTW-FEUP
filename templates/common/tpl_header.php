@@ -11,5 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src ="../js/review.js" defer></script>
     <script src ="../js/box.js" defer></script>
+    <script src ="../js/dropdown_menu.js" defer></script>
 
 </head>

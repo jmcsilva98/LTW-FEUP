@@ -3,38 +3,54 @@
 include_once('../includes/session.php');
 include_once('../database/db_user.php');
 
-// Directory path to where the photos should be uploaded
+// $image = imagecreatefromjpeg($_FILES["file_upload"]["tmp_name"]));
+// if($image === false){
+//     $image = imagecreatefrompng($_FILES["file_upload"]["tmp_name"]);
+//     if($image === false)  {
+//         $image = imagecreatefromjpg($_FILES["file_upload"]["tmp_name"]);
+//             if($image === false){
+
+//             }else{
+//                 $type = ".jpg"; 
+//             }
+//     }else{
+//         $type = ".png";
+//     }
+    
+// }
+// else
+//     $type = ".jpeg";              
+ 
+$image = $_FILES["file_upload"]["tmp_name"];
 $dir = "../assets/profilePhotos/";
-$name = basename($_FILES["file_upload"]["name"]);
 
-$image_type = pathinfo($name,PATHINFO_EXTENSION);
-$file = $dir . getID($_SESSION['username']) . "." . $image_type;
-$upload_working = 1;
+$image_info = getimagesize($image);
 
-
-if(!($image_type == "jpg" && $image_type == "jpeg" && $image_type == "png")){
-   
-    $_SESSION['ERROR'] = "ERROR:: The file format isn't allowed, you can only upload JPG, PNG and JPEG files.";
-    $upload_working = 0;
+switch ($image_info[2]) {
+    case  IMAGETYPE_JPEG:
+        $final_image = imagecreatefromjpeg($image);
+        break;
+    case  IMAGETYPE_PNG:
+        $final_image = imagecreatefrompng($image);
+        break;
+    case  IMAGETYPE_GIF:
+        $final_image = imagecreatefromgif($image);
+        break;
+    case  IMAGETYPE_BMP:
+        $final_image = imagecreatefrombmp($image);
+        break;
+    
+    default : 
+        die("Unknown filetype");
+        break;
 }
 
-if(file_exists($file)) unlink($file);
 
-if($upload_working){
-    if(move_uploaded_file($file["file_upload"]["photo_name"], $file)){
-        if(updateUserPhoto($_SESSION['username'], getID($_SESSION['username']) . "." . $image_type) == null){
-            $_SESSION['ERROR'] = "ERROR:: Error while uploading photo";
-             $upload_working = 0;
-        }
-    }else{
-            $_SESSION['ERROR'] = "ERROR:: Error while uploading photo";
-            $upload_working = 0;
-        }
+$file = $dir . getID($_SESSION['username']);
 
-}else{
-    $_SESSION['ERROR'] = "ERROR:: Error while uploading photo";
-}
 
-    header("Location:".$_SERVER['HTTP_REFERER']."");
+imagejpeg($final_image, $file.".jpg");
+
+header("Location:".$_SERVER['HTTP_REFERER']."");
 
 ?>

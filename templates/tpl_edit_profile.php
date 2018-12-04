@@ -15,9 +15,9 @@
                    <span class="fas fa-user-circle"></span> 
                    <?php echo htmlentities($userinfo['FirstName']) ?> </a>
 
-                <div class="menu">
+                <!-- <div class="menu"> -->
 
-                    <div class="menu_title" onclick="menu()"> 
+                    <!-- <div class="menu_title" onclick="menu()"> 
                     <?php echo htmlentities($userinfo['FirstName']) ?>
                     <span class="fa fa-bars"></span>
                         <div class="arrow"></div>
@@ -38,7 +38,7 @@
                         <a class="logout_btn" href="../actions/action_logout.php">
                             <p> Logout <span class="fas fa-sign-out-alt"></span> </p>
                         </a>
-                        </div>
+                        </div> -->
         
         
             </header>
@@ -52,11 +52,15 @@
 
         <div class="upload_photo">
             <form method="post" action="../actions/action_upload_profile_photo.php" enctype="multipart/form-data" >
-               <!-- ARRANJAR BASE DE DADOS -->
-               <!-- <img id="profile_photo" src="<?php echo htmlentities('../assets/profilePhotos/'.$userinfo['Photo']) ?>" alt="Profile photo"><br> -->
-              <img id="profile_photo" src="../assets/default.jpg" alt="Profile photo"><br> 
+
+                 <?php if(!(file_exists("../assets/profilePhotos/".getID($_SESSION['username']).".jpg"))){ ?>
+                    <img id="profile_photo" src="../assets/profilePhotos/default.jpg" alt="Profile photo"><br> 
+                 <?php } else{ ?>
+                    <img id="profile_photo" src="../assets/profilePhotos/<?=getID($_SESSION['username'])?>.jpg" alt="Profile photo"><br> 
+                 <?php } ?>
                 <input type="file" id="file_upload" name="file_upload"><br>
                 <input type="submit" value="Upload"><br>
+    
             </form>
         </div>
 

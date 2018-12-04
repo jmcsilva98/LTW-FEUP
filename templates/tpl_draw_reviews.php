@@ -24,13 +24,13 @@
            
                 <div class="likes">
                     <input type="hidden" value =<?=$review['ID']?>>
-                    <!-- <input type="button"> -->
+                    <input type="button">
                     <h4><span class="fas fa-heart" ></span>
                     <?=$review['Heart']?></h4>
                 </div>
                 <div class="dislikes">
                     <input type="hidden" value =<?=$review['ID']?>>
-                    <!-- <input type="button"> -->
+                    <input type="button">
                     <h4><span class="fas fa-heartbeat"></span>
                     <?=$review['Dislike']?></h4>
                 </div>               

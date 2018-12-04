@@ -303,23 +303,22 @@
  -------------------------*/
  
  div.profile_container{
- 
-     background-image: none;
+
      background-color: var(--input-color);
      background-image: none;
      /* height: 100vh; */
      display: grid;
      font-family: "Roboto", 'sans-serif';
      /*colunas 2 : parte principal e aside */ 
-     grid-template-columns: 6fr 1fr;
+     grid-template-columns: auto 6fr 1fr;
      /* linhas: header, profile info, nav, reviews,footer */
      grid-template-rows: auto 1fr auto auto auto; 
- 
-     grid-template-areas: "header header"
-                          "info  goto"
-                          "nav goto"
-                          "reviews goto"
-                          "footer footer";
+
+     grid-template-areas: "header header header"
+                          "image info  goto"
+                          "nav nav goto"
+                          "reviews reviews goto"
+                          "footer footer footer";
  }
  
  .profile_header{
@@ -361,19 +360,36 @@
      grid-area: info; 
      font-family: 'Candara',sans-serif;
      color: var(--bg-color-dark);
+     padding-left: 1em;
  }
  .profile_points img{
+
     width: 25pt;
     height: 25pt;
     vertical-align: middle;
  }
- 
- .profile_name h2{
-     font-size: 40px;
     
+ .profile_photo{
+    grid-area: image;
+    padding: 1em;
+    padding-top: 2.5em;
  }
- .profile_name img{
-     vertical-align: middle;
+ 
+ .profile_photo img{
+     /* vertical-align: middle; */
+     margin:0;
+     width: 10.2em;
+     height: 10em;
+     object-fit: cover;
+     border: 2px solid var(--bg-color-dark);
+     border-radius: 5em;
+ }
+ .profile_name h2 {
+    font-size: 45px; 
+}
+
+ .profile_contry{
+     margin-left: 4em;
  }
  
  
@@ -406,8 +422,6 @@
  .delete{
      margin-right:0.5em;
  }
-
- 
  .edit_profile .edit:hover, 
  .edit_profile .delete:hover, 
  .Reviews p :hover,
@@ -454,6 +468,59 @@
      color: whitesmoke;
      font-size: 20px;
  }
+
+ .search_container {
+    width: 150px;
+    margin: 0;
+    float: right;
+    margin-right: 2em;
+    margin-bottom: 0.2em;
+    font-family: 'Raleway', sans-serif;
+    }
+    
+ .search_title {
+        font-size: 14px;
+        font-weight: 500;
+        text-align: center;
+        color: #ff8b88;
+    }
+    
+   .search_input {
+        width: 100%;
+        padding: 6px 12px;
+
+        background-color: transparent;
+        transition: transform 250ms ease-in-out;
+        font-size: 12x;
+        line-height: 18px;
+        
+        color: #575756;
+        background-color: transparent;
+        background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg);
+        background-repeat: no-repeat;
+        background-size: 16px 16px;
+        background-position: 95% center;
+        border-radius: 50px;
+        border: 1px solid #575756;
+        transition: all 250ms ease-in-out;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+      }  
+   .search_input::placeholder {
+            color: color(#575756 a(0.8));
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+     }
+        
+    .search_input:hover,
+    .search_input:focus {
+            padding: 6px 0;
+            outline: 0;
+            border: 1px solid transparent;
+            border-bottom: 1px solid #575756;
+            border-radius: 0;
+            background-position: 100% center;
+        }
  
  div.profile_reviews{
      grid-area: reviews; 
