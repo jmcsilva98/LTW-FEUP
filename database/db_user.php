@@ -161,7 +161,18 @@
 
   }
 
+function incrementPoints($id){
 
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('UPDATE User SET Points = 1 + Points WHERE ID = ?');
+  $stmt->execute(array($id));
+}
+
+function decrementPoints($id){
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('UPDATE User SET Points = Points - 1 WHERE ID = ?');
+  $stmt->execute(array($id));
+}
 
 
 

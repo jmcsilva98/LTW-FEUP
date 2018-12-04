@@ -19,7 +19,7 @@
         $all_reviews[$k]['UserName'] = getUsername($review['UserID']);
         $all_reviews[$k]['NumberComments']=getReviewsComments($review['ID'],$review['UserID']);
         $all_reviews[$k]['Heart'] = getLikesReview($review['ID']);
-        $all_reviews[$k]['Dislike'] = getLikesReview($review['ID']);
+        $all_reviews[$k]['Dislike'] = getDislikesReview($review['ID']);
     }
     draw_reviews($all_reviews);
     draw_footer();
