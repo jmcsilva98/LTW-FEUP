@@ -167,7 +167,20 @@ function getDisLikesReview($reviewId){
     }
 
 }
+function getUserReview($reviewId) {
 
+    try{
+        $db = Database::instance()->db();
+        $stmt = $db->prepare('SELECT UserID FROM Review WHERE ReviewID = ?');
+        $stmt->execute(array($reviewId));
+        $row= $stmt->fetch();
+        return $row['UserID'];
+
+    }catch(PDOException $e) {
+        return -1;
+    }
+
+}
 
 
 

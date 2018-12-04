@@ -18,7 +18,8 @@ insertUserLikes($userID,$reviewID);
 incrementPoints($userID);
 $updatedLikes= getLikesReview($reviewID);
 $updatedDislikes =getDislikesReview($reviewID);
-$values=array('likes'=>$updatedLikes,'dislikes'=>$updatedDislikes);
+$reviewUser=getUserReview($reviewID);
+$values=array('likes'=>$updatedLikes,'dislikes'=>$updatedDislikes,'user'=>$reviewUser);
 echo json_encode($values);
 
 ?>
