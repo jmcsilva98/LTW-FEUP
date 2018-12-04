@@ -15,7 +15,7 @@ if (userDislikes($userID,$reviewID)>0) {
   deleteUserDislikes($userID,$reviewID);
 }
 insertUserLikes($userID,$reviewID);
-
+incrementPoints($userID);
 $updatedLikes= getLikesReview($reviewID);
 $updatedDislikes =getDislikesReview($reviewID);
 $values=array('likes'=>$updatedLikes,'dislikes'=>$updatedDislikes);
