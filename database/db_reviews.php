@@ -144,7 +144,7 @@ function getLikesReview($reviewId){
         $db = Database::instance()->db();
         $stmt = $db->prepare('SELECT UserID FROM LikeReview  WHERE ReviewID = ?');
         $stmt->execute(array($reviewId));
-        $allLikes= $stmt->fetch();
+        $allLikes= $stmt->fetchAll();
         return count($allLikes);
 
     }catch(PDOException $e) {
@@ -157,9 +157,9 @@ function getDisLikesReview($reviewId){
 
     try{
         $db = Database::instance()->db();
-        $stmt = $db->prepare('SELECT UserID FROM LikeReview  WHERE ReviewID = ?');
+        $stmt = $db->prepare('SELECT UserID FROM DislikeReview  WHERE ReviewID = ?');
         $stmt->execute(array($reviewId));
-        $allDisLikes= $stmt->fetch();
+        $allDisLikes= $stmt->fetchAll();
         return count($allDisLikes);
 
     }catch(PDOException $e) {

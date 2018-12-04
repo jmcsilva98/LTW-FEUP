@@ -1,3 +1,4 @@
+'use strict'
 let likes = document.querySelectorAll('.likes input[type=button]');
 likes.forEach((like) => like.addEventListener('click', incrementLikes))
 
@@ -7,29 +8,32 @@ dislikes.forEach((dislike) => dislike.addEventListener('click', incrementDislike
 
 function incrementLikes(event)
 {
-    let reviewID = document.querySelector('.likes input[type="hidden"]').value
-    
-    let reviewLikes= document.querySelector('.likes').getElementsByTagName('h4')[0].innerText
-
+    let reviewID = event.target.parentElement.parentElement.parentElement.getAttribute('data-id')
     let request = new XMLHttpRequest()
     request.open("post", "../actions/action_api_likes.php", true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    request.send(encodeForAjax({reviewID,reviewLikes}))
-    console.log(request)
-    event.preventDefault();
+    request.addEventListener("load", function () {
+      let item = JSON.parse(this.responseText)
+      document.querySelector('.likes').getElementsByTagName('h4')[0].textContent=item['likes']
+      document.querySelector('.dislikes').getElementsByTagName('h4')[0].textContent=item['dislikes']
+    })  
+
+    request.send(encodeForAjax({reviewID}))
 }
 
 function incrementDislikes(event)
 {
-    let reviewID = document.querySelector('.dislikes input[type="hidden"]').value
-    let reviewDislikes= document.querySelector('.dislikes').getElementsByTagName('h4')[0].innerText
-
+    let reviewID = event.target.parentElement.parentElement.parentElement.getAttribute('data-id')
     let request = new XMLHttpRequest()
     request.open("post", "../actions/action_api_dislikes.php", true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    request.send(encodeForAjax({reviewID,reviewDislikes}))
-    console.log(request)
-    event.preventDefault();
+    request.addEventListener("load", function () {
+      let item = JSON.parse(this.responseText)
+      document.querySelector('.likes').getElementsByTagName('h4')[0].textContent=item['likes']
+      document.querySelector('.dislikes').getElementsByTagName('h4')[0].textContent=item['dislikes']
+    })  
+
+    request.send(encodeForAjax({reviewID}))
 }
 
 // Helper function

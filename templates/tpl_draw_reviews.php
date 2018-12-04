@@ -1,11 +1,12 @@
 
 <?php include_once(__DIR__.'/tpl_review.php'); ?>
 
+<body>
     
     <?php function draw_reviews($reviews){?>
        
     <?php foreach($reviews as $review){?>
-        
+        <article data-id="<?=$review['ID']?>">
         <div class="review_info">
              <h2><?=$review['Title']?> </h2>
            
@@ -20,26 +21,21 @@
             <h5><?=$review['Description']?></h5>
         </div>
         <div class="review_likes">
-        
-           
                 <div class="likes">
-                    <input type="hidden" value =<?=$review['ID']?>>
-                    <!-- <input type="button"> -->
+                    <input type="button"> 
                     <h4><span class="fas fa-heart" ></span>
                     <?=$review['Heart']?></h4>
                 </div>
                 <div class="dislikes">
-                    <input type="hidden" value =<?=$review['ID']?>>
-                    <!-- <input type="button"> -->
+                    <input type="button">
                     <h4><span class="fas fa-heartbeat"></span>
                     <?=$review['Dislike']?></h4>
-                </div>               
-
+                </div>  
+        </div>             
          <div class="comments">
             <input onclick="openBox('Show Comments',<?$review['ID']?>)" type="submit" value="<?=$review['NumberComments']?> Comments">
         </div>
-        </div>
-        <?php }?>
-   
+        </article>     
+        <?php }?> 
     <?php }?>
-
+</body>
