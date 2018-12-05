@@ -3,6 +3,7 @@ likesComment.forEach((like) => like.addEventListener('click', incrementLikesComm
 let dislikesComment= document.querySelectorAll('span.dislikes');
 dislikesComment.forEach((like) => like.addEventListener('click', incrementDislikesComment))
 
+
 function incrementLikesComment(event)
 {
   let commentID= event.target.parentElement.getAttribute('data-id');

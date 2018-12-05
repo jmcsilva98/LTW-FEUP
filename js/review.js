@@ -5,9 +5,10 @@ likes.forEach((like) => like.addEventListener('click', incrementLikes))
 let dislikes = document.querySelectorAll('.dislikes input[type=button]');
 dislikes.forEach((dislike) => dislike.addEventListener('click', incrementDislikes))
 
-let comments = document.querySelectorAll('.comments input[type=button]');
-comments.forEach((comment) => comment.addEventListener('click', showComments))
 
+let review = document.querySelectorAll('.popup-content input[type=submit]')[1]
+
+review.addEventListener('click',addReview)
 
 function incrementLikes(event)
 {
@@ -44,15 +45,24 @@ function incrementDislikes(event)
     request.send(encodeForAjax({reviewID,userID}))
 }
 
-function showComments(event)
-{
-  console.log(event.target.parentElement.querySelector('.allComments'))
-  if(event.target.parentElement.querySelector('.allComments').style.display != "none")
-  event.target.parentElement.querySelector('.allComments').style.display="none"
-  else 
-  event.target.parentElement.querySelector('.allComments').style.display="block"
+function addReview(event){
+  let description = document.getElementById("addReviewForm").elements.namedItem('description').value
+  let movie = document.getElementById("addReviewForm").elements.namedItem('movie').value
+  console.log(movie)
+  let title = document.getElementById("addReviewForm").elements.namedItem('title').value
 
-    
+  let request = new XMLHttpRequest()
+  request.open("post", "../actions/action_api_insert_review.php", true)
+  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+  request.addEventListener("load", function () {
+  let item = JSON.parse(this.responseText)
+  console.log(item)
+
+  })
+  request.send(encodeForAjax({title,movie,description}))
+  event.preventDefault();
+  
+ 
 }
 
 // Helper function
