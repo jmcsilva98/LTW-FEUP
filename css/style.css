@@ -398,7 +398,7 @@
  
  
  .edit_profile a , .Reviews p a,.Reviews p button,
- .upload_photo input[type="file"],
+ .upload_photo .file_btn,
  .upload_photo input[type="submit"],
  .Reviews input[type="submit"],
  .edit_profile input[type="submit"],
@@ -429,7 +429,7 @@
  .edit_profile .edit:hover, 
  .edit_profile .delete:hover, 
  .Reviews p :hover,
- .upload_photo input[type="file"]:hover,
+ .upload_photo .file_btn:hover,
  .upload_photo input[type="submit"]:hover,
  .edit_profile input[type="submit"]:hover,
  .comments input[type="submit"]:hover{
@@ -619,18 +619,20 @@
  
  .upload_photo{
      grid-area: photo;
+     padding-right: 3em;
      margin-left: 2em;    
  }
  
  .upload_photo img{
-     margin: 2em 0;
+     margin: 3em 0;
      width: 12em;
      height: 12em;
+     margin-bottom: 1em;
      object-fit: cover;
      border: 2px solid var(--bg-color-dark);
  }
  
- .upload_photo input[type="file"],
+ .upload_photo .file_btn,
  .upload_photo input[type="submit"]{
      border:none;
      outline: none;
@@ -638,14 +640,20 @@
    
  } 
  
- .upload_photo input[type="file"]{
+ .upload_photo input[type="file"],
+ .upload_photo .file_btn{
      width: 80%;
-     margin-right: 18%;
      appearance: none;
+     text-align: center;
+     margin-right: 1em;
+ }
+
+.upload_photo input[type="file"]{
+     display: none;
  }
  .upload_photo input[type="submit"]{
      margin:1em;
-     margin-right: 50%
+     margin-right: 7em;
  }
  
  .edit_profile_form{
