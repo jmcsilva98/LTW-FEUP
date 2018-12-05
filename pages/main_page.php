@@ -4,6 +4,7 @@
     include_once('../templates/common/tpl_header.php');
     include_once('../templates/tpl_draw_reviews.php');
     /* include_once('../templates/tpl_comments.php'); */
+    include_once('../templates/tpl_main_page.php');
     include_once('../templates/common/tpl_footer.php');
     include_once('../database/db_reviews.php');
     include_once('../database/db_comments.php');
@@ -13,7 +14,7 @@
     if (!isset($_SESSION['username']))
     die(header('Location: login.php')); 
 
-
+    $user_info = getUserInfo($_SESSION['username']);
     $all_reviews=getAllReviews();
     foreach ($all_reviews as $k => $review){
         $all_reviews[$k]['MovieName'] = getMovieName($review['MovieID']);
@@ -24,6 +25,7 @@
         $all_reviews[$k]['Comments']=getCommentsReview($review['ID']);
         
     }
-    draw_reviews($all_reviews);
-    draw_footer();
+    // draw_reviews($all_reviews);
+    // draw_footer();
+    draw_feed($user_info,$all_reviews);
 ?>
