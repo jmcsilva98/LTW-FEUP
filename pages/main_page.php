@@ -5,6 +5,7 @@
     include_once('../templates/tpl_draw_reviews.php');
     include_once('../templates/tpl_main_page.php');
     include_once('../templates/common/tpl_footer.php');
+    include_once('../templates/common/tpl_nav_bar.php');
     include_once('../database/db_reviews.php');
     include_once('../database/db_comments.php');
     include_once('../database/db_user.php');

@@ -3,7 +3,7 @@
     include_once('../includes/session.php');
     include_once('../templates/common/tpl_header.php');
     include_once('../templates/tpl_edit_profile.php');
-    include_once('../templates/common/tpl_side_nav.php');
+    include_once('../templates/common/tpl_nav_bar.php');
     include_once('../templates/common/tpl_footer.php');
     include_once('../database/db_user.php');
     include_once('../templates/tpl_countries.php'); 

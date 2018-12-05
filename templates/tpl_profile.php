@@ -20,10 +20,10 @@ include_once(__DIR__.'/tpl_delete_account.php');
     </div>
 
       <div class="profile_photo">
-          <?php if(!(file_exists("../assets/profilePhotos/".getID($_SESSION['username']).".jpg"))){ ?>
+          <?php if(!(file_exists("../assets/profilePhotos/".$userinfo['ID'].".jpg"))){ ?>
             <img src="../assets/profilePhotos/default.jpg" width="100" height="100" alt="profile avatar"> 
           <?php } else{ ?>
-            <img src="../assets/profilePhotos/<?=getID($_SESSION['username'])?>.jpg" width="100" height="100" alt="profile avatar"> 
+            <img src="../assets/profilePhotos/<?=$userinfo['ID']?>.jpg" width="100" height="100" alt="profile avatar"> 
            <?php } ?>
      </div>
 
@@ -63,9 +63,9 @@ include_once(__DIR__.'/tpl_delete_account.php');
         </div>
 
              
-        <div class="search_container">
+        <!-- <div class="search_container">
           <input class="search_input" type="text" placeholder="Search">
-        </div>
+        </div> -->
 
     </div>
 

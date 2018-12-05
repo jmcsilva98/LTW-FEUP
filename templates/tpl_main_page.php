@@ -4,23 +4,9 @@
 <?php function draw_feed($userinfo, $reviews) { ?>
 
 <div class="feed_container">
+   
+   
     <div class="feed_header">
-        <header>
-        <p>  <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)" width="40" height="40"> nabi </p>
-      
-        <div class="nav_buttons">
-            <a class="add_review_btn" href="?.php">
-                <span class="fas fa-plus-square"></span>
-            </a>
-
-           <a class="profile_nav_btn" href="profile.php">
-            
-                <?php if(!(file_exists("../assets/profilePhotos/".getID($_SESSION['username']).".jpg"))){ ?>
-                    <img src="../assets/profilePhotos/default.jpg" width="100" height="100" alt="profile avatar"> 
-                <?php } else{ ?>
-                    <img src="../assets/profilePhotos/<?=getID($_SESSION['username'])?>.jpg" width="100" height="100" alt="profile avatar"> 
-                <?php } ?>
-              
                 
                 <?php echo htmlentities($userinfo['FirstName']) ?> 
             </a>

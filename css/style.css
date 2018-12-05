@@ -474,7 +474,7 @@
  }
 
  .search_container {
-    width: 150px;
+    width: 160px;
     margin: 0;
     float: right;
     margin-right: 2em;
@@ -486,32 +486,32 @@
         font-size: 14px;
         font-weight: 500;
         text-align: center;
-        color: #ff8b88;
+        color: var(--input-color);
     }
     
    .search_input {
         width: 100%;
-        padding: 6px 12px;
+        padding:4.5px 12px;
 
         background-color: transparent;
         transition: transform 250ms ease-in-out;
         font-size: 12x;
         line-height: 18px;
         
-        color: #575756;
+        color:  var(--input-color);
         background-color: transparent;
         background-image: url(http://mihaeltomic.com/codepen/input-search/ic_search_black_24px.svg);
         background-repeat: no-repeat;
         background-size: 16px 16px;
         background-position: 95% center;
         border-radius: 50px;
-        border: 1px solid #575756;
+        border: 1px solid  var(--input-color);
         transition: all 250ms ease-in-out;
         backface-visibility: hidden;
         transform-style: preserve-3d;
       }  
    .search_input::placeholder {
-            color: color(#575756 a(0.8));
+            color: color(#7e7e7c8f a(0.8));
             text-transform: uppercase;
             letter-spacing: 1.5px;
      }
@@ -521,7 +521,7 @@
             padding: 6px 0;
             outline: 0;
             border: 1px solid transparent;
-            border-bottom: 1px solid #575756;
+            border-bottom: 1px solid #7e7e7c8f;
             border-radius: 0;
             background-position: 100% center;
         }
@@ -760,19 +760,44 @@
       background-color: var(--input-color);
   }
   
-  /* .feed_header{
+  .feed_header{
       grid-area: header;
-  } */
+  }
   .feed_reviews{
     grid-area: content;
 }
-.feed_footer{
-    grid-area: footer;
-}
+    .feed_footer{
+        grid-area: footer;
+    }
 
 /*--------------------------------
-----------MENU DROPDOWN-----------
+----------NAVIGATION MENU---------
 ---------------------------------*/
+.feed_nav{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.feed_nav li{
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+    color: var(--input-color);
+    padding-bottom: 0.5em;
+}
+
+ /* .feed_nav  .nav_logo{
+    margin-right: 585px;
+  
+}  */
+/* .feed_nav .search_container{
+    margin-right: 50%;
+} */
+
+
 .nav_buttons{
     margin: 0;
     
@@ -786,32 +811,30 @@ a.profile_nav_btn img{
     border-radius: 5em;
     vertical-align: middle;
 } 
-a.profile_nav_btn {
+.profile_nav_btn, .add_review_btn {
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     color: var(--input-color);;
 }
-a.add_review_btn{
+.add_review_btn span{
     font-size: 2em;
     text-decoration: none;
     color: var(--input-color);
     vertical-align: middle;
 }
-a.add_review_btn:hover, a.profile_nav_btn:hover{
+
+.add_review_btn:hover, .profile_nav_btn:hover, .add_review_btn span:hover{
     color: var(--color-buttons);
 }
 
 .menu{
-    width:200px;
-    margin: 0 ;
-    float: right;
+    width:150px;
     cursor:pointer;
     z-index: 1;
-    font-family: 'Montserrat', sans-serif;
-    padding-bottom: 0; 
-    margin-right:1em;
-    
+    font-family: 'Montserrat', sans-serif;    
+    padding:0;
+    margin-bottom: 0;
   }
   .title{
     width:100%;
@@ -837,6 +860,7 @@ a.add_review_btn:hover, a.profile_nav_btn:hover{
     max-height:0;
     overflow:hidden;
     transition:all .5s;
+    
   }
   .down{
      max-height:300px;

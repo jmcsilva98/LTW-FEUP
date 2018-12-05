@@ -142,20 +142,12 @@
     $db = Database::instance()->db();
 
     $hashed_password = hash('sha1',$password);
-    $stmt = $db->prepare('UPDATE User SET FirstName = ?, LastName = ?, Gender = ?, Country = ?, Birthday = ?, Username = ?, Email = ?, Password = ? WHERE UserID = ? ');
-    if($stmt->execute(array($firstName, $lastName, $gender, $country, $birthday, $username, $email, $hashed_password, $id))) return true;
-    else return false;
+    $stmt = $db->prepare('UPDATE User SET FirstName = ?, LastName = ?, Gender = ?, Country = ?, Birthday = ?, Username = ?, Email = ?, Password = ? WHERE ID = ? ');
+    $stmt->execute(array($firstName, $lastName, $gender, $country, $birthday, $username, $email, $hashed_password, $id));
+    return $stmt->fetchAll();
   }
 
-  function updateUserPhoto($username, $photo){
-    $id=getID($username);
-    $db = Database::instance()->db();
-    $stmt = $db->prepare('UPDATE User SET Photo = $photo WHERE UserID = ? ');
-    $stmt->execute(array($id));
  
-   return $stmt->fetch();
-  }
-
   function setUser($userID,$username){
     
 
