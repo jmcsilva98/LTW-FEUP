@@ -15,7 +15,7 @@
     die(header('Location: login.php')); 
 
     $user_info = getUserInfo($_SESSION['username']);
-    $all_reviews=getAllReviews();
+    $all_reviews=getAllReviewsOrderByLikes();
     foreach ($all_reviews as $k => $review){
         $all_reviews[$k]['MovieName'] = getMovieName($review['MovieID']);
         $all_reviews[$k]['UserName'] = getUsername($review['UserID']);
