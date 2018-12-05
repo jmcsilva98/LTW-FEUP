@@ -48,7 +48,6 @@ function incrementDislikes(event)
 function addReview(event){
   let description = document.getElementById("addReviewForm").elements.namedItem('description').value
   let movie = document.getElementById("addReviewForm").elements.namedItem('movie').value
-  console.log(movie)
   let title = document.getElementById("addReviewForm").elements.namedItem('title').value
 
   let request = new XMLHttpRequest()
@@ -56,7 +55,6 @@ function addReview(event){
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
   request.addEventListener("load", function () {
   let item = JSON.parse(this.responseText)
-  console.log(item)
 
   })
   request.send(encodeForAjax({title,movie,description}))

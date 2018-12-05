@@ -41,7 +41,7 @@
                 <a href="profile.php">
                 <p>Profile <span class="fa fa-user"></span></p>
                 </a>
-                <a href="../templates/tpl_review.php">
+                <!-- <a href="../templates/tpl_review.php"> -->
                 <p>Add review <span class="fa fa-plus"></span></p>
                   <!-- meter about -->
                 <a href="main_page.php">
