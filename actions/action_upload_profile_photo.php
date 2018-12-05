@@ -3,24 +3,6 @@
 include_once('../includes/session.php');
 include_once('../database/db_user.php');
 
-// $image = imagecreatefromjpeg($_FILES["file_upload"]["tmp_name"]));
-// if($image === false){
-//     $image = imagecreatefrompng($_FILES["file_upload"]["tmp_name"]);
-//     if($image === false)  {
-//         $image = imagecreatefromjpg($_FILES["file_upload"]["tmp_name"]);
-//             if($image === false){
-
-//             }else{
-//                 $type = ".jpg"; 
-//             }
-//     }else{
-//         $type = ".png";
-//     }
-    
-// }
-// else
-//     $type = ".jpeg";              
- 
 $image = $_FILES["file_upload"]["tmp_name"];
 $dir = "../assets/profilePhotos/";
 

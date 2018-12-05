@@ -6,57 +6,24 @@
             <header>
             <p> <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)"> nabi </p>
 
-           
-                <!-- ALTERAR PARA ADICIONAR REVIEW -->
-                 <a class="add_review_btn" href="?.php">
-                  <span class="fas fa-plus-square"></span> </a>
-
-                 <a class="profile_btn" href="profile.php">
-                   <span class="fas fa-user-circle"></span> 
-                   <?php echo htmlentities($userinfo['FirstName']) ?> </a>
-
-                <!-- <div class="menu"> -->
-
-                    <!-- <div class="menu_title" onclick="menu()"> 
-                    <?php echo htmlentities($userinfo['FirstName']) ?>
-                    <span class="fa fa-bars"></span>
-                        <div class="arrow"></div>
-                        </div>
-                        <div class="menu_dropdown">
-                         <a class="main_page_btn" href="main_page.php">
-                            <p> Feed <span class="fas fa-home"></span> </p>
-                        </a>
-                        <a class="profile_btn" href="profile.php">
-                            <p> My Profile <span class="fas fa-user-circle"></span> </p>
-                        </a>
-                        <a class="edit_btn" href="edit_profile.php">
-                            <p> Edit Profile <span class="fas fa-user-edit"></span> </p>
-                        </a>
-                        <a class="about_btn" href="about.php">
-                            <p> About <span class="fas fa-question-circle"></span> </p>
-                        </a> 
-                        <a class="logout_btn" href="../actions/action_logout.php">
-                            <p> Logout <span class="fas fa-sign-out-alt"></span> </p>
-                        </a>
-                        </div> -->
-        
+           <?php draw_nav($userinfo); ?>
         
             </header>
         </div>
 
         <div class="side_nav">
 
-            <?php draw_side_nav() ?>
+           
         </div>
 
 
         <div class="upload_photo">
             <form method="post" action="../actions/action_upload_profile_photo.php" enctype="multipart/form-data" >
 
-                 <?php if(!(file_exists("../assets/profilePhotos/".getID($_SESSION['username']).".jpg"))){ ?>
+                 <?php if(!(file_exists("../assets/profilePhotos/".$userinfo['ID'].".jpg"))){ ?>
                     <img id="profile_photo" src="../assets/profilePhotos/default.jpg" alt="Profile photo"><br> 
                  <?php } else{ ?>
-                    <img id="profile_photo" src="../assets/profilePhotos/<?=getID($_SESSION['username'])?>.jpg" alt="Profile photo"><br> 
+                    <img id="profile_photo" src="../assets/profilePhotos/<?=$userinfo['ID']?>.jpg" alt="Profile photo"><br> 
                  <?php } ?>
                 <input type="file" id="file_upload" name="file_upload"><br>
                 <input type="submit" value="Upload"><br>
