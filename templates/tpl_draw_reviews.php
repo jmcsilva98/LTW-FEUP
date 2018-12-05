@@ -9,7 +9,6 @@
         <article data-id="<?=$review['ID']?>">
         <div class="review_info">
              <h2><?=$review['Title']?> </h2>
-           
             <h3> Movie: <a href="movie.php?movie_id=<?php echo htmlentities($review['MovieID'])?>"><?=$review['MovieName']?></a> </h3>
             <h4> Created by
             <a href="profile.php?username=<?php echo htmlentities($review['UserName'])?>"><?=$review['UserName']?></a>
@@ -33,7 +32,13 @@
                 </div>  
         </div>             
          <div class="comments">
-            <input onclick="openBox('Show Comments',<?$review['ID']?>)" type="submit" value="<?=$review['NumberComments']?> Comments">
+            <input type="button" value="<?=$review['NumberComments']?> Comments">
+            <div class="allComments">
+            <?php foreach($review['Comments'] as $comment){?>
+                <p> <?=$comment['CommentDate']?></p>
+            <?php }?>
+            </div>
+           
         </div>
         </article>     
         <?php }?> 

@@ -1,4 +1,4 @@
-function openBox(value,id){
+function openBox(value){
     event.preventDefault();
     switch(value){
     case 'Delete Account':
@@ -9,7 +9,6 @@ function openBox(value,id){
         break;
         case 'Add Review':
         document.getElementById("add_review").style.display="block";
-        console.log('Aa');
         break;
     default:
     }
@@ -23,7 +22,6 @@ function closeBox(value){
         break;
     case 'Add Review':
         document.getElementById("add_review").style.display="none";
-        console.log('Aa');
         break;
     default:
     }

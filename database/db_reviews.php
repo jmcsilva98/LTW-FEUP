@@ -97,11 +97,11 @@ function getMovieName($movieId){
     }
 }
 
-function getReviewsComments($reviewId,$userId){
+function getNumberComments($reviewId){
     try{
         $db = Database::instance()->db();
-        $stmt = $db->prepare('SELECT ID FROM Comment WHERE ReviewID = ? AND UserID = ?');
-        $stmt->execute(array($reviewId,$userId));
+        $stmt = $db->prepare('SELECT ID FROM Comment WHERE ReviewID = ?');
+        $stmt->execute(array($reviewId));
         $row= $stmt->fetchAll();
        
         $numberComments= count($row);
@@ -179,7 +179,6 @@ function getUserReview($reviewId) {
     }catch(PDOException $e) {
         return -1;
     }
-
 }
 
 
