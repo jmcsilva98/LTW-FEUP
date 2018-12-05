@@ -10,13 +10,15 @@ header('Content-Type: application/json');
 
 $userName=$_SESSION['username'];
 $reviewID= $_POST['reviewID'];
+$userReviewID=$_POST['userID'];
 $userID=getID($userName);
+
 if (($j=userLikes($userID,$reviewID))>0) {
   deleteUserLikes($userID,$reviewID);
 }
 $i=array($userID,$j);
 insertUserDislikes($userID,$reviewID);
-decrementPoints($userID);
+decrementPoints($userReviewID);
 $updatedLikes= getLikesReview($reviewID);
 $updatedDislikes =getDislikesReview($reviewID);
 $values=array('likes'=>$updatedLikes,'dislikes'=>$updatedDislikes);

@@ -5,7 +5,6 @@
     include_once('../templates/common/tpl_side_nav.php');
     include_once('../templates/tpl_profile.php');
     include_once('../templates/tpl_draw_reviews.php');
-    include_once('../templates/tpl_draw_comments.php');
     include_once('../templates/common/tpl_footer.php');
    
     include_once('../database/db_user.php');
@@ -31,7 +30,12 @@
         $user_reviews[$k]['NumberComments'] = getNumberComments($review['ID'],$review['UserID']);
         $user_reviews[$k]['Heart'] = getLikesReview($review['ID']);
         $user_reviews[$k]['Dislike'] = getDisLikesReview($review['ID']);
-        $all_reviews[$k]['Comments']=getCommentsReview($review['ID']);
+        $user_reviews[$k]['Comments']=getCommentsReview($review['ID']);
+        foreach($user_reviews[$k]['Comments'] as $j => $comment){
+            $user_reviews[$k]['Comments'][$j]['Username']=getUsername($comment['UserID']);
+            $user_reviews[$k]['Comments'][$j]['Likes']=getLikesComment($comment['ID']);
+            $user_reviews[$k]['Comments'][$j]['Dislikes']=getDislikesComment($comment['ID']);
+        }
         
     }
     draw_profile($user_info,$user_reviews);

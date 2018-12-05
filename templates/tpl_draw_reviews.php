@@ -1,12 +1,12 @@
 
-<?php include_once(__DIR__.'/tpl_review.php'); ?>
-
+ <?php include_once(__DIR__.'/tpl_review.php'); 
+        include_once(__DIR__.'/tpl_comment.php'); ?> 
 <body>
     
     <?php function draw_reviews($reviews){?>
        
     <?php foreach($reviews as $review){?>
-        <article data-id="<?=$review['ID']?>">
+        <article data-id="<?=$review['ID']?>" user-id="<?=$review['UserID']?>">
         <div class="review_info">
              <h2><?=$review['Title']?> </h2>
             <h3> Movie: <a href="movie.php?movie_id=<?php echo htmlentities($review['MovieID'])?>"><?=$review['MovieName']?></a> </h3>
@@ -35,7 +35,7 @@
             <input type="button" value="<?=$review['NumberComments']?> Comments">
             <div class="allComments">
             <?php foreach($review['Comments'] as $comment){?>
-                <p> <?=$comment['CommentDate']?></p>
+                <?php draw_comment($comment);?>
             <?php }?>
             </div>
            

@@ -3,7 +3,6 @@
     include_once('../includes/session.php');
     include_once('../templates/common/tpl_header.php');
     include_once('../templates/tpl_draw_reviews.php');
-    /* include_once('../templates/tpl_comments.php'); */
     include_once('../templates/tpl_main_page.php');
     include_once('../templates/common/tpl_footer.php');
     include_once('../database/db_reviews.php');
@@ -23,6 +22,11 @@
         $all_reviews[$k]['Heart'] = getLikesReview($review['ID']);
         $all_reviews[$k]['Dislike'] = getDisLikesReview($review['ID']);
         $all_reviews[$k]['Comments']=getCommentsReview($review['ID']);
+        foreach($all_reviews[$k]['Comments'] as $j => $comment){
+            $all_reviews[$k]['Comments'][$j]['Username']=getUsername($comment['UserID']);
+            $all_reviews[$k]['Comments'][$j]['Likes']=getLikesComment($comment['ID']);
+            $all_reviews[$k]['Comments'][$j]['Dislikes']=getDislikesComment($comment['ID']);
+        }
         
     }
     // draw_reviews($all_reviews);

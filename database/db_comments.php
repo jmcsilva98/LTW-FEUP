@@ -13,4 +13,25 @@ function getCommentsReview($reviewId)
   return $allReviews;
 }
 
+function getLikesComment($commentId)
+{
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('SELECT * FROM LikeComment WHERE CommentID = ?');
+  $stmt->execute(array($commentId));
+  $allLikes = $stmt->fetchAll();
+  return count($allLikes);
+}
+
+function getDislikesComment($commentId)
+{
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('SELECT * FROM DislikeComment WHERE CommentID = ?');
+  $stmt->execute(array($commentId));
+  $allLikes = $stmt->fetchAll();
+  return count($allLikes);
+}
+
+
+
+
 ?>

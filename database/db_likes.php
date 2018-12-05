@@ -59,6 +59,63 @@ function deleteUserDislikes($userId,$reviewId){
 
 }
 
+function userLikesComment($userId,$commentId){
+    try{
+        $db = Database::instance()->db();
+        $stmt = $db->prepare('SELECT * FROM LikeComment WHERE UserID = ? AND CommentID=?');
+        $stmt->execute(array($userId,$commentId));
+        $rows = $stmt->fetchaLL();
+        return count($rows);
+
+    }catch(PDOException $e) {
+        return -1;
+    }
+
+}
+function userDislikesComment($userId,$commentId){
+    try{
+        $db = Database::instance()->db();
+        $stmt = $db->prepare('SELECT * FROM DislikeComment WHERE UserID = ? AND CommentID=?');
+        $stmt->execute(array($userId,$commentId));
+        $rows = $stmt->fetchaLL();
+        return count($rows);
+
+    }catch(PDOException $e) {
+        return -1;
+    }
+}
+function insertUserLikeComment($userId,$commentId){
+
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('INSERT OR REPLACE INTO LikeComment VALUES(?, ?)');
+    $stmt->execute(array($userId,$commentId));
+
+}
+function deleteUserLikeComment($userId,$commentId){
+
+$db = Database::instance()->db();
+$stmt = $db->prepare('DELETE FROM LikeComment WHERE UserID = ? AND CommentID = ?');
+$stmt->execute(array($userId,$commentId));
+
+
+}
+
+function insertUserDislikeComment($userId,$commentId){
+
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('INSERT OR REPLACE INTO DislikeComment VALUES(?, ?)');
+    $stmt->execute(array($userId,$commentId));
+
+}
+function deleteUserDislikeComment($userId,$commentId){
+
+$db = Database::instance()->db();
+$stmt = $db->prepare('DELETE FROM DislikeComment WHERE UserID = ? AND CommentID = ?');
+$stmt->execute(array($userId,$commentId));
+
+
+}
+
 
 
 ?>

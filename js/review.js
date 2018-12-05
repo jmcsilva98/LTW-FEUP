@@ -12,35 +12,36 @@ comments.forEach((comment) => comment.addEventListener('click', showComments))
 function incrementLikes(event)
 {
     let reviewID = event.target.parentElement.parentElement.parentElement.getAttribute('data-id')
+    let userID = event.target.parentElement.parentElement.parentElement.getAttribute('user-id')
+    console.log(userID)
     let request = new XMLHttpRequest()
 
     request.open("post", "../actions/action_api_likes.php", true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener("load", function () {
       let item = JSON.parse(this.responseText)
-      console.log(event.target.parentElement.getElementsByTagName('h4')[0].textContent)
       event.target.parentElement.getElementsByTagName('h4')[0].textContent=item['likes']
       event.target.parentElement.parentElement.querySelector('.dislikes').getElementsByTagName('h4')[0].textContent=item['dislikes']
     })  
 
-    request.send(encodeForAjax({reviewID}))
+    request.send(encodeForAjax({reviewID,userID}))
 }
 
 function incrementDislikes(event)
 {
     let reviewID = event.target.parentElement.parentElement.parentElement.getAttribute('data-id')
+    let userID = event.target.parentElement.parentElement.parentElement.getAttribute('user-id')
     let request = new XMLHttpRequest()
     request.open("post", "../actions/action_api_dislikes.php", true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener("load", function () {
       let item = JSON.parse(this.responseText)
-      console.log(event.target.parentElement.getElementsByTagName('h4')[0].textContent)
       event.target.parentElement.getElementsByTagName('h4')[0].textContent=item['dislikes']
       event.target.parentElement.parentElement.querySelector('.likes').getElementsByTagName('h4')[0].textContent=item['likes']
       
     })  
 
-    request.send(encodeForAjax({reviewID}))
+    request.send(encodeForAjax({reviewID,userID}))
 }
 
 function showComments(event)
