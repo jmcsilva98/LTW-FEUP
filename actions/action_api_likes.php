@@ -8,9 +8,9 @@ include_once('../database/db_reviews.php');
 
 header('Content-Type: application/json');
 
-$userName=$_SESSION['username'];
-$reviewID= $_POST['reviewID'];
-$userReviewID=$_POST['userID'];
+$userName = $_SESSION['username'];
+$reviewID = $_POST['reviewID'];
+$userReviewID = $_POST['userID'];
 $userID=getID($userName);
 if (userDislikes($userID,$reviewID)>0) {
   deleteUserDislikes($userID,$reviewID);

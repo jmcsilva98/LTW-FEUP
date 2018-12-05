@@ -19,24 +19,17 @@ include_once('../includes/database.php');
 
 /* Inserting a film review of a user */
 
-function insertReview($title, $userId, $movieid, $reviewdate, $description){
-    try{
+function insertReview($title, $userId, $movieId, $reviewdate, $description){
 
         $db = Database::instance()->db();
         $stmt = $db->prepare('INSERT INTO Review(Title, UserID, MovieID, ReviewDate, Description) VALUES(:Title, :UserID, :MovieID, :ReviewDate, :Description)');
         $stmt->bindParam(':Title', $title);
         $stmt->bindParam(':UserID', $userId);
-        $stmt->bindParam(':MovieID', $movieid);
+        $stmt->bindParam(':MovieID', $movieId);
         $stmt->bindParam(':ReviewDate', $reviewdate);
         $stmt->bindParam(':Description', $description);
+        $stmt->execute();
       
-        if($stmt->execute()){
-            $id = getID($username);
-            return $id;
-        }else return -1;
-        } catch(PDOException $e) {
-            return null;
-        }
 }
 
 /* Get all items of a certain review */
@@ -180,7 +173,6 @@ function getUserReview($reviewId) {
         return -1;
     }
 }
-
 
 
 

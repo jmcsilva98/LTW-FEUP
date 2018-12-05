@@ -79,15 +79,12 @@
 
   function getMovieID($movieName){
     $db = Database::instance()->db();
-    try {
-      $stmt = $db->prepare('SELECT ID FROM Movie WHERE MovieName = ?');
-      $stmt->execute(array($movieName));
-      $stmt->execute();
-     $row = $stmt->fetch();
+    $stmt = $db->prepare('SELECT ID FROM Movie WHERE Name = ?');
+    $stmt->execute(array($movieName));
+    $stmt->execute();
+    $row = $stmt->fetch();
     return $row['ID'];
-    }catch(PDOException $e) {
-      return -1;
-    }
+   
   }
 
 

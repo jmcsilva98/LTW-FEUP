@@ -73,7 +73,6 @@ include_once(__DIR__.'/tpl_delete_account.php');
     <div class="Reviews">
 
         <p>Reviews
-
         <input  onclick="openBox('Add Review')" type="submit" value ="Add Review">
         <a href="main_page.php"> Feed </a>     
         
