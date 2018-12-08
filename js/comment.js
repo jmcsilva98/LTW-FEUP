@@ -3,6 +3,8 @@ likesComment.forEach((like) => like.addEventListener('click', incrementLikesComm
 let dislikesComment= document.querySelectorAll('span.dislikes');
 dislikesComment.forEach((like) => like.addEventListener('click', incrementDislikesComment))
 
+let add_Comment= document.querySelectorAll('form#addCommentForm input[type=submit]');
+add_Comment.forEach((comment) => comment.addEventListener('click',addComment));
 
 function incrementLikesComment(event)
 {
@@ -40,4 +42,19 @@ function incrementDislikesComment(event)
     })  
 
     request.send(encodeForAjax({commentID,userID}))
+}
+
+function addComment(event){
+  let description = document.getElementById("addCommentForm").elements.namedItem('description').value
+  let reviewID= event.target.parentElement.parentElement.parentElement.getAttribute('data-id')
+
+  console.log(reviewID)
+  let request = new XMLHttpRequest()
+  request.open("post", "../actions/action_api_insert_comment.php", true)
+  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+  request.addEventListener("load", function () {
+    document.getElementById("add_comment").style.display="none";
+  }) 
+  request.send(encodeForAjax({description,reviewID}))
+  event.preventDefault();
 }

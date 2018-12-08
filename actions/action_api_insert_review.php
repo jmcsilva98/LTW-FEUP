@@ -16,8 +16,8 @@ $description = $_POST['description'];
 $title = $_POST['title'];
 $userID = getID($username);
 $reviewdate = date("Y-m-d");
-
-insertReview($title, $userID, $movieId, $reviewdate, $description);
+if($title != null && $description != null)
+    insertReview($title, $userID, $movieId, $reviewdate, $description);
 $allReviews = getAllReviews($movieId);
 echo json_encode($allReviews);
 

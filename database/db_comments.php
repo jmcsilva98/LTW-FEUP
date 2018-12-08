@@ -31,6 +31,15 @@ function getDislikesComment($commentId)
   return count($allLikes);
 }
 
+function  insertComment($userID,$commentdate,$reviewID, $description){
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('INSERT INTO Comment(UserID, CommentDate,ReviewID, Description) VALUES(:UserID,:CommentDate,:ReviewID,:Description)');
+  $stmt->bindParam(':UserID', $userID);
+  $stmt->bindParam(':CommentDate', $commentdate);
+  $stmt->bindParam(':ReviewID', $reviewID);
+  $stmt->bindParam(':Description', $description);
+  $stmt->execute();
+}
 
 
 

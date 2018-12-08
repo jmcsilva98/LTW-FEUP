@@ -7,9 +7,10 @@
             <select id="movie" required>
                 <?php select_movies() ?>
             </select><br>
-            <input type="text" id="description" placeholder="Description" required><br>
-            <input type="submit" value="Add Review">
+            <input type="textarea" id="description" placeholder="Description" required><br>
             <input onclick="closeBox('Add Review')" type="button" value="Cancel">
+            <input onclick="addReview()" type="submit" value="Add Review">
+           
         </form>
     </div>
 </div>

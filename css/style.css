@@ -824,6 +824,7 @@ a.profile_nav_btn img{
     vertical-align: middle;
 }
 
+
 .add_review_btn:hover, .profile_nav_btn:hover, .add_review_btn span:hover{
     color: var(--color-buttons);
 }

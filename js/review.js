@@ -6,9 +6,6 @@ let dislikes = document.querySelectorAll('.dislikes input[type=button]');
 dislikes.forEach((dislike) => dislike.addEventListener('click', incrementDislikes))
 
 
-let review = document.querySelectorAll('.popup-content input[type=submit]')[1]
-
-review.addEventListener('click',addReview)
 
 function incrementLikes(event)
 {
@@ -55,11 +52,9 @@ function addReview(event){
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
   request.addEventListener("load", function () {
   let item = JSON.parse(this.responseText)
-
   })
   request.send(encodeForAjax({title,movie,description}))
-  event.preventDefault();
-  
+ 
  
 }
 

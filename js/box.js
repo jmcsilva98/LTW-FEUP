@@ -5,11 +5,19 @@ function openBox(value){
         document.getElementById("delete_account").style.display = "block";
         break;
         case 'Show Comments':
-        document.getElementById("show_comments").style.display = "block";
+        if(document.getElementById("allComments").style.display == "block")
+            document.getElementById("allComments").style.display = "none";
+        else 
+            document.getElementById("allComments").style.display = "block";
         break;
         case 'Add Review':
         document.getElementById("add_review").style.display="block";
         break;
+        case 'Add Comment':
+        console.log(document);
+        document.getElementById("add_comment").style.display="block";
+        break;
+
     default:
     }
 }
@@ -22,6 +30,9 @@ function closeBox(value){
         break;
     case 'Add Review':
         document.getElementById("add_review").style.display="none";
+        break;
+    case 'Add Comment':
+        document.getElementById("add_comment").style.display="none";
         break;
     default:
     }
