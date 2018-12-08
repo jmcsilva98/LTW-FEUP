@@ -8,5 +8,4 @@
   <span class="likes"><?=$comment['Likes']?></span> <br>
   <span class="dislikes"><?=$comment['Dislikes']?></span>
   </div>
-  </div>
   <?php }?>

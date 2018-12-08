@@ -33,12 +33,13 @@
                 </div>  
         </div>             
          <div class="comments">
-            <div style="display:none;" id="allComments">
+         <input type="button" value="<?=$review['NumberComments']?> Comments">
+            <div class="allComments">
             <?php foreach($review['Comments'] as $comment){?>
-                <?php draw_comment($comment);?>
+                <?php draw_comment($comment)?>
             <?php }?>
             </div>
-            <input type="button" onclick ="openBox('Show Comments')" value="<?=$review['NumberComments']?> Comments">
+            
             <input type="button" onclick="openBox('Add Comment')" value="Add Comment">
             <div id="add_comment" data-id="<?=$review['ID']?>" class="popup">
                 <div class="popup-content">

@@ -6,6 +6,8 @@ let dislikes = document.querySelectorAll('.dislikes input[type=button]');
 dislikes.forEach((dislike) => dislike.addEventListener('click', incrementDislikes))
 
 
+let comments = document.querySelectorAll('.comments input[type=button]');
+comments.forEach((comment) => comment.addEventListener('click', showComments));
 
 function incrementLikes(event)
 {
@@ -56,6 +58,16 @@ function addReview(event){
   request.send(encodeForAjax({title,movie,description}))
  
  
+}
+
+function showComments(event)
+{
+  console.log(event.target.parentElement.querySelector('.allComments'))
+  if(event.target.parentElement.querySelector('.allComments').style.display === "none")
+  event.target.parentElement.querySelector('.allComments').style.display ="block"
+  else 
+  event.target.parentElement.querySelector('.allComments').style.display="none"
+     
 }
 
 // Helper function
