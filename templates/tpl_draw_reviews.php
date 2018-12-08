@@ -39,17 +39,15 @@
                 <?php draw_comment($comment)?>
             <?php }?>
             </div>
-            
-            <input type="button" onclick="openBox('Add Comment')" value="Add Comment">
-            <div id="add_comment" data-id="<?=$review['ID']?>" class="popup">
+            <input type="button" name="addComment" value="Add Comment">
+            <div class="add_comment" class="popup">
                 <div class="popup-content">
                  <form method="post" id="addCommentForm">
                     <input type="textarea" id="description" placeholder="Description" required><br>
-                    <input onclick="closeBox('Add Comment')" type="button" value="Cancel">
-                    <input  type="submit" value="Add Comment">
+                    <input onclick="closeBox('Add Comment')" type="button" value="Cancel"> 
+                    <input type="submit" value="Add Comment">
                 </form>
                 </div>
-                
             </div>
         </div>
         </article>     

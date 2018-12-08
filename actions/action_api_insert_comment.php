@@ -14,10 +14,11 @@ $reviewID = $_POST['reviewID'];
 $description = $_POST['description'];
 $userID = getID($username);
 $commentdate = date("Y-m-d");
-if($description != null)
+if($description != null){
     insertComment($userID,$commentdate,$reviewID, $description);
+    
+}
 echo json_encode($userID);
-
 
 
 ?>

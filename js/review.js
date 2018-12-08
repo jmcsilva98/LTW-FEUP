@@ -6,7 +6,7 @@ let dislikes = document.querySelectorAll('.dislikes input[type=button]');
 dislikes.forEach((dislike) => dislike.addEventListener('click', incrementDislikes))
 
 
-let comments = document.querySelectorAll('.comments input[type=button]');
+let comments = document.querySelectorAll('.comments#add_comment input[type=button]');
 comments.forEach((comment) => comment.addEventListener('click', showComments));
 
 function incrementLikes(event)
@@ -44,7 +44,7 @@ function incrementDislikes(event)
     request.send(encodeForAjax({reviewID,userID}))
 }
 
-function addReview(event){
+function addReview(){
   let description = document.getElementById("addReviewForm").elements.namedItem('description').value
   let movie = document.getElementById("addReviewForm").elements.namedItem('movie').value
   let title = document.getElementById("addReviewForm").elements.namedItem('title').value
@@ -54,6 +54,7 @@ function addReview(event){
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
   request.addEventListener("load", function () {
   let item = JSON.parse(this.responseText)
+  location.reload();
   })
   request.send(encodeForAjax({title,movie,description}))
  
@@ -62,7 +63,6 @@ function addReview(event){
 
 function showComments(event)
 {
-  console.log(event.target.parentElement.querySelector('.allComments'))
   if(event.target.parentElement.querySelector('.allComments').style.display === "none")
   event.target.parentElement.querySelector('.allComments').style.display ="block"
   else 
