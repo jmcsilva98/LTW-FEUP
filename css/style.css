@@ -126,6 +126,7 @@
  
  .login_form  input[type=submit]:hover{
      background: rgba(15, 92, 84, 0.733);
+     cursor: pointer;
  }
  
  .login_register_link{
@@ -199,7 +200,8 @@
   .register_form  input[type=password],
   .register_form input[type=email],
   .edit_profile_form input[type=password],
-  .edit_profile_form input[type=email] {
+  .edit_profile_form input[type=email]
+   {
      outline: 0;
      background: var(--input-color);
      width: 50%;
@@ -260,13 +262,15 @@
  .register_form input[type=submit]:hover,
  .edit_profile_form input[type="submit"]:hover{
      background: rgba(15, 92, 84, 0.733);
+     cursor: pointer;
  }
  
  .register_form label{
      font-size: 14px;
  }
  
- .register_form select, .edit_profile_form select{
+ .register_form select, 
+ .edit_profile_form select{
      border:0;
      margin: 2em;
      padding: 10px 0px;
@@ -398,11 +402,13 @@
  
  
  .edit_profile a , .Reviews p a,.Reviews p button,
- .upload_photo input[type="file"],
+ .upload_photo .file_btn,
  .upload_photo input[type="submit"],
  .Reviews input[type="submit"],
  .edit_profile input[type="submit"],
- .comments input[type="submit"]{
+ .comments input[type="submit"],
+ .popup input[type="submit"],
+ .popup input[type="button"]{
      float: right;
      letter-spacing: 0.05em;
      font-family: "Roboto",'sans-serif';
@@ -429,11 +435,14 @@
  .edit_profile .edit:hover, 
  .edit_profile .delete:hover, 
  .Reviews p :hover,
- .upload_photo input[type="file"]:hover,
+ .upload_photo .file_btn:hover,
  .upload_photo input[type="submit"]:hover,
  .edit_profile input[type="submit"]:hover,
- .comments input[type="submit"]:hover{
+ .comments input[type="submit"]:hover,
+ .popup input[type="submit"]:hover,
+ .popup input[type="button"]:hover{
     color: rgb(93, 94, 93);
+    cursor: pointer;
  }
  
  
@@ -619,18 +628,20 @@
  
  .upload_photo{
      grid-area: photo;
+     padding-right: 3em;
      margin-left: 2em;    
  }
  
  .upload_photo img{
-     margin: 2em 0;
+     margin: 3em 0;
      width: 12em;
      height: 12em;
+     margin-bottom: 1em;
      object-fit: cover;
      border: 2px solid var(--bg-color-dark);
  }
  
- .upload_photo input[type="file"],
+ .upload_photo .file_btn,
  .upload_photo input[type="submit"]{
      border:none;
      outline: none;
@@ -638,14 +649,20 @@
    
  } 
  
- .upload_photo input[type="file"]{
+ .upload_photo input[type="file"],
+ .upload_photo .file_btn{
      width: 80%;
-     margin-right: 18%;
      appearance: none;
+     text-align: center;
+     margin-right: 1em;
+ }
+
+.upload_photo input[type="file"]{
+     display: none;
  }
  .upload_photo input[type="submit"]{
      margin:1em;
-     margin-right: 50%
+     margin-right: 7em;
  }
  
  .edit_profile_form{
@@ -731,9 +748,9 @@
    .popup-content{
     display: flex;
     flex-direction: column;
-    max-height: 50%;
-    width: 30%;
-    padding: 1.5em;
+    max-height: 60%;
+    width: 50%;
+    padding: 2em;
     margin: 10% auto;
     background: white;
     box-shadow: 0 0 1em 0.2em rgba(0, 0, 0, 0.2);
@@ -744,6 +761,55 @@
     justify-content: flex-end;
     min-height: min-content;
   }
+
+  .popup-content h1{
+        font-family: 'Candara', sans-serif;
+        color: var(--bg-color-dark);
+        font-size: 45px;
+        letter-spacing: 0.05em;
+    }
+
+    .popup-content input[type="text"]{
+    outline: 0;
+    background: var(--input-color);
+    width: 50%;
+    border: 0;
+    margin-bottom: 1.5em;
+    padding: 8px;
+    box-sizing: border-box;
+    font-size: 14px;
+   }
+
+   .popup-content input[type="submit"],
+   .popup-content input[type="button"]{
+       border:0;
+       margin: 0.5em;  
+       margin-bottom: 1em; 
+       width: 8em;
+       /* margin-bottom: 0.5em; */
+    }
+
+    .popup-content textarea{
+        outline: 0;
+        position: relative;
+        background: var(--input-color);
+        border: 0;
+        width: 90%;
+        margin-bottom: 0.5em;
+        padding: 0.8em;
+        box-sizing: border-box;
+        font-size: 14px;
+    }
+
+    .popup-content select{
+        border:0;
+        padding: 8px;
+        cursor: pointer;
+        width: 50%;
+        outline: 0;
+        background: var(--input-color);
+        margin-bottom: 1.5em;
+    }
 
   /*---------------------------
   -------------FEED------------

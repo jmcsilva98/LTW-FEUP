@@ -14,5 +14,6 @@
     <script src ="../js/box.js" defer></script>
     <script src ="../js/dropdown_menu.js" defer></script>
     <script src ="../js/comment.js" defer></script>
+    <script src ="../js/utils.js" defer></script>
 
 </head>

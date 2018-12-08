@@ -25,7 +25,10 @@
                  <?php } else{ ?>
                     <img id="profile_photo" src="../assets/profilePhotos/<?=$userinfo['ID']?>.jpg" alt="Profile photo"><br> 
                  <?php } ?>
+
+                <span onclick="callFileBtn()" class="file_btn"> choose file </span>
                 <input type="file" id="file_upload" name="file_upload"><br>
+              
                 <input type="submit" value="Upload"><br>
     
             </form>
