@@ -8,13 +8,10 @@
             <select id="movie" required>
                 <?php select_movies() ?>
             </select><br>
-            <input type="textarea" id="description" placeholder="Description" required><br>
-            <input onclick="closeBox('Add Review')" type="button" value="Cancel">
-            <input onclick="addReview()" type="submit" value="Add Review">
-           
             <textarea id="description" placeholder="Share your opinion..." rows="10" cols="60" required></textarea><br>
             <input onclick="closeBox('Add Review')" type="button" value="Cancel">
-            <input type="submit" value="Add Review">
+            <input onclick="addReview()" type="submit" value="Add Review">
+            
         </form>
     </div>
 </div>
