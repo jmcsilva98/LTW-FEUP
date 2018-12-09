@@ -1,4 +1,4 @@
-<?php function draw_nav($userinfo){ ?>
+<?php function draw_nav($userinfo,$allMoviesAndFilms){ ?>
 
      <ul class="feed_nav">
 
@@ -10,7 +10,10 @@
 
 <li> 
     <div class="search_container">
-        <input class="search_input" type="text" placeholder="Search">
+        <input class="search_input" type="text" onkeyup="searchFunction()" placeholder="Search">
+        <ul id ="allMoviesAndReviews">
+        <?php drawAllMoviesAndReviews($allMoviesAndFilms)?>
+        </ul>
     </div>
 </li>
 <li>  <a class="profile_nav_btn" href="profile.php">
@@ -42,3 +45,14 @@
 </ul>
 
 <?php } ?>
+
+<?php function drawAllMoviesAndReviews($allMoviesAndFilms){
+    $movies = $allMoviesAndFilms['movies'];
+    $reviews= $allMoviesAndFilms['reviews'];
+
+    foreach($movies as $movie){?>
+        <li><a href="movie.php?movie_id=<?php echo htmlentities($movie['ID'])?>"><?=$movie['Name']?></a>
+  <?php }?>
+        
+
+<?php }?>
