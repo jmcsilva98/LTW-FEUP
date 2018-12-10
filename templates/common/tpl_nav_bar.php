@@ -4,7 +4,7 @@
 
 <li> 
 <div class="nav_logo"> 
-   <p>  <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)" width="40" height="40"> nabi </p>
+ <a href="main_page.php"><p>  <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)" width="40" height="40"> nabi </p> </a>
 </div>
 </li> 
 

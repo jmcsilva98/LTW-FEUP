@@ -890,16 +890,14 @@
 
 .feed_nav :first-child{
    flex-grow: 1;
- 
 } 
-/* .feed_nav .search_container{
-    margin-right: 50%;
-} */
-
 
 .nav_buttons{
     margin: 0;
     
+} 
+.nav_logo a:link{
+    text-decoration: none;  
 }
 
 a.profile_nav_btn img{
@@ -961,6 +959,10 @@ a.profile_nav_btn img{
     overflow:hidden;
     transition:all .5s;
     position: absolute;
+
+  }
+  .dropdown a:link{
+      text-decoration: none;
   }
   .down{
      max-height:300px;
