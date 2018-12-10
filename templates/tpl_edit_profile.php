@@ -41,7 +41,7 @@
             <label> Last Name </label><br>
             <input type="text" name="lastName" placeholder="last name" value="<?php echo htmlentities($userinfo['LastName']) ?>" required><br>
             <label> Gender </label><br>
-            <input type="radio" name="gender" placeholder="female" value="female" value="<?php echo htmlentities($userinfo['Gender']) ?>" required>female
+            <input type="radio" name="gender" placeholder="female" value="female" checked="<?php echo htmlentities($userinfo['Gender']) ?>" required>female
             <input type="radio" name="gender" placeholder="male" value="male" value="<?php echo htmlentities($userinfo['Gender']) ?>" required>male<br>
             <br><label>Country </label><br>
             <select name="country" required>
