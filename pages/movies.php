@@ -20,7 +20,10 @@
     $movie_genres=getAllGenresMovie($movie['ID']);
     $movie_directors=getAllDirectorsMovie($movie['ID']);
     $number_reviews=getNumberReviewsMovie($movie['ID']);
-    draw_movie($movie_info,$movie_genres,$movie_directors,$number_reviews);
+    $allMovies=getAllMovies();
+    $allReviews=getAllReviews();
+    $allMoviesAndFilms = array('movies'=> $allMovies,'reviews'=>$allReviews); 
+    draw_movie($movie_info,$movie_genres,$movie_directors,$number_reviews,$allMoviesAndFilms);
     }
     draw_footer();
     ?>

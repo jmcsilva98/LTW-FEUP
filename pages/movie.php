@@ -7,6 +7,7 @@
     include_once('../templates/common/tpl_nav_bar.php');
     include_once('../templates/tpl_movie.php');
     include_once('../database/db_movies.php');
+    include_once('../database/db_reviews.php');
     include_once('../database/db_user.php');
   
     // Verify if user is logged in
@@ -21,8 +22,10 @@
     $movie_genres=getAllGenresMovie($movieID);
     $movie_directors=getAllDirectorsMovie($movieID);
     $number_reviews=getNumberReviewsMovie($movieID);
+    $allMovies=getAllMovies();
+    $allReviews=getAllReviews();
+    $allMoviesAndFilms = array('movies'=> $allMovies,'reviews'=>$allReviews);    
+    draw_movie($user_info, $movie_info,$movie_genres,$movie_directors,$number_reviews,$allMoviesAndFilms);
     
-    
-    draw_movie($user_info, $movie_info,$movie_genres,$movie_directors,$number_reviews);
     //draw_footer();
 ?>

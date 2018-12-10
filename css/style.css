@@ -541,14 +541,13 @@
             background-position: 100% center;
         }
  
-      #allMoviesAndReviews {
-            /* Remove default list styling */
+    #allMoviesAndReviews {
             list-style-type: none;
             padding: 0;
             margin: 0;
 
     
-          }
+        }
     #allMoviesAndReviews li{
         display:none;
     }

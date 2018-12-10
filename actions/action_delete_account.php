@@ -3,6 +3,10 @@
   include_once('../database/db_user.php');
 
   $username = $_SESSION['username'];
+  if ($_SESSION['csrf'] != $_GET['csrf']) {
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Invalid request!');
+    die(header('Location: ../pages/main_page.php'));
+  }
   if( $username != null) {
     if(deleteAccount($username)) {
         unset($_SESSION['username']);
