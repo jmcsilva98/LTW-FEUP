@@ -1070,9 +1070,6 @@ a.profile_nav_btn img{
    
 }
 
-/* .add_new_comment{
-    display: none;
-} */
 .review_options input[type="button"]{
     border: none;
 }
@@ -1085,10 +1082,15 @@ a.profile_nav_btn img{
     padding-left: 2em;
  
 }
-
-.review_options h4{
-    cursor: pointer;
-
+#review_likes, #review_dislikes{
+    font-size: 20px;
+    color: var(--bg-color-dark);
+}
+#review_likes, #review_dislikes{
+   cursor: pointer;
+}
+.allComments{
+    display: none;
 }
 
 .comments input[type="button"]{
@@ -1121,7 +1123,7 @@ ul#comment_nav h4{
   
 }
 
-#comment_nav li span{
+#comment_nav li {
     font-size: 20px;
     color: var(--bg-color-dark);
   
