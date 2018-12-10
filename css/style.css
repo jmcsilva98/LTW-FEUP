@@ -52,7 +52,7 @@
  
      /* height: 100vh; */
      display: grid;
-     font-family: "Roboto", 'sans-serif';
+     font-family: 'Roboto', 'sans-serif';
      /*apenas uma coluna */ 
      grid-template-columns: auto;
      /* linhas: header, logo, form, link,footer */
@@ -312,7 +312,7 @@
      background-image: none;
      /* height: 100vh; */
      display: grid;
-     font-family: "Roboto", 'sans-serif';
+     font-family: 'Roboto', 'sans-serif';
      /*colunas 2 : parte principal e aside */ 
      grid-template-columns: auto 6fr 1fr;
      /* linhas: header, profile info, nav, reviews,footer */
@@ -415,7 +415,7 @@
  .comments input[type="button"]{
      float: right;
      letter-spacing: 0.05em;
-     font-family: "Roboto",'sans-serif';
+     font-family: 'Roboto','sans-serif';
      text-transform: uppercase;
      text-decoration: none;
      font-weight: bold;
@@ -456,7 +456,7 @@
      background-color: var(--bg-color-sidenav);
      grid-area: goto;
      font-size: 25px;
-     font-family: "Roboto",sans-serif;
+     font-family: 'Roboto',sans-serif;
      /* overflow-x: hidden; */
  }
  .side_nav a{
@@ -592,6 +592,8 @@
      word-spacing: 0.1em;
      padding: 2em;
      line-height: 1.6;
+     text-align: justify;
+
 
  }
  .review_options{
