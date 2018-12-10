@@ -541,6 +541,21 @@
             background-position: 100% center;
         }
  
+      #allMoviesAndReviews {
+            /* Remove default list styling */
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+    
+          }
+    #allMoviesAndReviews li a {
+            margin-top: -1px;
+            text-decoration: none; 
+            font-size: 18px; 
+            color: white; 
+            
+        
+        }
  div.profile_reviews{
      grid-area: reviews; 
  

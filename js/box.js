@@ -14,7 +14,6 @@ function openBox(value){
         document.getElementById("add_review").style.display="block";
         break;
         case 'Add Comment':
-        console.log(document.querySelectorAll("addCommentForm"))
         document.getElementById("add_comment").style.display="block";
         break;
 

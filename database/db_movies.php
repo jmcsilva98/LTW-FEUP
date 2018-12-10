@@ -77,14 +77,14 @@
     }
   }
 
+
   function getMovieID($movieName){
     $db = Database::instance()->db();
     $stmt = $db->prepare('SELECT ID FROM Movie WHERE Name = ?');
     $stmt->execute(array($movieName));
     $stmt->execute();
     $row = $stmt->fetch();
-    return $row['ID'];
-   
+    return $row['ID']; 
   }
 
 

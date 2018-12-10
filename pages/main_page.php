@@ -33,5 +33,9 @@
     }
     // draw_reviews($all_reviews);
     // draw_footer();
-    draw_feed($user_info,$all_reviews);
+
+    $allMovies=getAllMovies();
+    $allReviews=getAllReviews();
+    $allMoviesAndFilms = array('movies'=> $allMovies,'reviews'=>$allReviews);
+    draw_feed($user_info,$all_reviews,$allMoviesAndFilms);
 ?>
