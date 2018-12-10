@@ -15,10 +15,11 @@
     $user_info = getUserInfo($_SESSION['username']);
     $user_reviews=getUserReviews($_SESSION['username']);
     
+    $allMovies=getAllMovies();
+    $allReviews=getAllReviews();
+    $allMoviesAndReviews = array('movies'=> $allMovies,'reviews'=>$allReviews);
   
-    draw_edit_profile($user_info);
-   // draw_footer();
-
-
+    draw_edit_profile($user_info,$allMoviesAndReviews);
+   
 
 ?>

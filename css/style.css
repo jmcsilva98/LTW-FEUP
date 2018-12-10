@@ -556,10 +556,8 @@
             margin-top: -1px;
             text-decoration: none; 
             font-size: 18px; 
-            color: white;
-            
-            
-        
+            color: black;
+            position: absolute;
         }
  div.profile_reviews{
      grid-area: reviews; 
