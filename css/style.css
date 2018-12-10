@@ -546,13 +546,18 @@
             list-style-type: none;
             padding: 0;
             margin: 0;
+
     
           }
+    #allMoviesAndReviews li{
+        display:none;
+    }
     #allMoviesAndReviews li a {
             margin-top: -1px;
             text-decoration: none; 
             font-size: 18px; 
-            color: white; 
+            color: white;
+            
             
         
         }
