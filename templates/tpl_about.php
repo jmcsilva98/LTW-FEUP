@@ -9,7 +9,6 @@
     <div class="about_header">
     
         <header>
-            <p> <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)"> nabi </p>
             <?php draw_nav($userinfo,$allMoviesAndReviews); ?>
         </header>
     

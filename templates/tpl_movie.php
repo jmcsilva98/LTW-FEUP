@@ -1,15 +1,14 @@
 
 <body>
-<?php function draw_movie($userinfo, $movie,$movie_genres,$movie_directors,$number_reviews,$allMoviesAndFilms) {
+<?php function draw_movie($userinfo, $movie,$movie_genres,$movie_directors,$number_reviews,$allMoviesAndReviews) {
 
 ?>
     <div class="movie_container">
     
     <div class="movie_header">
         <header>
-        <p> <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)"> nabi </p>
-        <?php draw_nav($userinfo,$allMoviesAndFilms); ?>
-    </header> 
+            <?php draw_nav($userinfo,$allMoviesAndReviews); ?>
+        </header> 
     </div> 
 
     <div class="movie_info" >

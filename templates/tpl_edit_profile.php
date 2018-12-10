@@ -4,10 +4,7 @@
 
         <div class="edit_profile_header">
             <header>
-            <p> <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)"> nabi </p>
-
-           <?php draw_nav($userinfo,$allMoviesAndReviews); ?>
-        
+                <?php draw_nav($userinfo,$allMoviesAndReviews); ?>
             </header>
         </div>
 
@@ -72,9 +69,7 @@
         </div>
 
     <div class="edit_profile_footer">
-    <footer>
-        <p> &#169; FEUP 2018 Web Languages and Technologies | Made by Rita Norinho and Joana Silva  </p>
-    </footer>
+        <?php draw_footer(); ?>
     </div>
 
     </div>

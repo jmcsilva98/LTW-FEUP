@@ -2,11 +2,11 @@
 
 <ul class="feed_nav">
 
-<!-- <li> 
+<li> 
 <div class="nav_logo"> 
    <p>  <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)" width="40" height="40"> nabi </p>
 </div>
-</li>  -->
+</li> 
 
 <li> 
 <div class="search_container">

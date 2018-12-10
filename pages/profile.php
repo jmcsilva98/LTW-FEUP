@@ -3,6 +3,7 @@
     include_once('../includes/session.php');
     include_once('../templates/common/tpl_header.php');
     include_once('../templates/common/tpl_side_nav.php');
+    include_once('../templates/common/tpl_nav_bar.php');
     include_once('../templates/tpl_profile.php');
     include_once('../templates/tpl_add_comment.php');
     include_once('../templates/tpl_draw_reviews.php');
@@ -39,11 +40,12 @@
         }
         
     }
-    draw_profile($user_info,$user_reviews);
-    //draw_reviews($user_reviews);
-    //draw_review();
-    // draw_footer();
 
+    $allMovies=getAllMovies();
+    $allReviews=getAllReviews();
+    $allMoviesAndReviews = array('movies'=> $allMovies,'reviews'=>$allReviews);
+    
+    draw_profile($user_info,$user_reviews,$allMoviesAndReviews);
 
 
 ?>
