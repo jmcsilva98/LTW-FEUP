@@ -545,19 +545,26 @@
             list-style-type: none;
             padding: 0;
             margin: 0;
-
+            position: absolute;
     
         }
     #allMoviesAndReviews li{
         display:none;
     }
     #allMoviesAndReviews li a {
-            margin-top: -1px;
+            /* margin-top: -1px; */
             text-decoration: none; 
+            font-family: 'Roboto', sans-serif;
             font-size: 18px; 
             color: black;
-            position: absolute;
+            background: #4dce9e91;
+    
+            float: left;
+            box-sizing: border-box;
         }
+    #allMoviesAndReviews li a:hover{
+        background: #1f7f5c;
+    }
  div.profile_reviews{
      grid-area: reviews; 
  
