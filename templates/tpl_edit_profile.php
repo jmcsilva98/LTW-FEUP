@@ -1,12 +1,12 @@
 <body>
-    <?php function draw_edit_profile($userinfo) {?>
+    <?php function draw_edit_profile($userinfo,$allMoviesAndReviews) {?>
     <div class="edit_profile_container">
 
         <div class="edit_profile_header">
             <header>
             <p> <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)"> nabi </p>
 
-           <?php draw_nav($userinfo); ?>
+           <?php draw_nav($userinfo,$allMoviesAndReviews); ?>
         
             </header>
         </div>
