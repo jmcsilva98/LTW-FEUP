@@ -1,45 +1,47 @@
 'use strict'
-let likes = document.querySelectorAll('.likes input[type=button]');
+let likes = document.querySelectorAll('.likes ');
 likes.forEach((like) => like.addEventListener('click', incrementLikes))
 
-let dislikes = document.querySelectorAll('.dislikes input[type=button]');
+let dislikes = document.querySelectorAll('.dislikes');
 dislikes.forEach((dislike) => dislike.addEventListener('click', incrementDislikes))
 
 
-let comments = document.querySelectorAll('.comments#add_comment input[type=button]');
+let comments = document.querySelectorAll('.comments input[type=button]');
+console.log(comments)
 comments.forEach((comment) => comment.addEventListener('click', showComments));
 
 function incrementLikes(event)
 {
-    let reviewID = event.target.parentElement.parentElement.parentElement.getAttribute('data-id')
-    let userID = event.target.parentElement.parentElement.parentElement.getAttribute('user-id')
+    let reviewID = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id')
+    let userID =event.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('user-id')
     console.log(userID)
+    console.log(reviewID)
+    
     let request = new XMLHttpRequest()
 
     request.open("post", "../actions/action_api_likes.php", true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener("load", function () {
       let item = JSON.parse(this.responseText)
-      event.target.parentElement.getElementsByTagName('h4')[0].textContent=item['likes']
-      event.target.parentElement.parentElement.querySelector('.dislikes').getElementsByTagName('h4')[0].textContent=item['dislikes']
-    })  
+      event.target.textContent=item['likes']
+      event.target.parentElement.parentElement.parentElement.querySelector('#review_dislikes').textContent= item['dislikes']    })  
 
     request.send(encodeForAjax({reviewID,userID}))
 }
 
 function incrementDislikes(event)
 {
-    let reviewID = event.target.parentElement.parentElement.parentElement.getAttribute('data-id')
-    let userID = event.target.parentElement.parentElement.parentElement.getAttribute('user-id')
+    let reviewID = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id')
+    let userID = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('user-id')
     let request = new XMLHttpRequest()
     request.open("post", "../actions/action_api_dislikes.php", true)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener("load", function () {
       let item = JSON.parse(this.responseText)
-      event.target.parentElement.getElementsByTagName('h4')[0].textContent=item['dislikes']
-      event.target.parentElement.parentElement.querySelector('.likes').getElementsByTagName('h4')[0].textContent=item['likes']
+      event.target.textContent=item['dislikes']
+      event.target.parentElement.parentElement.parentElement.querySelector('#review_likes').textContent= item['likes']    })  
       
-    })  
+
 
     request.send(encodeForAjax({reviewID,userID}))
 }
@@ -63,6 +65,7 @@ function addReview(){
 
 function showComments(event)
 {
+  console.log(event.target.parentElement)
   if(event.target.parentElement.querySelector('.allComments').style.display === "none")
   event.target.parentElement.querySelector('.allComments').style.display ="block"
   else 
@@ -76,4 +79,3 @@ function encodeForAjax(data) {
     return encodeURIComponent(k) + '=' + encodeURIComponent(data[k])
   }).join('&')
 }
- 

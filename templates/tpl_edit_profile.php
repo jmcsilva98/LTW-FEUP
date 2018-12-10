@@ -47,8 +47,8 @@
             <input type="radio" name="gender" placeholder="female" value="female" value="<?php echo htmlentities($userinfo['Gender']) ?>" required>female
             <input type="radio" name="gender" placeholder="male" value="male" value="<?php echo htmlentities($userinfo['Gender']) ?>" required>male<br>
             <br><label>Country </label><br>
-            <select name="country" value="<?php echo htmlentities($userinfo['Country']) ?>" required>
-                <?php select_country() ?>
+            <select name="country" required>
+                <?php select_country($userinfo['Country']) ?>
             </select><br>
             <label> Birthday </label><br>
             <input type="date" name="birthday" min="1903-01-01" max="2005-01-01" value="<?php echo htmlentities($userinfo['Birthday']) ?>" required><br>

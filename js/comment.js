@@ -1,6 +1,6 @@
-let likesComment= document.querySelectorAll('span.likes');
+let likesComment= document.querySelectorAll('#likes');
 likesComment.forEach((like) => like.addEventListener('click', incrementLikesComment))
-let dislikesComment= document.querySelectorAll('span.dislikes');
+let dislikesComment= document.querySelectorAll(' #dislikes');
 dislikesComment.forEach((like) => like.addEventListener('click', incrementDislikesComment))
 
 let add_Comment= document.querySelectorAll('form#addCommentForm input[type=submit]');
@@ -10,8 +10,9 @@ show_form.forEach((form) =>form.addEventListener('click',showForm));
 
 function incrementLikesComment(event)
 {
-  let commentID= event.target.parentElement.getAttribute('data-id');
-  let userID= event.target.parentElement.getAttribute('user-id');
+  let commentID= event.target.parentElement.parentElement.parentElement.getAttribute('data-id');
+  let userID= event.target.parentElement.parentElement.parentElement.getAttribute('user-id');
+
 
   let request = new XMLHttpRequest()
 
@@ -20,7 +21,8 @@ function incrementLikesComment(event)
     request.addEventListener("load", function () {
       let item = JSON.parse(this.responseText)
       event.target.textContent=item['likes']
-      event.target.parentElement.querySelector('span.dislikes').textContent= item['dislikes']
+      console.log( event.target.parentElement.parentElement)
+      event.target.parentElement.parentElement.querySelector('span#dislikes').textContent= item['dislikes']
     })  
 
     request.send(encodeForAjax({commentID,userID}))
@@ -30,8 +32,9 @@ function incrementLikesComment(event)
 
 function incrementDislikesComment(event)
 {
-  let commentID= event.target.parentElement.getAttribute('data-id');
-  let userID= event.target.parentElement.getAttribute('user-id');
+  let commentID=event.target.parentElement.parentElement.parentElement.getAttribute('data-id');
+  let userID= event.target.parentElement.parentElement.parentElement.getAttribute('user-id');
+  console.log(event.target.parentElement.parentElement)
 
   let request = new XMLHttpRequest()
 
@@ -40,15 +43,15 @@ function incrementDislikesComment(event)
     request.addEventListener("load", function () {
       let item = JSON.parse(this.responseText)
       event.target.textContent=item['dislikes']
-      event.target.parentElement.querySelector('span.likes').textContent= item['likes']
+      event.target.parentElement.parentElement.querySelector('span#likes').textContent= item['likes']
     })  
 
     request.send(encodeForAjax({commentID,userID}))
 }
 
 function addComment(event){
-  let description = event.target.parentElement.querySelectorAll('input#description')[0].value
-  let reviewID= event.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id')
+  let description = event.target.parentElement.querySelectorAll('textarea#description')[0].value
+  let reviewID= event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id')
   console.log(description)
   let request = new XMLHttpRequest()
   request.open("post", "../actions/action_api_insert_comment.php", true)
@@ -57,12 +60,12 @@ function addComment(event){
     location.reload();
   }) 
   request.send(encodeForAjax({description,reviewID}))
-  event.preventDefault();
+   event.preventDefault();
 }
 
 function showForm(event){
-  if(event.target.parentElement.querySelector('.add_comment').style.display=="none")
-  event.target.parentElement.querySelector('.add_comment').style.display="block"
+  if(event.target.parentElement.querySelector('#add_comment').style.display=="none")
+  event.target.parentElement.querySelector('#add_comment').style.display="block"
   else 
-  event.target.parentElement.querySelector('.add_comment').style.display="none"
+  event.target.parentElement.querySelector('#add_comment').style.display="none"
 }

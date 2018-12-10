@@ -16,7 +16,6 @@ include_once(__DIR__.'/tpl_delete_account.php');
     </div>
 
     <div class="side_nav">
-      <!-- chamar o draw side map -->
     </div>
 
       <div class="profile_photo">
@@ -62,11 +61,7 @@ include_once(__DIR__.'/tpl_delete_account.php');
             <?=$userinfo['Points']?> Stars </h3>  
         </div>
 
-             
-        <!-- <div class="search_container">
-          <input class="search_input" type="text" placeholder="Search">
-        </div> -->
-
+        
     </div>
 
 

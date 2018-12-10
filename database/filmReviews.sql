@@ -41,7 +41,8 @@ CREATE TABLE Movie (
     ID          INTEGER PRIMARY KEY AUTOINCREMENT,
     Name        STRING NOT NULL,
     ReleaseYear STRING NOT NULL,
-    CoverPhoto  STRING DEFAULT "default.jpg"
+    CoverPhoto  STRING DEFAULT "default.jpg",
+    Description STRING NOT NULL
 );
 
 DROP TABLE IF EXISTS MovieGenre;

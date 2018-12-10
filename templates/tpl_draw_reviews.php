@@ -20,34 +20,37 @@
         <div class="review_content">
             <h5><?=$review['Description']?></h5>
         </div>
-        <div class="review_likes">
+        <div class="review_options">
+
+            <ul class="review_nav">
+              <li>  
                 <div class="likes">
-                    <input type="button"> 
-                    <h4><span class="fas fa-heart" ></span>
-                    <?=$review['Heart']?></h4>
+                    <!-- <input type="button">  -->
+                    <span id="review_likes" class="fas fa-heart" >
+                    <?=$review['Heart']?></span>
                 </div>
+              </li> 
+              <li>  
                 <div class="dislikes">
-                    <input type="button">
-                    <h4><span class="fas fa-heartbeat"></span>
-                    <?=$review['Dislike']?></h4>
-                </div>  
+                    <!-- <input type="button"> -->
+                    <span id="review_dislikes" class="fas fa-heartbeat">
+                    <?=$review['Dislike']?></span> 
+                </div> 
+              </li>
+              <li>
+              <input type="button"  name="addComment" value="Add Comment">
+             
+                <?php add_comment()?>
+         
+              </li>
+             </ul> 
         </div>             
          <div class="comments">
          <input type="button" value="<?=$review['NumberComments']?> Comments">
-            <div class="allComments">
+            <br><div class="allComments">
             <?php foreach($review['Comments'] as $comment){?>
                 <?php draw_comment($comment)?>
             <?php }?>
-            </div>
-            <input type="button" name="addComment" value="Add Comment">
-            <div class="add_comment" class="popup">
-                <div class="popup-content">
-                 <form method="post" id="addCommentForm">
-                    <input type="textarea" id="description" placeholder="Description" required><br>
-                    <input onclick="closeBox('Add Comment')" type="button" value="Cancel"> 
-                    <input type="submit" value="Add Comment">
-                </form>
-                </div>
             </div>
         </div>
         </article>     

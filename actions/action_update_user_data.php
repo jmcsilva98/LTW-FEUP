@@ -13,8 +13,8 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $confirmpassword=$_POST['repeatpassword'];
 
-
-if(checkEmail($email)==-1 || checkUser($username)==-1 || $password != $confirmpassword){
+die($password . ' - ' . $confirmpassword);
+if(checkEmail($email)!=-1 && checkUser($username)!=-1 && $password == $confirmpassword){
     
            updateUserInfo(getID($_SESSION['username']), $firstName, $lastName, $gender, $new_username, $country, $birthday, $email, $password);
            

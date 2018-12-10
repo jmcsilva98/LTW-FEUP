@@ -2,6 +2,7 @@
 
 
     include_once('../includes/session.php');
+    include_once('../templates/common/tpl_header.php');
     include_once('../templates/common/tpl_footer.php');
     include_once('../templates/tpl_draw_reviews.php');
     include_once('../database/db_movies.php');
@@ -30,7 +31,7 @@
         }
     }
     draw_reviews($all_reviews);
-    draw_footer();
+    // draw_footer();
 
 
     ?>

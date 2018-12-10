@@ -16,12 +16,12 @@ INSERT INTO DIRECTOR(Name) VALUES ('Ruben Fleischer');
 INSERT INTO DIRECTOR(Name) VALUES ('Brad Bird');
 INSERT INTO DIRECTOR(Name) VALUES ('Joel Edgerton');
 
-INSERT INTO Movie(Name, ReleaseYear, CoverPhoto) VALUES ('The Shawshank Redemption', '1994', NULL);
-INSERT INTO Movie(Name, ReleaseYear, CoverPhoto) VALUES ('Bohemian Rhapsody','2018', NULL);
-INSERT INTO Movie(Name, ReleaseYear, CoverPhoto) VALUES ('Venom','2018', NULL);
-INSERT INTO Movie(Name, ReleaseYear, CoverPhoto) VALUES ('The Incredibles 2', '2018', NULL);
-INSERT INTO Movie(Name, ReleaseYear, CoverPhoto) VALUES ('Ratatui','2007', NULL);
-INSERT INTO Movie(Name, ReleaseYear, CoverPhoto) VALUES ('Boy Erased','2018', NULL);
+INSERT INTO Movie(Name, ReleaseYear, CoverPhoto, Description) VALUES ('The Shawshank Redemption', '1994', 'shawshank_redemption.jpg', 'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.' );
+INSERT INTO Movie(Name, ReleaseYear, CoverPhoto, Description) VALUES ('Bohemian Rhapsody','2018', 'bohemian.jpg', 'A chronicle of the years leading up to Queens legendary appearance at the Live Aid (1985) concert.');
+INSERT INTO Movie(Name, ReleaseYear, CoverPhoto, Description) VALUES ('Venom','2018', 'venom.jpg','When Eddie Brock acquires the powers of a symbiote, he will have to release his alter-ego "Venom" to save his life.');
+INSERT INTO Movie(Name, ReleaseYear, CoverPhoto, Description) VALUES ('The Incredibles 2', '2018', 'incredibles2.jpg', 'Bob Parr (Mr. Incredible) is left to care for the kids while Helen (Elastigirl) is out saving the world.' );
+INSERT INTO Movie(Name, ReleaseYear, CoverPhoto, Description) VALUES ('Ratatouille','2007', 'ratatui.jpg', 'A rat who can cook makes an unusual alliance with a young kitchen worker at a famous restaurant.');
+INSERT INTO Movie(Name, ReleaseYear, CoverPhoto, Description) VALUES ('Boy Erased','2018','boy_erased.png','The son of a Baptist preacher is forced to participate in a church-supported gay conversion program after being forcibly outed to his parents.');
 
 INSERT INTO MovieGenre(GenreID, MovieID) VALUES (1,1);
 INSERT INTO MovieGenre(GenreID, MovieID) VALUES (2,2);

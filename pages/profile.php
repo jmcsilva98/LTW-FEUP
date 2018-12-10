@@ -4,6 +4,7 @@
     include_once('../templates/common/tpl_header.php');
     include_once('../templates/common/tpl_side_nav.php');
     include_once('../templates/tpl_profile.php');
+    include_once('../templates/tpl_add_comment.php');
     include_once('../templates/tpl_draw_reviews.php');
     include_once('../templates/common/tpl_footer.php');
    
