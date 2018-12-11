@@ -103,6 +103,22 @@
       return  $stmt->fetch();
   }
 
+  function getUserFirstName($username) {
+    
+    $db = Database::instance()->db();
+    try {
+    $stmt = $db->prepare('SELECT FirstName FROM User WHERE username = ?');
+    $stmt->execute(array($username));
+    if($row = $stmt->fetch()){
+      return $row['FirstName'];
+    }
+  
+    }catch(PDOException $e) {
+      return -1;
+    }
+  }
+
+
   function getUserReviews($username){
     
 

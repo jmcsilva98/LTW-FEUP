@@ -25,7 +25,7 @@
    <img src="../assets/profilePhotos/<?=getID($_SESSION['username'])?>.jpg" width="100" height="100" alt="profile avatar"> 
 <?php } ?>
 
-<?php echo htmlentities($userinfo['FirstName']) ?> 
+<?php echo htmlentities(getUserFirstName($_SESSION['username'])) ?> 
 </a> </li>
 <li> <a class="add_review_btn" href="?.php"> <span class="fas fa-plus-circle"></span> Add review </a> </li>
 <li>
