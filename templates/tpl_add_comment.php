@@ -4,7 +4,7 @@
                  <form method="post" id="addCommentForm">
                     <textarea id="description" placeholder="Share your opinion..." required></textarea><br>
                     <input onclick="closeBox('Add Comment')" type="button" value="Cancel"> 
-                    <input type="submit" value="Add Comment">
+                    <input type="submit" value="Add Comment" id="submit_comment">
                  </form>
                 </div>
             </div>
