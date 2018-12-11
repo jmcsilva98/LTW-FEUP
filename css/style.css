@@ -1175,3 +1175,30 @@ ul#comment_nav h4{
     text-justify: inter-word;
     line-height: 1.5;
 }
+
+/*ORDER BY SELECT*/
+
+.orderBy{
+border:0;
+     margin: 1em;
+     float: right;
+     padding: 10px 0px;
+     cursor: pointer;
+     width: 10%;
+     outline: 0;
+     background:var(--color-buttons);
+    margin-top:1em;
+    color: whitesmoke;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    font-size: 13px;
+    
+}
+
+.orderBy option:hover{
+    color:#505050;
+    cursor: pointer;
+}
+
