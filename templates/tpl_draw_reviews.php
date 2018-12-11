@@ -5,6 +5,14 @@
 <body>
     
     <?php function draw_reviews($reviews){?>
+
+     <!-- Colocar a funcao no onchange, acho eu. Pesquisei e diz que altera para o que queremos sem fazer reload da pagina-->
+    <select name="orderBy" class="orderBy">
+        <option value="" > Order By...</option>
+        <option value="mostRecent" onChange=""> Most Recent </option>
+        <option value="mostLikes" onChange=""> Most Likes </option>
+        <option value="mostComments" onChange=""> Most Comments </option>
+    </select>
        
     <?php foreach($reviews as $review){?>
         <article data-id="<?=$review['ID']?>" user-id="<?=$review['UserID']?>">
