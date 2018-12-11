@@ -27,14 +27,14 @@
 
 <?php echo htmlentities(getUserFirstName($_SESSION['username'])) ?> 
 </a> </li>
-<li> <a class="add_review_btn" href="?.php"> <span class="fas fa-plus-circle"></span> Add review </a> </li>
+<li> <a class="add_review_btn" onclick="openBox('Add Review')"> <span class="fas fa-plus-circle"></span> Add review </a> </li>
 <li>
 <div class="menu">
    <div class="title" onclick="show_dropdown_menu()"> Menu <span class="fa fa-bars"></span> <div class="arrow"> </div> </div>
    <div class="dropdown">
        <a href="main_page.php">  <p>Feed <span class="fa fa-home"></span> </p> </a>
        <a href="profile.php"> <p>Profile <span class="fa fa-user"></span> </p> </a>
-       <p>Add review <span class="fa fa-plus"></span></p></a>
+       <a onclick="openBox('Add Review')"> <p>Add review <span class="fa fa-plus" ></span></p></a>
        <a href="about.php"> <p>About <span class="fa fa-question-circle"></span></p> </a>
        <a href="../actions/action_logout.php"> <p>Logout <span class="fa fa-sign-out-alt"></span></p> </a>
            
