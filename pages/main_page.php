@@ -13,10 +13,14 @@
   
     // Verify if user is logged in
     if (!isset($_SESSION['username']))
-    die(header('Location: login.php')); 
+    die(header('Location: login.php'));
+    
+    if(!isset($_POST['sorting'])){
+        $all_reviews=getAllReviews();
+    }
 
     $user_info = getUserInfo($_SESSION['username']);
-    $all_reviews=getAllReviewsOrderByLikes();
+   
     foreach ($all_reviews as $k => $review){
         $all_reviews[$k]['MovieName'] = getMovieName($review['MovieID']);
         $all_reviews[$k]['UserName'] = getUsername($review['UserID']);
