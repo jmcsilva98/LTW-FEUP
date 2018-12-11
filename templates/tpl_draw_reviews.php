@@ -32,14 +32,12 @@
             <ul class="review_nav">
               <li>  
                 <div class="likes">
-                    <!-- <input type="button">  -->
                     <span id="review_likes" class="fas fa-heart" >
                     <?=$review['Heart']?></span>
                 </div>
               </li> 
               <li>  
                 <div class="dislikes">
-                    <!-- <input type="button"> -->
                     <span id="review_dislikes" class="fas fa-heartbeat">
                     <?=$review['Dislike']?></span> 
                 </div> 
