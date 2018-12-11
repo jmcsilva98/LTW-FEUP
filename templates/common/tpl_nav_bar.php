@@ -34,8 +34,7 @@
    <div class="dropdown">
        <a href="main_page.php">  <p>Feed <span class="fa fa-home"></span> </p> </a>
        <a href="profile.php"> <p>Profile <span class="fa fa-user"></span> </p> </a>
-       <!-- acrescentar -->
-       <p>Add review <span class="fa fa-plus"></span></p>
+       <p>Add review <span class="fa fa-plus"></span></p></a>
        <a href="about.php"> <p>About <span class="fa fa-question-circle"></span></p> </a>
        <a href="../actions/action_logout.php"> <p>Logout <span class="fa fa-sign-out-alt"></span></p> </a>
            
