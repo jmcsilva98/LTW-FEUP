@@ -32,12 +32,13 @@ include_once(__DIR__.'/tpl_delete_account.php');
         <div class="edit_profile">
 
            <p>
-               
+         <?php if ($userinfo['Username'] == $_SESSION['username']){?> 
            <div class="delete">
                 <input onclick="openBox('Delete Account')" type="submit" value="Delete Account"/>  
             </div>
              <a href="edit_profile.php" class="edit"> edit profile </a>
             </p>
+            <?php }?>
     
        </div>
 
