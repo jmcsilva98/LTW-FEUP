@@ -4,7 +4,10 @@
     include_once('../includes/session.php');
     include_once('../templates/common/tpl_header.php');
     include_once('../templates/common/tpl_footer.php');
+    include_once('../templates/common/tpl_nav_bar.php');
+    include_once('../templates/tpl_add_comment.php');
     include_once('../templates/tpl_draw_reviews.php');
+    include_once('../templates/tpl_all_Xmovie_reviews.php');
     include_once('../database/db_movies.php');
     include_once('../database/db_reviews.php');
     include_once('../database/db_comments.php');
@@ -30,8 +33,11 @@
 
         }
     }
-    draw_reviews($all_reviews);
-    // draw_footer();
+    $userinfo = getUserInfo($_SESSION['username']);
+    $allMovies=getAllMovies();
+    $allReviews=getAllReviews();
+    $allMoviesAndReviews = array('movies'=> $allMovies,'reviews'=>$allReviews);
+    draw_all_Xmovie_reviews($all_reviews,  $userinfo, $allMoviesAndReviews);
 
 
     ?>

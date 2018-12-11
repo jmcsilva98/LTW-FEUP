@@ -52,7 +52,7 @@
  
      /* height: 100vh; */
      display: grid;
-     font-family: "Roboto", 'sans-serif';
+     font-family: 'Roboto', 'sans-serif';
      /*apenas uma coluna */ 
      grid-template-columns: auto;
      /* linhas: header, logo, form, link,footer */
@@ -312,7 +312,7 @@
      background-image: none;
      /* height: 100vh; */
      display: grid;
-     font-family: "Roboto", 'sans-serif';
+     font-family: 'Roboto', 'sans-serif';
      /*colunas 2 : parte principal e aside */ 
      grid-template-columns: auto 6fr 1fr;
      /* linhas: header, profile info, nav, reviews,footer */
@@ -415,7 +415,7 @@
  .comments input[type="button"]{
      float: right;
      letter-spacing: 0.05em;
-     font-family: "Roboto",'sans-serif';
+     font-family: 'Roboto','sans-serif';
      text-transform: uppercase;
      text-decoration: none;
      font-weight: bold;
@@ -456,7 +456,7 @@
      background-color: var(--bg-color-sidenav);
      grid-area: goto;
      font-size: 25px;
-     font-family: "Roboto",sans-serif;
+     font-family: 'Roboto',sans-serif;
      /* overflow-x: hidden; */
  }
  .side_nav a{
@@ -545,19 +545,26 @@
             list-style-type: none;
             padding: 0;
             margin: 0;
-
+            position: absolute;
     
         }
     #allMoviesAndReviews li{
         display:none;
     }
     #allMoviesAndReviews li a {
-            margin-top: -1px;
+            /* margin-top: -1px; */
             text-decoration: none; 
+            font-family: 'Roboto', sans-serif;
             font-size: 18px; 
             color: black;
-            position: absolute;
+            background: #4dce9e91;
+    
+            float: left;
+            box-sizing: border-box;
         }
+    #allMoviesAndReviews li a:hover{
+        background: #1f7f5c;
+    }
  div.profile_reviews{
      grid-area: reviews; 
  
@@ -585,6 +592,8 @@
      word-spacing: 0.1em;
      padding: 2em;
      line-height: 1.6;
+     text-align: justify;
+
 
  }
  .review_options{
@@ -866,7 +875,7 @@
     display: flex;
     margin: 0;
     padding: 0;
-    justify-content: flex-end;
+    justify-content: flex-start;
     align-items: center;
 }
 
@@ -876,20 +885,19 @@
     padding: 1em;
     color: var(--input-color);
     padding-bottom: 0.5em;
+    min-width: 100px;
 }
 
- .feed_nav  li :first-child{
+.feed_nav :first-child{
    flex-grow: 1;
- 
 } 
-/* .feed_nav .search_container{
-    margin-right: 50%;
-} */
-
 
 .nav_buttons{
     margin: 0;
     
+} 
+.nav_logo a:link{
+    text-decoration: none;  
 }
 
 a.profile_nav_btn img{
@@ -951,6 +959,10 @@ a.profile_nav_btn img{
     overflow:hidden;
     transition:all .5s;
     position: absolute;
+
+  }
+  .dropdown a:link{
+      text-decoration: none;
   }
   .down{
      max-height:300px;
@@ -1058,9 +1070,6 @@ a.profile_nav_btn img{
    
 }
 
-/* .add_new_comment{
-    display: none;
-} */
 .review_options input[type="button"]{
     border: none;
 }
@@ -1073,10 +1082,15 @@ a.profile_nav_btn img{
     padding-left: 2em;
  
 }
-
-.review_options h4{
-    cursor: pointer;
-
+#review_likes, #review_dislikes{
+    font-size: 20px;
+    color: var(--bg-color-dark);
+}
+#review_likes, #review_dislikes{
+   cursor: pointer;
+}
+.allComments{
+    display: none;
 }
 
 .comments input[type="button"]{
@@ -1109,7 +1123,7 @@ ul#comment_nav h4{
   
 }
 
-#comment_nav li span{
+#comment_nav li {
     font-size: 20px;
     color: var(--bg-color-dark);
   

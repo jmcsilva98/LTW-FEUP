@@ -7,11 +7,11 @@ include_once(__DIR__.'/tpl_delete_account.php');
 
 <body>
 
-<?php function draw_profile($userinfo, $reviews) { ?>
+<?php function draw_profile($userinfo, $reviews,$allMoviesAndReviews) { ?>
 <div class="profile_container">
     <div class="profile_header">
         <header>
-        <p>  <img src="../assets/mininabi.png" alt="Nabi logo (butterfly)" width="40" height="40"> nabi 
+            <?php draw_nav($userinfo,$allMoviesAndReviews); ?>
        </header>
     </div>
 
