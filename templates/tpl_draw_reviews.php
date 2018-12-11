@@ -3,15 +3,14 @@
         include_once(__DIR__.'/tpl_comment.php');
          ?> 
 <body>
+
     
     <?php function draw_reviews($reviews){?>
-
-     <!-- Colocar a funcao no onchange, acho eu. Pesquisei e diz que altera para o que queremos sem fazer reload da pagina-->
-    <select name="orderBy" class="orderBy">
-        <option value="" > Order By...</option>
-        <option value="mostRecent" onChange=""> Most Recent </option>
-        <option value="mostLikes" onChange=""> Most Likes </option>
-        <option value="mostComments" onChange=""> Most Comments </option>
+        <select name="orderBy" class="orderBy" >
+        <option value="0" > Order By...</option>
+        <option value="1" > Most Recent </option>
+        <option value="2" > Most Likes </option>
+        <option value="3"> Most Comments </option>
     </select>
        
     <?php foreach($reviews as $review){?>

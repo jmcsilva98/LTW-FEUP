@@ -14,10 +14,8 @@
     // Verify if user is logged in
     if (!isset($_SESSION['username']))
     die(header('Location: login.php'));
-    
-    if(!isset($_POST['sorting'])){
-        $all_reviews=getAllReviews();
-    }
+
+    $all_reviews=getAllReviews();
 
     $user_info = getUserInfo($_SESSION['username']);
    
@@ -40,4 +38,5 @@
     $allReviews=getAllReviews();
     $allMoviesAndReviews = array('movies'=> $allMovies,'reviews'=>$allReviews);
     draw_feed($user_info,$all_reviews,$allMoviesAndReviews);
+   
 ?>
