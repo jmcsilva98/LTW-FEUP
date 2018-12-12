@@ -2,7 +2,7 @@
 <?php function draw_comment($comment){?>
   <div class="comment" data-id="<?=$comment['ID']?>" user-id="<?=$comment['UserID']?>">
   
-  
+  <p><?=$comment['Description']?></p>
   <ul class="review_nav" id="comment_nav">
     <li>
     <h4> Commented by
