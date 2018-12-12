@@ -7,8 +7,10 @@
   function checkUserPassword($username, $password) {
     
     $db = Database::instance()->db();
+
+    $hashed_password = hash('sha256', $password);
     $stmt = $db->prepare('SELECT * FROM User WHERE Username = ? AND Password = ?');
-    $stmt->execute(array($username, sha1($password)));
+    $stmt->execute(array($username, $hashed_password));
     return $stmt->fetch()?true:false; // return true if a line exists
   }
   function checkEmail($email){
@@ -41,7 +43,7 @@
   function insertUser($firstName,$lastName,$username, $gender,$birthday,$country,$email, $password){
     checkEmail($email);
     $db = Database::instance()->db();
- 
+  
     $stmt = $db->prepare('INSERT INTO User(FirstName,LastName,Username,Gender,Birthday,Country,Email,Password,Photo,Points) VALUES (:FirstName,:LastName,:Username,:Gender,:Birthday,:Country,:Email,:Password,:Photo,:Points)');
     $stmt->bindParam(':FirstName', $firstName);
     $stmt->bindParam(':LastName', $lastName);
@@ -50,7 +52,7 @@
     $stmt->bindParam(':Birthday', $birthday);
     $stmt->bindParam(':Country', $country);
     $stmt->bindParam(':Email', $email);
-    $stmt->bindParam(':Password', sha1($password)); 
+    $stmt->bindParam(':Password', hash('sha256', $password)); 
     $photo = "../assets/default.jpg";
     $stmt->bindParam(':Photo', $photo);
     $points=0;
@@ -118,6 +120,21 @@
     }
   }
 
+  function getUserBirthday($username) {
+    
+    $db = Database::instance()->db();
+    try {
+    $stmt = $db->prepare('SELECT Birthday FROM User WHERE username = ?');
+    $stmt->execute(array($username));
+    if($row = $stmt->fetch()){
+      return $row['Birthday'];
+    }
+  
+    }catch(PDOException $e) {
+      return -1;
+    }
+  }
+
 
   function getUserReviews($username){
     
@@ -157,7 +174,7 @@
     
     $db = Database::instance()->db();
 
-    $hashed_password = hash('sha1',$password);
+    $hashed_password = hash('sha256',$password);
     $stmt = $db->prepare('UPDATE User SET FirstName = ?, LastName = ?, Gender = ?, Country = ?, Birthday = ?, Username = ?, Email = ?, Password = ? WHERE ID = ? ');
     $stmt->execute(array($firstName, $lastName, $gender, $country, $birthday, $username, $email, $hashed_password, $id));
     return $stmt->fetchAll();

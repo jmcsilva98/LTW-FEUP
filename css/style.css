@@ -582,6 +582,9 @@
     font-size: 28px;
 
  }
+ .review_info h3{
+    font-family: 'Montserrat', sans-serif; 
+ }
  
  .review_content{
      margin: 0;
@@ -598,7 +601,6 @@
  }
  .review_options{
     background-color: #c0b8b879;
-    /* padding: 1.5em; */
  }
  
  .likes h4 span,  .dislikes h4 span{
@@ -606,12 +608,6 @@
     color: var(--bg-color-dark);
 
  }
- /* .review_likes{
-    display: inline-block;
-    vertical-align: middle;
-    margin: 0 auto;
-    padding: 0 ;
- } */
 
 .comments input[type="submit"]{
     margin:0 auto;
@@ -620,7 +616,6 @@
 
  .profile_footer {
      grid-area: footer;
-     /* background-color: var(--bg-color-dark); */
  }
  
  
@@ -1086,9 +1081,11 @@ a.profile_nav_btn img{
     font-size: 20px;
     color: var(--bg-color-dark);
 }
-#review_likes, #review_dislikes{
+#review_likes:hover, #review_dislikes:hover{
    cursor: pointer;
+   color: #1f7f5c;
 }
+
 .allComments{
     display: none;
 }
@@ -1099,6 +1096,7 @@ a.profile_nav_btn img{
 }
 .comments input[type="button"]:hover{
    cursor: pointer;
+   color: rgb(93, 94, 93);
 }
 
 .comment{
@@ -1132,8 +1130,8 @@ ul#comment_nav h4{
    cursor: pointer;
 }
 
-#add_coment input[type="submit"]{
-   width: 10;
+#submit_comment{
+   width: 10em;
 }
 
 /*----------------------
@@ -1201,4 +1199,5 @@ border:0;
     color:#505050;
     cursor: pointer;
 }
+
 
