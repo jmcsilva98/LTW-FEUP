@@ -13,94 +13,151 @@ function orderMainPage(event){
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener("load", function () {
       //location.reload();
-      let item = JSON.parse(this.responseText)
-     
-      var article = document.querySelector('.feed_reviews');
-      console.log(article);
+      let item = JSON.parse(this.responseText)  
+      let feed= document.querySelector('.feed_reviews');
+      console.log(feed);
       
-      while(article.firstChild){
-        article.removeChild(article.firstChild);
+      while(feed.firstChild){
+        feed.removeChild(feed.firstChild);
     }
     for(let i =0; i< item.length;i++){
-      let child =document.createElement("article");
-      child.setAttribute("data-id",item[i].ID);
-      child.setAttribute("user-id",item[i].UserID);
+      let article =document.createElement("article");
+      article.setAttribute("data-id",item[i].ID);
+      article.setAttribute("user-id",item[i].UserID);
+      let review_info = document.createElement("div");
+      review_info.setAttribute("class","review_info");
+      let title= document.createElement("h2");
+      title.innerText=item[i].Title;
+      review_info.appendChild(title);
+      let movie = document.createElement("h3");
+      movie.innerHTML = 'Movie:'+'<a href="movie.php?movie_id='+item[i].MovieID+'">'+item[i].MovieName+'</a>';
+      review_info.appendChild(movie);
+      let createdBy = document.createElement("h4");
+      createdBy.innerHTML= 'Created by '+  '<a href="profile.php?username='+item[i].UserName+'">'+item[i].UserName+"</a>"+
+                           ' on '+ item[i].ReviewDate;
+      review_info.appendChild(createdBy);
+      article.appendChild(review_info);  
      
+      let review_content =document.createElement("div");
+      review_content.setAttribute("class","review_content"); 
+      let description= document.createElement("h5");
+      description.innerText= item[i].Description;
+      review_content.appendChild(description);
+      article.appendChild(review_content);
       
-      
-      
-      child.innerHTML='<div class="review_info">\n'+
-                       '<h2>'+item[i].Title+'</h2>\n'+
-                       '<h3> Movie: <a href="movie.php?movie_id='+item[i].MovieID+'">'+item[i].MovieName+'</a> </h3>\n'+
-                       '<h4> Created by '+
-                       '<a href="profile.php?username='+item[i].UserName+'">'+item[i].UserName+'</a>'+' on ' +item[i].ReviewDate+'</h4>'+
-                       '</div>'+
-                       '<div class="review_content">'+
-                      '<h5>'+item[i].Description+'</h5>'+
-                      ' </div>'+
-                      '<div class="review_options">'+
-                      '<ul class="review_nav">'+
-                      '<li>' + 
-                      '<div class="likes">'+
-                     '<span id="review_likes" class="fas fa-heart">'+
-                      item[i].Heart+'</span>'+
-                  '</div>'+
-                  '</li>'+
-                  '<li>'+  
-                '<div class="dislikes">'+
-                  
-                  '<span id="review_dislikes" class="fas fa-heartbeat">'+
-                    item[i].Dislike+'</span>'+ 
-                '</div>'+ 
-                '</li>'+'<li>'+
-                '<input type="button"  name="addComment" value="Add Comment">'
-                '<div id="add_comment" class="popup">'+
-                '<div class="popup-content">'+
-                '<form method="post" id="addCommentForm">'+
-                    '<textarea id="description" placeholder="Share your opinion..." required></textarea><br>'+
-                    '<input onclick="closeBox(\'Add Comment\')" type="button" value="Cancel">'+
-                    '<input type="submit" value="Add Comment">'+
-                 '</form>'+
-                '</div>'+
-            '</div>'+
-                +'</li>'+
-                '</ul>'+
-                '</div>'+
-                '<div class="comments">';
-                var x = document.createElement("INPUT");
-                x.setAttribute("type", "button");
-                x.setAttribute("value", item[i].NumberComments+"Number Comments");
-                child.appendChild(x);
+      let review_options = document.createElement("div");
+      review_options.setAttribute("class","review_options");
+      let review_nav=document.createElement("ul");
+      review_nav.setAttribute("class","review_nav");
+      let firstLi = document.createElement("li");
+      let likes=document.createElement("div");
+      likes.setAttribute("class","likes");
+      let review_likes= document.createElement("span");
+      review_likes.setAttribute("id","review_likes");
+      review_likes.setAttribute("class","fas fa-heart");
+      review_likes.innerText = item[i].Heart;
+      likes.appendChild(review_likes);
+      firstLi.appendChild(likes);
+      review_nav.appendChild(firstLi);
+      let secondLi = document.createElement("li");
+      let dislikes=document.createElement("div");
+      dislikes.setAttribute("class","dislikes");
+      let review_dislikes= document.createElement("span");
+      review_dislikes.setAttribute("id","review_dislikes");
+      review_dislikes.setAttribute("class","fas fa-heartbeat");
+      review_dislikes.innerText = item[i].Dislike;
+      dislikes.appendChild(review_dislikes);
+      secondLi.appendChild(dislikes);
+      review_nav.appendChild(secondLi);
 
-                child.innerHTML+='<div class="allComments">'+
-                '</div>'+ '</div>'+'</article>';
-                console.log(child);
-              
-                  for(let j = 0; j<item[i].Comments.length;j++){
-                  let div = document.createElement("div");
-                  div.setAttribute("data-id",item[i].Comments[j].ID);
-                  div.setAttribute("user-id",item[i].Comments[j].UserID);
-                  div.innerHTML= '<p>'+item[i].Comments[j].Description+'</p>'+
-                                  '<ul class="review_nav" id="comment_nav">'+
-                                  '<li>'+
-                                  '<h4> Commented by'+
-                                  '<a href="profile.php?username='+item[i].Comments[j].Username+'">'+item[i].Comments[j].Username+'</a>'+
-                                  ' on '+item[i].Comments[j].CommentDate+'</h4>'+
-                                  '</li>'+
-                                   '<li>'+
-                              '<span id="likes" class="fas fa-heart">'+item[i].Comments[j].Likes+'</span>'+ '<br>'+
-                            '</li>'+
-                             '<li>'+
-                              '<span id="dislikes" class="fas fa-heartbeat">'+item[i].Comments[j].Dislikes+'</span>'+
-                         ' </li>'+
-                   ' </div>'+
-                   '</ul>';
-                   child.appendChild(div);      
-                }
-                child.innerHTML+='</div>'+ '</div>'+'</article>';
+      let thirdLi =document.createElement("li");
+      let addComment=document.createElement("input");
+      addComment.setAttribute("type","button");
+      addComment.setAttribute("name","addComment");
+      addComment.setAttribute("value","Add Comment");
+     
+      thirdLi.appendChild(addComment);
+      let add_comment= document.createElement("div");
+      add_comment.setAttribute("id","add_comment");
+      add_comment.setAttribute("class","popup");
+      let popup = document.createElement("div");
+      popup.setAttribute("class","popup-content");
+      let form = document.createElement("form");
+      form.setAttribute("method","post");
+      form.setAttribute("id","addCommentForm");
+      let textarea=document.createElement("textarea");
+      textarea.setAttribute("id","description");
+      textarea.setAttribute("placeholder","Share you opinion...");
+      form.appendChild(textarea);
+      let input = document.createElement("input");
+      input.setAttribute("onclick","closeBox('Add Comment')");
+      input.setAttribute("type","button");
+      input.setAttribute("value","Cancel");
+      form.appendChild(input);
+      let submit=document.createElement("input");
+      submit.setAttribute("type","submit");
+      submit.setAttribute("value","Add Comment");
+      submit.setAttribute("id","submit_content");
+      form.appendChild(submit);
+      popup.appendChild(form);
+      add_comment.appendChild(popup);
+      thirdLi.appendChild(add_comment);
+      review_nav.appendChild(thirdLi);     
+      review_options.appendChild(review_nav); 
+      article.appendChild(review_options);
 
+      let comments = document.createElement("div");
+      comments.setAttribute("class","comments");
+      let inputComments= document.createElement("input");
+      inputComments.setAttribute("type","button");
+      inputComments.setAttribute("value",item[i].NumberComments+" Comments");
+      inputComments.innerHTML+='<br>';
+      comments.appendChild(inputComments);
+      article.appendChild(comments);
+      let allComments= document.createElement("div");
+
+      allComments.setAttribute("class","allComments");
+      for(let j =0;j<item[i].Comments.length;j++){
+        let comment = document.createElement("div");
+        comment.setAttribute("class","comment");
+        comment.setAttribute("data-id",item[i].Comments[j].ID);
+        comment.setAttribute("user-id",item[i].Comments[j].UserID);
+        let description = document.createElement("p");
+        description.innerText= item[i].Comments[j].Description;
+        comment.appendChild(description);
+        let comment_nav = document.createElement("ul");
+        comment_nav.setAttribute("class","review_nav");
+        comment_nav.setAttribute("id","comment_nav");
+
+        let commentLi = document.createElement("li");
+        let commentedBy = document.createElement("h4");
+      commentedBy.innerHTML= 'Commented by '+  '<a href="profile.php?username='+item[i].Comments[j].Username+'">'+item[i].Comments[j].Username+"</a>"+
+                           ' on '+ item[i].Comments[j].CommentDate;
+      commentLi.appendChild(commentedBy);
+      comment_nav.appendChild(commentLi);
       
-      article.appendChild(child);      
+      let likesLi = document.createElement("li");
+      let likesSpan= document.createElement("span");
+      likesSpan.setAttribute("id","likes");
+      likesSpan.setAttribute("class","fas fa-heart");
+      likesSpan.innerText =item[i].Comments[j].Likes;
+      likesLi.appendChild(likesSpan);
+      comment_nav.appendChild(likesSpan);
+
+      let dislikesLi = document.createElement("li");
+      let dislikesSpan= document.createElement("span");
+      dislikesSpan.setAttribute("id","dislikes");
+      dislikesSpan.setAttribute("class","fas fa-heartbeat");
+      dislikesSpan.innerText =item[i].Comments[j].Dislikes;
+      dislikesLi.appendChild(dislikesSpan);
+      comment_nav.appendChild(dislikesSpan);
+      comment.appendChild(comment_nav);
+      allComments.appendChild(comment);
+      }
+  
+     article.appendChild(allComments);
+      console.log(article);
+      feed.appendChild(article);      
     }
         })
     
@@ -108,22 +165,5 @@ function orderMainPage(event){
     request.send(encodeForAjax({orderBy}))
     event.preventDefault();
 }
-/*function doReload(orderBy){
-  console.log(orderBy);
-  let request = new XMLHttpRequest()
-
-    request.open("post", "../pages/main_page.php", true)
-    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    request.addEventListener("load", function () {
-      let item = JSON.parse(this.response.item)
-      console.log(item);
-      //draw_reviews
-      //location.reload();
-    })
-
-  request.send(encodeForAjax({orderBy}))
-  document.location = 'main_page.php?orderBy='+orderBy;
-  event.preventDefault();
-}*/
 
 

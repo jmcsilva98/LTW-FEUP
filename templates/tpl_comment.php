@@ -15,6 +15,6 @@
     <li>
     <span id="dislikes" class="fas fa-heartbeat"><?=$comment['Dislikes']?></span>
     </li>
-    </div>
   </ul>
+  </div>
   <?php }?>

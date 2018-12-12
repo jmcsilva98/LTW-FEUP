@@ -5,6 +5,9 @@ dislikesComment.forEach((like) => like.addEventListener('click', incrementDislik
 
 let add_Comment= document.querySelectorAll('form#addCommentForm input[type=submit]');
 add_Comment.forEach((comment) => comment.addEventListener('click',addComment));
+
+let close_Comment= document.querySelectorAll('form#addCommentForm input[type=button]');
+close_Comment.forEach((comment) => comment.addEventListener('click',closeComment));
 let show_form = document.querySelectorAll('article input[name="addComment"]');
 show_form.forEach((form) =>form.addEventListener('click',showForm));
 
@@ -68,4 +71,8 @@ function showForm(event){
   event.target.parentElement.querySelector('#add_comment').style.display="block"
   else 
   event.target.parentElement.querySelector('#add_comment').style.display="none"
+}
+
+function closeComment(event){
+  event.target.parentElement.parentElement.parentElement.style.display="none";
 }
