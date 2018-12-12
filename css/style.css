@@ -1,13 +1,18 @@
 /* --------------------------
    ---------GENERIC----------
    -------------------------- */
-/* 
+
    html{
     height:100% ;
+    padding:0;
+    margin:0;
+    width: 100%;
  }
-  */
+  
  body{
      margin: 0 auto;
+     height:100% ;
+     width: 100%;
      /* min-height:100% ; */
      font-family: 'Roboto', sans-serif;
      
@@ -775,10 +780,9 @@
    .popup-content{
     display: flex;
     flex-direction: column;
-    max-height: 60%;
     width: 50%;
     padding: 2em;
-    margin: 10% auto;
+    margin: 7% auto;
     background: white;
     box-shadow: 0 0 1em 0.2em rgba(0, 0, 0, 0.2);
    }
@@ -844,24 +848,29 @@
 
   .feed_container{
       display: grid;
-      grid-template-columns: auto;
+      grid-template-columns:auto;
       grid-template-rows: auto auto auto;
       grid-template-areas: "header"
-                            "content"
+                            "reviews"
                             "footer";
       background-image: none;
       background-color: var(--input-color);
+      
+      /* min-width: 100%;
+      min-height: 100%;
+      height: 100vh; */
+      
   }
   
   .feed_header{
       grid-area: header;
   }
   .feed_reviews{
-    grid-area: content;
-}
+    grid-area: reviews;
+  }
     .feed_footer{
         grid-area: footer;
-    }
+  }
 
 /*--------------------------------
 ----------NAVIGATION MENU---------
@@ -1140,6 +1149,8 @@ ul#comment_nav h4{
 
 .about_container{
     display: grid;
+    min-width: 100%;
+    min-height: 100%;
     grid-template-columns: auto;
     grid-template-rows: auto 6fr auto;
     grid-template-areas: "header"
@@ -1147,7 +1158,7 @@ ul#comment_nav h4{
                          "footer";
     background-image: none;
     background-color: var(--panel-color);
-    height: 100vh;
+    height: 100%;
 }
 
 .about_header{
@@ -1200,4 +1211,13 @@ border:0;
     cursor: pointer;
 }
 
+
+.profile_container select, div#xMovie select{
+    display: none;
+}
+
+
+#addReviewForm{
+    display: inline-block;
+}
 

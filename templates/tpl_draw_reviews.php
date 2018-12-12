@@ -6,12 +6,15 @@
 
     
     <?php function draw_reviews($reviews){?>
-        <select name="orderBy" class="orderBy" >
+       
+
+     <select name="orderBy" class="orderBy" >
         <option value="0" > Order By...</option>
         <option value="1" > Most Recent </option>
         <option value="2" > Most Likes </option>
         <option value="3"> Most Comments </option>
     </select>
+ 
        
     <?php foreach($reviews as $review){?>
         <article data-id="<?=$review['ID']?>" user-id="<?=$review['UserID']?>">
@@ -61,4 +64,3 @@
         </article>     
         <?php }?> 
     <?php }?>
-</body>

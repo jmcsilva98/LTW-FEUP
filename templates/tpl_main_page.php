@@ -22,7 +22,8 @@
     <div class="feed_footer">
          <?php draw_footer(); ?>
     </div>
-    </div>
+
+</div>
 <?php } ?>
 
  
