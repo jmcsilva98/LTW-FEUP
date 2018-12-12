@@ -7,6 +7,6 @@
 
     // Verify if user is logged in
   if (isset($_SESSION['username']))
-  die(header('Location: main_page.php'));//mudar o nome
+  die(header('Location: main_page.php'));
 
 ?>

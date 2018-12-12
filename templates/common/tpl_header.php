@@ -16,5 +16,6 @@
     <script src ="../js/comment.js" defer></script>
     <script src ="../js/utils.js" defer></script>
     <script src ="../js/main_page.js" defer></script>
+    <script src ="../js/user.js" defer> </script>
 
 </head>

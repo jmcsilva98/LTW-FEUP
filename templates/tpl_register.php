@@ -19,13 +19,13 @@
             <input type="radio" name="gender" placeholder="female" value="female" required>female
             <input type="radio" name="gender" placeholder="male" value="male" required>male<br>
             <select name="country" required>
-                <?php select_country() ?>
+                <?php select_country("") ?>
             </select><br>
             <label> Birthday </label><br>
             <input type="date" name="birthday" min="1903-01-01" max="2005-01-01" required><br>
-            <input type="text" name="username" placeholder="username" maxlength="20" required><br>
+            <input type="text" name="username" placeholder="username" maxlength="20" pattern="^[A-z0-9_-]{6,15}$" title="Username must be from 6 to 15 characters, having letters, numbers, _ or - ."  required><br>
             <input type="email" name="email" placeholder="email" required> <br>
-            <input type="password" name="password" placeholder="password" required><br>
+            <input type="password" name="password" placeholder="password" pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_-]).{7,}$" title="Password must contain 7 or more characters, and at least one Uppercase letter, one number and one symbol." required><br>
             <input type="password" name="repeatpassword" placeholder="confirm password" required><br>
             <input type="submit" value="Register">
         </form>
@@ -46,5 +46,6 @@
 </div>
 </body>
 </html>
+
 
  

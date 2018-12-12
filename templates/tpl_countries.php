@@ -50,7 +50,6 @@
 <option value="Chad" <?=$country=="Chad"?'selected':''?>>Chad</option> 
 <option value="Chile" <?=$country=="Chile"?'selected':''?>>Chile</option> 
 <option value="China" <?=$country=="China"?'selected':''?>>China</option> 
-<option value="Christmas Island" <?=$country=="Christmas Island"?'selected':''?>>Christmas Island</option> 
 <option value="Cocos (Keeling) Islands" <?=$country=="Cocos (Keeling) Islands"?'selected':''?>>Cocos (Keeling) Islands</option> 
 <option value="Colombia" <?=$country=="Colombia"?'selected':''?>>Colombia</option> 
 <option value="Comoros" <?=$country=="Comoros"?'selected':''?>>Comoros</option> 

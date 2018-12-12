@@ -50,18 +50,18 @@
             <label> Birthday </label><br>
             <input type="date" name="birthday" min="1903-01-01" max="2005-01-01" value="<?php echo htmlentities($userinfo['Birthday']) ?>" required><br>
             <label> Username </label><br>
-            <input type="text" name="username" placeholder="username" maxlength="20" value="<?php echo htmlentities($userinfo['Username']) ?>" required><br>
+            <input type="text" name="username" placeholder="username" maxlength="20" value="<?php echo htmlentities($userinfo['Username']) ?>" pattern="^[A-z0-9_-]{6,15}$" title="Username must be from 6 to 15 characters, having letters, numbers, _ or - ." required><br>
             <label>Email </label><br>
             <input type="email" name="email" placeholder="email" value="<?php echo htmlentities($userinfo['Email']) ?>" required> <br>
             <label> Password </label><br>
-            <input type="password" name="password" placeholder="new password" required><br>
+            <input type="password" name="password" placeholder="new password" pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_-]).{7,}$" title="Password must contain 7 or more characters, and at least one Uppercase letter, one number and one symbol."  required><br>
             <label> Confirm Password </label><br>
             <input type="password" name="repeatpassword" placeholder="confirm new password" required><br>
             
             <p>
             <input type="submit" value="Update">
              
-            <a href="main_page.php"> cancel </a></p>
+            <a href="profile.php"> cancel </a></p>
         </form>
 
         

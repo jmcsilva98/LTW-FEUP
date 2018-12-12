@@ -9,10 +9,6 @@
     include_once('../database/db_movies.php');
     include_once('../database/db_user.php');
   
-    // Verify if user is logged in
-    /*if (!isset($_SESSION['username']))
-    die(header('Location: login.php'));*/ 
-
     $allMovies=getAllMovies();
 
     foreach($allMovies as $movie){

@@ -11,7 +11,7 @@
     include_once('../database/db_user.php');
   
     // Verify if user is logged in
-    if (!isset($_SESSION['username']))
+    if (!isset($_SESSION['username']) || !preg_match("/^[A-z0-9_-]{6,15}$/", $_SESSION['username']))
     die(header('Location: login.php')); 
 
 
