@@ -177,7 +177,7 @@ function getUserReview($reviewId) {
 function getAllReviewsOrderByComments(){
     
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT * from Review left join (select count(*) as numberComments, ReviewID from Comment group by ReviewID)m on m.ReviewID=Review.ID ORDER BY numberComments ASC');
+    $stmt = $db->prepare('SELECT * from Review left join (select count(*) as numberComments, ReviewID from Comment group by ReviewID)m on m.ReviewID=Review.ID ORDER BY numberComments DESC');
     $stmt->execute();
     $allReviews= $stmt->fetchAll();
     
@@ -188,7 +188,7 @@ function getAllReviewsOrderByComments(){
 function getAllReviewsOrderByLikes(){
     
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT * from Review left join (select count(*) as numberLikes, ReviewID from LikeReview group by ReviewID)m on m.ReviewID=Review.ID ORDER BY numberLikes ASC');
+    $stmt = $db->prepare('SELECT * from Review left join (select count(*) as numberLikes, ReviewID from LikeReview group by ReviewID)m on m.ReviewID=Review.ID ORDER BY numberLikes DESC');
     $stmt->execute();
     $allReviews= $stmt->fetchAll();
     

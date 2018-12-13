@@ -199,6 +199,17 @@ function decrementPoints($id){
   $stmt->execute(array($id));
 }
 
+function getUserPoints($id){
+
+    $db = Database::instance()->db();
+    $stmt= $db->prepare('SELECT Points FROM User WHERE ID = ?');
+    $stmt->execute(array($id));
+    $row= $stmt->fetch();
+    return $row['Points'];
+
+
+}
+
 
 
 

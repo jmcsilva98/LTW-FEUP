@@ -8,7 +8,7 @@ include_once(__DIR__.'/tpl_delete_account.php');
 <body>
 
 <?php function draw_profile($userinfo, $reviews,$allMoviesAndReviews) { ?>
-<div class="profile_container">
+<div class="profile_container" id=<?=$userinfo['ID']?>>
     <div class="profile_header">
         <header>
             <?php draw_nav($userinfo,$allMoviesAndReviews); ?>
@@ -59,7 +59,7 @@ include_once(__DIR__.'/tpl_delete_account.php');
 
         <div class="profile_points">
         <h3><img src="../assets/star.png" alt ="star icon" >
-            <?=$userinfo['Points']?> Stars </h3>  
+            <span><?=$userinfo['Points']?></span> Stars </h3>  
         </div>
 
         

@@ -23,8 +23,11 @@ function incrementLikesComment(event)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener("load", function () {
       let item = JSON.parse(this.responseText)
+      if (document.querySelector('.profile_container') != null){
+        document.querySelector('.profile_container').querySelector('.profile_points').getElementsByTagName('h3')[0].getElementsByTagName('span')[0].innerText=item['points'];
+      }
       event.target.textContent=item['likes']
-      console.log( event.target.parentElement.parentElement)
+      
       event.target.parentElement.parentElement.querySelector('span#dislikes').textContent= item['dislikes']
     })  
 
@@ -45,6 +48,9 @@ function incrementDislikesComment(event)
     request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
     request.addEventListener("load", function () {
       let item = JSON.parse(this.responseText)
+      if (document.querySelector('.profile_container') != null){
+        document.querySelector('.profile_container').querySelector('.profile_points').getElementsByTagName('h3')[0].getElementsByTagName('span')[0].innerText=item['points'];
+      }
       event.target.textContent=item['dislikes']
       event.target.parentElement.parentElement.querySelector('span#likes').textContent= item['likes']
     })  

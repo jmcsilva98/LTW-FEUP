@@ -14,8 +14,7 @@ function incrementLikes(event)
 {
     let reviewID = event.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-id')
     let userID =event.target.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('user-id')
-    console.log(userID)
-    console.log(reviewID)
+
     
     let request = new XMLHttpRequest()
 
@@ -24,6 +23,9 @@ function incrementLikes(event)
     request.addEventListener("load", function () {
       let item = JSON.parse(this.responseText)
       event.target.textContent=item['likes']
+      if (document.querySelector('.profile_container') != null){
+        document.querySelector('.profile_container').querySelector('.profile_points').getElementsByTagName('h3')[0].getElementsByTagName('span')[0].innerText=item['points'];
+      }
       event.target.parentElement.parentElement.parentElement.querySelector('#review_dislikes').textContent= item['dislikes']    })  
 
     request.send(encodeForAjax({reviewID,userID}))
@@ -39,6 +41,9 @@ function incrementDislikes(event)
     request.addEventListener("load", function () {
       let item = JSON.parse(this.responseText)
       event.target.textContent=item['dislikes']
+      if (document.querySelector('.profile_container') != null){
+        document.querySelector('.profile_container').querySelector('.profile_points').getElementsByTagName('h3')[0].getElementsByTagName('span')[0].innerText=item['points'];
+      }
       event.target.parentElement.parentElement.parentElement.querySelector('#review_likes').textContent= item['likes']    })  
       
 
