@@ -24,7 +24,6 @@ if (empty($description)){
 else if(insertReview($title, $userId, $movieId, $reviewDate, $description)) {
 
         $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Your review has been added with success!');
-        header("Location:../pages/login.php");
     }
 else {
         $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Can\'t add your review!');

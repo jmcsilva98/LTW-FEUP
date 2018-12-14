@@ -19,7 +19,8 @@ insertUserDislikeComment($userID,$commentID);
 decrementPoints($userCommentID);
 $updatedLikes= getLikesComment($commentID);
 $updatedDislikes =getDislikesComment($commentID);
-$values=array('likes'=>$updatedLikes,'dislikes'=>$updatedDislikes);
+$updatedPoints = getUserPoints($userID);
+$values=array('likes'=>$updatedLikes,'dislikes'=>$updatedDislikes,'points'=>$updatedPoints);
 echo json_encode($values);
 
 ?>
