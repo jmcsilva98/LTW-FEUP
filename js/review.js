@@ -55,7 +55,7 @@ function addReview(){
   let description = document.getElementById("addReviewForm").elements.namedItem('description').value
   let movie = document.getElementById("addReviewForm").elements.namedItem('movie').value
   let title = document.getElementById("addReviewForm").elements.namedItem('title').value
-
+  
   let request = new XMLHttpRequest()
   request.open("post", "../actions/action_api_insert_review.php", true)
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')

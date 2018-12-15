@@ -3,9 +3,7 @@
 /**
  * Options of all countries
  */ 
-<option value="" <?=$country==""?'selected':''?>>Country...</option>
-<option value="United States" <?=$country=="United States"?'selected':''?>>United States</option> 
-<option value="United Kingdom" <?=$country=="United Kingdom"?'selected':''?>>United Kingdom</option> 
+<option value="" <?=$country==""?'selected':''?>>Country...</option> 
 <option value="Afghanistan" <?=$country=="Afghanistan"?'selected':''?>>Afghanistan</option> 
 <option value="Albania" <?=$country=="Albania"?'selected':''?>>Albania</option> 
 <option value="Algeria" <?=$country=="Algeria"?'selected':''?>>Algeria</option> 
@@ -49,7 +47,7 @@
 <option value="Central African Republic" <?=$country=="Central African Republic"?'selected':''?>>Central African Republic</option> 
 <option value="Chad" <?=$country=="Chad"?'selected':''?>>Chad</option> 
 <option value="Chile" <?=$country=="Chile"?'selected':''?>>Chile</option> 
-<option value="China" <?=$country=="China"?'selected':''?>>China</option> 
+<option value="China" <?=$country=="China"?'selected':''?>>China</option>  
 <option value="Cocos (Keeling) Islands" <?=$country=="Cocos (Keeling) Islands"?'selected':''?>>Cocos (Keeling) Islands</option> 
 <option value="Colombia" <?=$country=="Colombia"?'selected':''?>>Colombia</option> 
 <option value="Comoros" <?=$country=="Comoros"?'selected':''?>>Comoros</option> 
@@ -212,7 +210,7 @@
 <option value="Sweden" <?=$country=="Sweden"?'selected':''?>>Sweden</option> 
 <option value="Switzerland" <?=$country=="Switzerland"?'selected':''?>>Switzerland</option> 
 <option value="Syrian Arab Republic" <?=$country=="Syrian Arab Republic"?'selected':''?>>Syrian Arab Republic</option> 
-<option value="Taiwan, Province of China" <?=$country=="Taiwan, Province of China"?'selected':''?>>Taiwan, Province of China</option> 
+<option value="Taiwan" <?=$country=="Taiwan"?'selected':''?>>Taiwan</option> 
 <option value="Tajikistan" <?=$country=="Tajikistan"?'selected':''?>>Tajikistan</option> 
 <option value="Tanzania, United Republic of" <?=$country=="Tanzania, United Republic of"?'selected':''?>>Tanzania, United Republic of</option> 
 <option value="Thailand" <?=$country=="Thailand"?'selected':''?>>Thailand</option> 

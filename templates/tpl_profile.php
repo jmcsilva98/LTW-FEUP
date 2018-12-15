@@ -44,16 +44,16 @@ include_once(__DIR__.'/tpl_delete_account.php');
 
         <div class="profile_name">
             <h2> 
-                  <?=$userinfo['FirstName']?> <?=$userinfo['LastName']?>
+            <?php echo htmlentities($userinfo['FirstName'])?>  <?php echo htmlentities($userinfo['LastName'])?>
             </h2>
         </div>
 
         <div class="profile_country">
-            <h4> Country: <?=$userinfo['Country']?> </h4>
+            <h4> Country:  <?php echo htmlentities($userinfo['Country'])?></h4>
         </div>
 
         <div class="profile_gender">
-            <h4> Gender: <?=$userinfo['Gender']?> </h4>
+            <h4> Gender:   <?php echo htmlentities($userinfo['Gender'])?> </h4>
         </div>
 
 

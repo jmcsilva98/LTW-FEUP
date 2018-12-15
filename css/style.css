@@ -1090,7 +1090,7 @@ a.profile_nav_btn img{
     font-size: 20px;
     color: var(--bg-color-dark);
 }
-#review_likes:hover, #review_dislikes:hover{
+#review_likes:hover, #review_dislikes:hover, #likes:hover, #dislikes:hover{
    cursor: pointer;
    color: #1f7f5c;
 }

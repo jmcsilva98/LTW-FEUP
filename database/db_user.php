@@ -21,7 +21,7 @@
 
     $row = $stmt->fetch();
       $id= $row['ID'];
-      if ($id==null)
+      if ($id==NULL)
         return 0;
       else return -1;
     
@@ -35,7 +35,7 @@
 
     $row = $stmt->fetch();
       $id= $row['ID'];
-      if ($id==null)
+      if ($id==NULL)
         return 0;
       else return -1;
     
@@ -171,12 +171,19 @@
   }
 
   function updateUserInfo($id, $firstName, $lastName, $gender, $username, $country, $birthday, $email, $password){
-    
+   
     $db = Database::instance()->db();
 
-    $hashed_password = hash('sha256',$password);
-    $stmt = $db->prepare('UPDATE User SET FirstName = ?, LastName = ?, Gender = ?, Country = ?, Birthday = ?, Username = ?, Email = ?, Password = ? WHERE ID = ? ');
-    $stmt->execute(array($firstName, $lastName, $gender, $country, $birthday, $username, $email, $hashed_password, $id));
+    if ($password == NULL) {
+      $stmt = $db->prepare('UPDATE User SET FirstName = ?, LastName = ?, Gender = ?, Country = ?, Birthday = ?, Username = ?, Email = ? WHERE ID = ? ');
+      $stmt->execute(array($firstName, $lastName, $gender, $country, $birthday, $username, $email, $id));
+    }else {
+      $hashed_password = hash('sha256',$password);
+      $stmt = $db->prepare('UPDATE User SET FirstName = ?, LastName = ?, Gender = ?, Country = ?, Birthday = ?, Username = ?, Email = ?, Password = ? WHERE ID = ? ');
+      $stmt->execute(array($firstName, $lastName, $gender, $country, $birthday, $username, $email, $hashed_password, $id));
+    }
+   
+   
     return $stmt->fetchAll();
   }
 

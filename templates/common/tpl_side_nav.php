@@ -8,10 +8,6 @@
                  <p>  <span class="fas fa-user"></span>
                    Profile </p>
                  </a> 
-                 <!-- <a class="search_btn" href="profile.php">
-                    <span class="fas fa-search"></span>
-                    <p> Feed </p>
-                 </a>          -->
                  <a class="edit_profile_btn" href="edit_profile.php">
                  <p> <span class="fas fa-user-edit"></span>
                    Edit Profile </p>

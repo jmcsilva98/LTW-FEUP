@@ -13,15 +13,16 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $confirmpassword=$_POST['repeatpassword'];
 
-die($password . ' - ' . $confirmpassword);
-if(checkEmail($email)!=-1 && checkUser($username)!=-1 && $password == $confirmpassword){
-    
-           updateUserInfo(getID($_SESSION['username']), $firstName, $lastName, $gender, $new_username, $country, $birthday, $email, $password);
-           
-       
+if($password == NULL)
+      updateUserInfo(getID($_SESSION['username']), $firstName, $lastName, $gender, $new_username, $country, $birthday, $email, $password);   
+else {
+  if( $password == $confirmpassword){
+    updateUserInfo(getID($_SESSION['username']), $firstName, $lastName, $gender, $new_username, $country, $birthday, $email, $password);   
 } else{
-    $_SESSION['ERROR'] = "ERROR:: The password ins't right";
-  }
+$_SESSION['message'] = "ERROR:: The profile update failed";
+}
+}
+
 
 
   header('Location: ../pages/profile.php');

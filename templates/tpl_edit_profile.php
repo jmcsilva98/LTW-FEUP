@@ -54,9 +54,9 @@
             <label>Email </label><br>
             <input type="email" name="email" placeholder="email" value="<?php echo htmlentities($userinfo['Email']) ?>" required> <br>
             <label> Password </label><br>
-            <input type="password" name="password" placeholder="new password" pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_-]).{7,}$" title="Password must contain 7 or more characters, and at least one Uppercase letter, one number and one symbol."  required><br>
+            <input type="password" name="password" placeholder="new password" pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_-]).{7,}$" title="Password must contain 7 or more characters, and at least one Uppercase letter, one number and one symbol." ><br>
             <label> Confirm Password </label><br>
-            <input type="password" name="repeatpassword" placeholder="confirm new password" required><br>
+            <input type="password" name="repeatpassword" placeholder="confirm new password" pattern="^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_-]).{7,}$" title="Password must contain 7 or more characters, and at least one Uppercase letter, one number and one symbol." ><br>
             
             <p>
             <input type="submit" value="Update">
@@ -77,11 +77,3 @@
 
     </body>
     </html>
-
-
-
-
-
-
-
-

@@ -1,7 +1,7 @@
-<?php   include_once(__DIR__.'/tpl_countries.php'); ?>
+<?php include_once(__DIR__.'/tpl_countries.php'); ?>
 
 <body>
-
+    
     <div class="register_container">
     
     <div class="register_header">
@@ -19,7 +19,7 @@
             <input type="radio" name="gender" placeholder="female" value="female" required>female
             <input type="radio" name="gender" placeholder="male" value="male" required>male<br>
             <select name="country" required>
-                <?php select_country("") ?>
+                 <?php select_country("") ?>
             </select><br>
             <label> Birthday </label><br>
             <input type="date" name="birthday" min="1903-01-01" max="2005-01-01" required><br>
