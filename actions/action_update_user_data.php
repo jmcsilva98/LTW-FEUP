@@ -19,7 +19,7 @@ else {
   if( $password == $confirmpassword){
     updateUserInfo(getID($_SESSION['username']), $firstName, $lastName, $gender, $new_username, $country, $birthday, $email, $password);   
 } else{
-$_SESSION['message'] = "ERROR:: The profile update failed";
+   die( header('Location: ../pages/edit_profile.php'));
 }
 }
 
