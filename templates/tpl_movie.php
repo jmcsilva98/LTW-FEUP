@@ -25,8 +25,13 @@
             <h4>Director: <?=$director['Name']?></h4>
         <?php }?>
         <h5> <p> Description</p> <?=$movie['Description']?></h5>
-        <a href="reviews.php?movie_id=<?php echo htmlentities($movie['ID'])?>"><?=$number_reviews?> reviews</a>    
-        
+
+        <?php if($number_reviews != 0) {?>
+        <a href="reviews.php?movie_id=<?php echo htmlentities($movie['ID'])?>"><?=$number_reviews?> reviews</a>   
+
+        <?php }else {?>
+        <a href=""><?=$number_reviews?> reviews</a>   
+        <?php }?> 
     </div>
     
     <div class="movie_footer">

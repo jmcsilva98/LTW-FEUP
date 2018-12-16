@@ -11,7 +11,7 @@ header('Content-Type: application/json');
 $username=$_SESSION['username'];
 
 $reviewID = $_POST['reviewID'];
-$description = $_POST['description'];
+$description = htmlspecialchars($_POST['description']);
 $userID = getID($username);
 $commentdate = date("Y-m-d");
 if($description != null){

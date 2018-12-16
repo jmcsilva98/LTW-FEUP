@@ -13,7 +13,7 @@
   $description=$_POST['description'];
   if ($movieId==-1){
     $_SESSION['messages']= array('type' => 'error', 'content' => 'This movie does not exist! You should add it to the list of existing movies!');
-    //header("Location: ../actions/actions_add_movie");
+
 }
 if (empty($description)){
     $_SESSION['messages']= array('type' => 'error', 'content' => 'You must have a review description!');

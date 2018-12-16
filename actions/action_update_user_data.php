@@ -3,15 +3,15 @@
 include_once('../includes/session.php');
 include_once('../database/db_user.php');
 
-$firstName= $_POST['firstName'];
-$lastName=$_POST['lastName'];
-$new_username = $_POST['username'];
-$gender=$_POST['gender'];
-$birthday=$_POST['birthday'];
-$country = $_POST['country'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-$confirmpassword=$_POST['repeatpassword'];
+$firstName = htmlspecialchars($_POST['firstName']);
+$lastName =htmlspecialchars($_POST['lastName']);
+$new_username = htmlspecialchars($_POST['username']);
+$gender = htmlspecialchars($_POST['gender']);
+$birthday = htmlspecialchars($_POST['birthday']);
+$country = htmlspecialchars($_POST['country']);
+$email = htmlspecialchars($_POST['email']);
+$password = htmlspecialchars($_POST['password']);
+$confirmpassword = htmlspecialchars($_POST['repeatpassword']);
 
 if($password == NULL)
       updateUserInfo(getID($_SESSION['username']), $firstName, $lastName, $gender, $new_username, $country, $birthday, $email, $password);   

@@ -12,7 +12,7 @@ $username=$_SESSION['username'];
 
 $movieName = $_POST['movie'];
 $movieId= getMovieID($movieName);
-$description = $_POST['description'];
+$description = htmlspecialchars($_POST['description']);
 $title = $_POST['title'];
 $userID = getID($username);
 $reviewdate = date("Y-m-d");
