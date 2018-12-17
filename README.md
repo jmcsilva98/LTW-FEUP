@@ -42,11 +42,12 @@ Create a discussion website where users can post stories (that may contain links
 - [x] Search for a movie by name.
 - [x] Movie information page.
 - [x] About page.
+- [x] Order reviews by most recent, most liked and most comments.
 
 The technologies used are: HTML, CSS, PHP, Javascript, Ajax/JSON, PDO/SQL (using sqlite).
 
 ### Build the project
 
 Credentials needed to access the website:
-- **Username:** mars_123
+- **Username:** jmcsilva
 - **Passoword:** Ola123_
